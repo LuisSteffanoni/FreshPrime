@@ -3,10 +3,10 @@
 <head>
     <title>Grupo Directo Alimentos (GDA) - Catalogo de productos</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0; 
             padding: 20px;
         }
         .letterhead {
@@ -31,15 +31,15 @@
             color: #333;
             text-align: right;
         }
-        h1 {
-            text-align: center;
-            color: #333;
+        h1 { 
+            text-align: center; 
+            color: #333; 
             margin-bottom: 20px;
         }
-        table {
-            width: 90%;
-            margin: 20px auto;
-            border-collapse: collapse;
+        table { 
+            width: 90%; 
+            margin: 20px auto; 
+            border-collapse: collapse; 
             background-color: #fff;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
         }
@@ -101,7 +101,7 @@
 
     <!-- Letterhead section -->
     <div class="letterhead">
-        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Fresh Prime Logo"> <!-- Logo Placeholder -->
+        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Pollo Directo Logo"> <!-- Logo Placeholder -->
         <h2>Fresh Prime - Suministro de ingredientes frescos de calidad.</h2>
         <address>
             Grupo Directo S.A. de C.V.<br>
@@ -110,24 +110,124 @@
             Email: FreshPrimeGroup@outlook.com
         </address>
     </div>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Directo - Pedido de Productos</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 20px;
+        }
+        h1 { 
+            text-align: center; 
+            color: #333; 
+            margin-bottom: 20px;
+        }
+        .filter-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table { 
+            width: 90%; 
+            margin: 0 auto 20px; 
+            border-collapse: collapse; 
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover { background-color: #f1f1f1; }
+        .slider {
+            width: 100px;
+        }
+        .slider-value {
+            width: 50px;
+            text-align: center;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e0f7fa;
+        }
+        .resumen-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            margin: auto;
+        }
+        .resumen-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        .confirm-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .confirm-section input {
+            margin-right: 10px;
+        }
+        .confirm-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .confirm-section button:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
 
-    <!-- Catalog Title -->
-    <h1>LPQ QET Lista de productos</h1>
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formato de Pedido</title>
+</head>
+<body>
 
-    <!-- Filter Section -->
-    <div class="filter-section">
-        <label for="class-filter">Filter by Group: </label>
-        <select id="class-filter" onchange="filterTable()">
-            <option value="All">All Groups</option>
-            <option value="Class A">Lacteos</option>
-            <option value="Class B">Aderezos</option>
-            <option value="Class C">Preparados</option>
-            <option value="Class D">Proteina</option>
-            <option value="Class E">Secos</option>
-            <option value="Class F">Especiales</option>
-            <option value="Class G">Panadería y Postres</option>
-        </select>
-    </div>
+    <!-- Order Title -->
+    <h1>Formato de Pedido</h1>
+
+ <!-- Filter Section -->
+<div class="filter-section">
+    <label for="class-filter">Filter by Class: </label>
+    <select id="class-filter" onchange="filterTable()">
+        <option value="All">All Groups</option>
+        <option value="Class A">Abarrotes</option>
+        <option value="Class B">Aderezos</option>
+        <option value="Class C">Carnes frias</option>
+        <option value="Class D">Chiles, semillas y especias</option>
+        <option value="Class E">Especiales</option>
+        <option value="Class F">Frutas</option>
+        <option value="Class G">Lacteos</option>
+        <option value="Class H">Otros</option>
+        <option value="Class I">Panaderia y postres</option>
+        <option value="Class J">Preparados</option>
+        <option value="Class K">Proteinas</option>
+        <option value="Class L">Secos</option>
+        <option value="Class M">Verduras</option>
+        <option value="Class N">Vinos y licores</option>
+	<option value="Class O">Resumen de compra</option>
+    </select>
+</div>
 
     <!-- Product Table with Classifications -->
     <table id="product-table">
@@ -135,505 +235,2453 @@
             <tr>
                 <th>Grupo</th>
                 <th>Producto</th>
-                <th>Unit</th>
-                <th>Price</th>
+                <th>Unidad</th> <!-- Updated Unit column -->
+                <th>Cantidad</th>
+                <th>Notas</th> <!-- Replaced "Total por Producto" with "Notas" -->
             </tr>
         </thead>
         <tbody>
-          <!-- Class A - Lacteos -->
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso de cabra Members Mark 500 Gr</td>
-        <td>Barras</td>
-        <td>$158.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso de cabra Natural 1 Kg</td>
-        <td>Barras</td>
-        <td>$264.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso parmesano MM rallado 680 GR</td>
-        <td>Kg</td>
-        <td>$244.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso parmesano pieza 850 Gr</td>
-        <td>Kg</td>
-        <td>$342.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso gouda</td>
-        <td>Kg</td>
-        <td>$225.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso Mozzarella</td>
-        <td>Kg</td>
-        <td>$244.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso Oaxaca</td>
-        <td>Kg</td>
-        <td>$156.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso crema</td>
-        <td>Kg</td>
-        <td>$140.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Yoghurt organico Members Mark 1 Kg</td>
-        <td>Kg</td>
-        <td>$84.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Crema acida bote de 4 Lt</td>
-        <td>Bote</td>
-        <td>$268.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Mantequilla Gloria 1 Kg</td>
-        <td>Kg</td>
-        <td>$293.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Bebida Members Mark Sabor Almendra 6 Pzas de 946 Ml c/u</td>
-        <td>Lt</td>
-        <td>$255.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso provolone Booli 1 Kg</td>
-        <td>Kg</td>
-        <td>$290.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso Gruyere (Massdam)</td>
-        <td>Kg</td>
-        <td>$400.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso Mix</td>
-        <td>Kg</td>
-        <td>$168.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso para molletes Mariposa (Manchego) 1.2 Kg</td>
-        <td>Kg</td>
-        <td>$240.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Queso panela</td>
-        <td>Kg</td>
-        <td>$146.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Jamon de pavo FUD Virginia Natural 1 Kg </td>
-        <td>Kg</td>
-        <td>$220.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Jamon tradicional de pavo CHIMEX 1 Kg</td>
-        <td>Kg</td>
-        <td>$125.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Jamon york Franz</td>
-        <td>Kg</td>
-        <td>$186.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Jamon york Nutrez</td>
-        <td>Kg</td>
-        <td>$156.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Tocino FUD</td>
-        <td>Kg</td>
-        <td>$343.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Carne seca (Machaca Tia Lencha 100 Gr)</td>
-        <td>Pqt</td>
-        <td>$125.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Leche semidescremada deslactosada BOVE 946 Ml (6 Pzs)</td>
-        <td>Pqt</td>
-        <td>$255.15</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Bebida organica sabor Coco GUD 1 Lt</td>
-        <td>Lt</td>
-        <td>$67.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Bebida organica Soya Barista GUD 1 Lt</td>
-        <td>Lt</td>
-        <td>$55.00</td>
-    </tr>
-    <tr data-class="Class A">
-        <td>Lacteos</td>
-        <td>Bebida organica sabor Almendra GUD 1 Lt</td>
-        <td>Lt</td>
-        <td>$67.00</td>
-    </tr>
+            
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Aceite de ajonjoli</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Aceite de cacahuates</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <!-- Class B - Aderezos -->
-    <tr data-class="Class B">
-        <td>Aderezos</td>
-        <td>Aderezo cesar MM 3.7 Kg</td>
-        <td>Kg</td>
-        <td>$314.00</td>
-    </tr>
-    <tr data-class="Class B">
-        <td>Aderezos</td>
-        <td>Aderezo finas hierbas La Olivera d' Zu Dipping </td>
-        <td>Lt</td>
-        <td>$232.00</td>
-    </tr>
-    <tr data-class="Class B">
-        <td>Aderezos</td>
-        <td>Pesto Kirland 624 Gr</td>
-        <td>Lt</td>
-        <td>$283.50</td>
-    </tr>
-    <tr data-class="Class B">
-        <td>Aderezos</td>
-        <td>Tomates deshidratados al sol con aceite de oliva y hierbas italianas BELLA SUN LUCI</td>
-        <td>Frasco</td>
-        <td>$309.15</td>
-    </tr>
-    <tr data-class="Class B">
-        <td>Aderezos</td>
-        <td>Jarabe sabor Maple Kirland  Lt</td>
-        <td>Lt</td>
-        <td>$333.15</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Arroz para Risotto (Carnarolli)</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <!-- Class C - Preparados -->
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Aceite de Oliva</td>
+   <td>Galon</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <tr data-class="Class C">
-        <td>Preparados</td>
-        <td>Crema Alpura 900 Ml</td>
-        <td>Lt</td>
-        <td>$98.00</td>
-    </tr>
-    <tr data-class="Class C">
-        <td>Preparados</td>
-        <td>Totopos Milpareal 800 Gr</td>
-        <td>Kg</td>
-        <td>$75.00</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Aceite para freir</td>
+   <td>Cubeta</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <tr data-class="Class C">
-        <td>Preparados</td>
-        <td>Crema pastelera</td>
-        <td>Lt</td>
-        <td>$49.00</td>
-    </tr>
-    <tr data-class="Class C">
-        <td>Preparados</td>
-        <td>Hummus Libanius 500 Gr</td>
-        <td>Lt</td>
-        <td>$158.00</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Aceitunas Negras</td>
+   <td>Lata</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <!-- Class D - Proteina -->
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Sabana de Sirloin</td>
-        <td>Kg</td>
-        <td>$215.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Filete de Res en caña</td>
-        <td>Kg</td>
-        <td>$364.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Sabana de pollo</td>
-        <td>Kg</td>
-        <td>$170.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Escalopa de pollo</td>
-        <td>Kg</td>
-        <td>$170.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Pechuga de pollo entera</td>
-        <td>Kg</td>
-        <td>$167.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Roast beef Obertal 500 Gr</td>
-        <td>Pqt</td>
-        <td>$330.21</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Selva negra Tangamanga 400 Gr</td>
-        <td>Pqt</td>
-        <td>$268.83</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Medallon de Atún Kg</td>
-        <td>Kg</td>
-        <td>$355.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Salmon ahumado Carpaccio Kg</td>
-        <td>Kg</td>
-        <td>$469.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Posta de salmon</td>
-        <td>Pz</td>
-        <td>$378.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Carne para hamburguesa</td>
-        <td>Pz</td>
-        <td>$169.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Huevo</td>
-        <td>Conos</td>
-        <td>$55.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Camaron cocido grande</td>
-        <td>Kg</td>
-        <td>$375.00</td>
-    </tr>
-    <tr data-class="Class D">
-        <td>Proteina</td>
-        <td>Camaron cocido jumbo</td>
-        <td>Kg</td>
-        <td>$482.00</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Almendra Fileteada</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <!-- Class E - Secos -->
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Chipotle La Costeña 10 pzas 105 gr</td>
-        <td>Lata</td>
-        <td>$189.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Chipotle Seco</td>
-        <td>Kg</td>
-        <td>$333.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Avena</td>
-        <td>Kg</td>
-        <td>$29.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Chips de vegetales surtidas (Jicama, Camote, Platano, Taro, Zanahoria, Chicharron de Soya)</td>
-        <td>Kg</td>
-        <td>$391.50</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Chips de vegetales surtidas (Coliflor/Kale, Betabel, Estilo pepino)</td>
-        <td>Kg</td>
-        <td>$472.50</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Tortilla para wrap Mision 372 Gr</td>
-        <td>Bolsa</td>
-        <td>$45.90</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Tortilla natural</td>
-        <td>Kg</td>
-        <td>$44.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Spaguetti Barilla 500 Gr </td>
-        <td>Ordenes</td>
-        <td>$38.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Tomate deshidratado 992 Gr</td>
-        <td>Frasco</td>
-        <td>$306.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Tortilla de nopal Nopalia 450 Gr</td>
-        <td>Kg</td>
-        <td>$54.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Fondue Suizo Extra Especial 400 Gr</td>
-        <td>Pqt</td>
-        <td>$226.80</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Fondue Suizo Extra Especial 400 Gr</td>
-        <td>Pqt</td>
-        <td>$226.80</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Fondue Emmi 250 Gr</td>
-        <td>Pqt</td>
-        <td>$226.80</td>
-    </tr>
- <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Hemp OKKO Superfood 800 Gr</td>
-        <td>Pqt</td>
-        <td>$398.25</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Arandano PREMIER 500 Gr</td>
-        <td>Pqt</td>
-        <td>$162.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Quinoa natural PREMIER 1 Kg</td>
-        <td>Pqt</td>
-        <td>$108.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Hot Cakes Pronto 800 Kr</td>
-        <td>Pqt</td>
-        <td>$65.70</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Vainilla saborizante artificial 1 Lt</td>
-        <td>Pqt</td>
-        <td>$66.15</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Jamaica 1 Kg</td>
-        <td>Bolsa</td>
-        <td>$135.00</td>
-    </tr>
-    <tr data-class="Class E">
-        <td>Secos</td>
-        <td>Sal Natural 1 Kg</td>
-        <td>Kg</td>
-        <td>$30.00</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Avena</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Azucar</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Canela en Polvo</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <!-- Class F - Especiales -->
-    <tr data-class="Class F">
-        <td>Especiales</td>
-        <td>Arugula</td>
-        <td>Domo</td>
-        <td>$93.00</td>
-    </tr>
-    <tr data-class="Class F">
-        <td>Especiales</td>
-        <td>Mix de lechugas Daily 454 Gr</td>
-        <td>Bolsa</td>
-        <td>$120.15</td>
-    </tr>
-    <tr data-class="Class F">
-        <td>Especiales</td>
-        <td>Espinaca</td>
-        <td>Bolsa</td>
-        <td>$75.00</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Catsup</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
 
-    <!-- Class G - Other -->
-    <tr data-class="Class G">
-        <td>Panadería y Postres</td>
-        <td>Pan Integral Bimbo</td>
-        <td>Pz</td>
-        <td>$63.00</td>
-    </tr>
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Chocolate Blanco</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Chocolate Semi-Amargo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Pimienta negra molida</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Semillas de Cardamomo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Curry</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Comino (Molido)</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Curcuma</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Fetuccine</td>
+   <td>Paquete</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Granola rosa</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Grenetina</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Harina</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Jugo Sazonador </td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Nuez Mozcada</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Knor Suiza de pollo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>leche carnation</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Lechera</td>
+   <td>Lata</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Media crema</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Mayonesa McCormik</td>
+   <td>Bote (Grande)</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Miel de agave</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Mostaza</td>
+   <td>Bote (Grande)</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Panko</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Paprika</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Pistaches pelados</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Polvo para hornear</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Sal fina</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Salsa de soya</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Salsa inglesa</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Semillas de cacao</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vainilla</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vino blanco</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vino tinto</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vinagre balsamico</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vinagre blanco</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vinagre de arroz</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Vinagre de Manzanan</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Agua mineral 2 lts</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Chocomilk</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Bolsa chai</td>
+   <td>Bolsa</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Café en grano</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Café molido</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Leche entera</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Leche deslactosada</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Piloncillo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Palitos de Bambu</td>
+   <td>Paquete</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class A'>
+   <td>Abarrotes</td>
+   <td>Agua garrafon</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class C'>
+   <td>Carnes frias</td>
+   <td>Salame</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class C'>
+   <td>Carnes frias</td>
+   <td>Chorizo argentino</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class C'>
+   <td>Carnes frias</td>
+   <td>Salchicha alemana</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Ajonjoli negro</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Clavo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Comino</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Frijol peruano</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Garbanzo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Pimienta Gorda</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Tomillo (Seco)</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Laurel seco</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Jengibre en polvo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Oregano</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class D'>
+   <td>Chiles, semillas y especias</td>
+   <td>Totomoxtle</td>
+   <td>Paquete</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Aguacate</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Flores comestibles</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Frambuesas</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Arandanos</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Blueberry</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Fresas</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Jitomate bola</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Jitomate saladette</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Jitomate cherry</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Limon persa</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Maracuya (Pulpa)</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Melon</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Mora azul</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Naranjas</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Papaya</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Pepino</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Pina</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Platano macho</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Tomate limpio</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Zarzamoras</td>
+   <td>Domo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Toronja</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Mandarina</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Melon</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Sandia</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Higo Natural</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Higo caramelizado</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class F'>
+   <td>Frutas</td>
+   <td>Pera</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Bollo de hamburguesa</td>
+   <td>Paquete</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Crema (Para batir) Anchor</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Crema Natural</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Huevo</td>
+   <td>Cono</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Leche</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Mantequilla</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Mezcla de quesos</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso de cabra</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso chihuahua ahumado</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso mascarpone</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso provolone</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso parmesano</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso ranchero</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Queso ricota</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Tostadas moradas</td>
+   <td>Paquete</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Yogurth griego</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Yogurt Natural</td>
+   <td>Litro</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class G'>
+   <td>Lacteos</td>
+   <td>Tortillas</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Spirulina</td>
+   <td>Bote</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Camarones</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Carne molida</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Arrachera</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Jamon Serrano</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Pechuga de pollo Entera</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Pollo Entero</td>
+   <td>piezas</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Pechuga de pollo aplanado </td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Surimi</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class K'>
+   <td>Proteinas</td>
+   <td>Salmon</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Acelga</td>
+   <td>Atado</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Ajo pelado</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Betabel</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Cebolla blanca</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Cebolla morada</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chicharo pelado</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile ancho</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile de arbol</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile guajillo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile morita</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile negro</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile pasilla</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Chile serrano</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Cebollin</td>
+   <td>Atado</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Champinones</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Cilantro</td>
+   <td>Atado</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Col blanca</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Col morada</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Elote amarillo</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Elote (Pelado)</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Esparrago</td>
+   <td>Manojo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Epazote</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Espinacas</td>
+   <td>Atado</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Flor de calabaza</td>
+   <td>Atado</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Hongos portobello</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Huitlacoche</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Jengibre en polvo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Mix de lechugas (Sangria, Rizada, Escarolla)</td>
+   <td>Piezas</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Nopales</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Papa blanca</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Papa cambray</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Perejil</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Pimiento rojo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Pimiento verde</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Setas (24 Pzs)</td>
+   <td>Bandejas</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Verdolaga</td>
+   <td>Atado</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Zanahorias</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Apio</td>
+   <td>Pieza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Alfalfa</td>
+   <td>Manojo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Menta</td>
+   <td>Manojo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Hierbabuena</td>
+   <td>Manojo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Romero</td>
+   <td>Manojo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Ajo</td>
+   <td>Cabeza</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Papa Grand</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Arugula</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Albahaca</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class M'>
+   <td>Verduras</td>
+   <td>Hinojo</td>
+   <td>Kilo</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y licores</td>
+   <td>Licor 43</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y Licores</td>
+   <td>Testimonio</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y Licores</td>
+   <td>Colimita</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y Licores</td>
+   <td>Barrilito</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y Licores</td>
+   <td>Corona</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y Licores</td>
+   <td>Modelo especial</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
+<tr data-class='Class N'>
+   <td>Vinos y Licores</td>
+   <td>Negra Modelo</td>
+   <td>Botella</td> <!-- Unit -->
+   <td>
+       <input type="range" min="0" max="100" value="0" class="slider" oninput="updateTotal(this)">
+       <span class="slider-value">0</span>
+   </td>
+   <td>
+       <input type="text" placeholder="Añadir notas" />
+   </td>
+</tr>
+
 
         </tbody>
     </table>
 
-    <!-- Buttons for printing and buying -->
-    <div class="button">
-        <button class="buy-button">Buy / Contact</button>
-        <button class="print-button" onclick="window.print()">Save as PDF</button>
+    <!-- Resumen Section -->
+    <div class="resumen-section">
+        <h2>Resumen de Pedido</h2>
+        <table id="resumen-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Unidad</th>
+                    <th>Total</th>
+                    <th>Notas</th> <!-- Added Notes column -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Resumen items will be added here dynamically -->
+            </tbody>
+        </table>
     </div>
 
+    <!-- Confirmation and Submit Section -->
+    <div class="confirm-section">
+        <input type="checkbox" id="confirm-checkbox" onchange="toggleSubmitButton()">
+        <label for="confirm-checkbox">Confirmo que he revisado el pedido</label>
+        <br>
+        <button id="submit-button" disabled onclick="submitOrder()">Enviar Pedido</button>
+    </div>
+    
     <!-- Footer with rights information -->
     <footer>
         © 2024 FRESH PRIME. All rights reserved.
     </footer>
 
-<script>
-    function filterTable() {
-        var filter = document.getElementById("class-filter").value;
-        var rows = document.querySelectorAll("#product-table tbody tr");
+    <script>
+        // Filter table based on selected group
+        function filterTable() {
+            var filter = document.getElementById("class-filter").value;
+            var rows = document.querySelectorAll("#product-table tbody tr");
 
-        rows.forEach(function(row) {
-            var classification = row.getAttribute("data-class");
+            rows.forEach(row => {
+                if (filter === "All" || row.getAttribute("data-class") === filter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
 
-            if (filter === "All" || classification === filter) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
-</script>
+        // Update the total when the slider is moved
+        function updateTotal(slider) {
+            var quantity = slider.value;
+            slider.nextElementSibling.innerText = quantity;
+
+            // Update resumen section
+            updateResumen();
+        }
+
+        // Function to update the resumen table
+        function updateResumen() {
+            var resumenTableBody = document.querySelector("#resumen-table tbody");
+            resumenTableBody.innerHTML = ""; // Clear existing resumen
+
+            var rows = document.querySelectorAll("#product-table tbody tr");
+
+            rows.forEach(row => {
+                var quantity = row.querySelector(".slider").value;
+                var product = row.querySelector("td:nth-child(2)").innerText;
+                var unit = row.querySelector("td:nth-child(3)").innerText;
+                var notes = row.querySelector("td:nth-child(5) input").value;
+
+                if (quantity > 0) {
+                    var resumenRow = document.createElement("tr");
+
+                    var productCell = document.createElement("td");
+                    productCell.innerText = product;
+
+                    var unitCell = document.createElement("td");
+                    unitCell.innerText = unit;
+
+                    var quantityCell = document.createElement("td");
+                    quantityCell.innerText = quantity;
+
+                    var notesCell = document.createElement("td");
+                    notesCell.innerText = notes;
+
+                    resumenRow.appendChild(productCell);
+                    resumenRow.appendChild(unitCell);
+                    resumenRow.appendChild(quantityCell);
+                    resumenRow.appendChild(notesCell);
+
+                    resumenTableBody.appendChild(resumenRow);
+                }
+            });
+        }
+
+        // Toggle submit button based on checkbox state
+        function toggleSubmitButton() {
+            var checkbox = document.getElementById("confirm-checkbox");
+            var submitButton = document.getElementById("submit-button");
+
+            submitButton.disabled = !checkbox.checked;
+        }
+
+        // Simulate order submission
+        function submitOrder() {
+            alert("¡Pedido enviado con éxito!");
+            // Integration with GitHub, Zapier, or another system goes here
+        }
+    </script>
 
 </body>
 </html>
+
 
