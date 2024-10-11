@@ -2433,44 +2433,74 @@
     </footer>
 
     <script>
-            // Function to update the resumen table based on the number inputs
-function updateResumen() {
-    var resumenTableBody = document.querySelector("#resumen-table tbody");
-    resumenTableBody.innerHTML = ""; // Clear existing resumen
+// Function to filter the table based on the selected group
+    function filterTable() {
+        var filter = document.getElementById("class-filter").value;
+        var rows = document.querySelectorAll("#product-table tbody tr");
 
-    var rows = document.querySelectorAll("#product-table tbody tr");
+        rows.forEach(row => {
+            if (filter === "All" || row.getAttribute("data-class") === filter) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
 
-    rows.forEach(row => {
-        var quantity = row.querySelector(".quantity-input").value;
-        var product = row.querySelector("td:nth-child(2)").innerText;
-        var unit = row.querySelector("td:nth-child(3)").innerText;
-        var notes = row.querySelector("td:nth-child(5) input").value;
+    // Function to update the resumen table based on the number inputs
+    function updateResumen() {
+        var resumenTableBody = document.querySelector("#resumen-table tbody");
+        resumenTableBody.innerHTML = ""; // Clear existing resumen
 
-        if (quantity > 0) {
-            var resumenRow = document.createElement("tr");
+        var rows = document.querySelectorAll("#product-table tbody tr");
 
-            var productCell = document.createElement("td");
-            productCell.innerText = product;
+        rows.forEach(row => {
+            var quantity = row.querySelector(".quantity-input").value;
+            var product = row.querySelector("td:nth-child(2)").innerText;
+            var unit = row.querySelector("td:nth-child(3)").innerText;
+            var notes = row.querySelector("td:nth-child(5) input").value;
 
-            var unitCell = document.createElement("td");
-            unitCell.innerText = unit;
+            if (quantity > 0) {
+                var resumenRow = document.createElement("tr");
 
-            var quantityCell = document.createElement("td");
-            quantityCell.innerText = quantity;
+                var productCell = document.createElement("td");
+                productCell.innerText = product;
 
-            var notesCell = document.createElement("td");
-            notesCell.innerText = notes;
+                var unitCell = document.createElement("td");
+                unitCell.innerText = unit;
 
-            resumenRow.appendChild(productCell);
-            resumenRow.appendChild(unitCell);
-            resumenRow.appendChild(quantityCell);
-            resumenRow.appendChild(notesCell);
+                var quantityCell = document.createElement("td");
+                quantityCell.innerText = quantity;
 
-            resumenTableBody.appendChild(resumenRow);
-        }
-    });
-}
+                var notesCell = document.createElement("td");
+                notesCell.innerText = notes;
 
+                resumenRow.appendChild(productCell);
+                resumenRow.appendChild(unitCell);
+                resumenRow.appendChild(quantityCell);
+                resumenRow.appendChild(notesCell);
+
+                resumenTableBody.appendChild(resumenRow);
+            }
+        });
+    }
+
+    // Toggle submit button based on checkbox state
+    function toggleSubmitButton() {
+        var checkbox = document.getElementById("confirm-checkbox");
+        var submitButton = document.getElementById("submit-button");
+
+        submitButton.disabled = !checkbox.checked;
+    }
+
+    // Simulate order submission
+    function submitOrder() {
+        alert("¡Pedido enviado con éxito!");
+        // Integration with GitHub, Zapier, or another system goes here
+    }
+
+    // Event listener to call filterTable when the filter changes
+    document.getElementById("class-filter").addEventListener("change", filterTable);
 
 
     </script>
