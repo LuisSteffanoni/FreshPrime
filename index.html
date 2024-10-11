@@ -2449,13 +2449,54 @@
 	document.getElementById("class-filter").addEventListener("change", filterTable); 
 
 	// Function to update the resumen table based on the number inputs
-function updateResumen() { var resumenTableBody = document.querySelector("#resumen-table tbody"); resumenTableBody.innerHTML = ""; // Clear existing resumen var rows = document.querySelectorAll("#product-table tbody tr"); rows.forEach(row => { var quantity = row.querySelector(".quantity-input").value; var grupo = row.querySelector("td:nth-child(1)").innerText; // Extract 'grupo' var product = row.querySelector("td:nth-child(2)").innerText; var unit = row.querySelector("td:nth-child(3)").innerText; var notes = row.querySelector("td:nth-child(5) input").value; if (quantity > 0) { var resumenRow = document.createElement("tr"); var grupoCell = document.createElement("td"); grupoCell.innerText = grupo; // Add 'grupo' to resumen var productCell = document.createElement("td"); productCell.innerText = product; var unitCell = document.createElement("td"); unitCell.innerText = unit; var quantityCell = document.createElement("td"); quantityCell.innerText = quantity; var notesCell = document.createElement("td"); notesCell.innerText = notes; resumenRow.appendChild(grupoCell); // Append 'grupo' column to resumen row resumenRow.appendChild(productCell); resumenRow.appendChild(unitCell); resumenRow.appendChild(quantityCell); resumenRow.appendChild(notesCell); resumenTableBody.appendChild(resumenRow);
+	    // Function to update the resumen table based on the number inputs
+function updateResumen() {
+    var resumenTableBody = document.querySelector("#resumen-table tbody");
+    resumenTableBody.innerHTML = ""; // Clear existing resumen
 
+    var rows = document.querySelectorAll("#product-table tbody tr");
 
+    rows.forEach(row => {
+        var quantity = row.querySelector(".quantity-input").value;
+        var grupo = row.querySelector("td:nth-child(1)").innerText;  // Extract 'grupo'
+        var product = row.querySelector("td:nth-child(2)").innerText;
+        var unit = row.querySelector("td:nth-child(3)").innerText;
+        var notes = row.querySelector("td:nth-child(5) input").value;
+
+        if (quantity > 0) {
+            var resumenRow = document.createElement("tr");
+
+            var grupoCell = document.createElement("td");
+            grupoCell.innerText = grupo; // Add 'grupo' to resumen
+
+            var productCell = document.createElement("td");
+            productCell.innerText = product;
+
+            var unitCell = document.createElement("td");
+            unitCell.innerText = unit;
+
+            var quantityCell = document.createElement("td");
+            quantityCell.innerText = quantity;
+
+            var notesCell = document.createElement("td");
+            notesCell.innerText = notes;
+
+            resumenRow.appendChild(grupoCell);  // Append 'grupo' column to resumen row
+            resumenRow.appendChild(productCell);
+            resumenRow.appendChild(unitCell);
+            resumenRow.appendChild(quantityCell);
+            resumenRow.appendChild(notesCell);
+
+            resumenTableBody.appendChild(resumenRow);
         }
     });
 }
 
+
+
+
+
+	    
     </script>
 
 </body>
