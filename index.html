@@ -2789,80 +2789,99 @@
     </footer>
 
     <script>
-        // Filter table based on selected group
-        function filterTable() {
-            var filter = document.getElementById("class-filter").value;
-            var rows = document.querySelectorAll("#product-table tbody tr");
+            // Filter table based on selected group
+    function filterTable() {
+        var filter = document.getElementById("class-filter").value;
+        var rows = document.querySelectorAll("#product-table tbody tr");
 
-            rows.forEach(row => {
-                if (filter === "All" || row.getAttribute("data-class") === filter) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        }
+        rows.forEach(row => {
+            if (filter === "All" || row.getAttribute("data-class") === filter) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
 
-        // Update the total when the slider is moved
-        function updateTotal(slider) {
-            var quantity = slider.value;
-            slider.nextElementSibling.innerText = quantity;
+    // Update the total when the slider is moved
+    function updateTotal(slider) {
+        var quantity = parseFloat(slider.value).toFixed(2);
+        var price = slider.getAttribute('data-price');
 
-            // Update resumen section
-            updateResumen();
-        }
+        // Update the slider's displayed value
+        slider.nextElementSibling.innerText = quantity;
 
-        // Function to update the resumen table
-        function updateResumen() {
-            var resumenTableBody = document.querySelector("#resumen-table tbody");
-            resumenTableBody.innerHTML = ""; // Clear existing resumen
+        // Update corresponding input field value
+        var quantityInput = slider.parentElement.querySelector(".quantity-input");
+        quantityInput.value = quantity;
 
-            var rows = document.querySelectorAll("#product-table tbody tr");
+        // Update resumen section
+        updateResumen();
+    }
 
-            rows.forEach(row => {
-                var quantity = row.querySelector(".slider").value;
-                var product = row.querySelector("td:nth-child(2)").innerText;
-                var unit = row.querySelector("td:nth-child(3)").innerText;
-                var notes = row.querySelector("td:nth-child(5) input").value;
+    // Update the slider value when input field changes
+    function updateFromInput(input) {
+        var slider = input.parentElement.querySelector(".slider");
+        slider.value = input.value;
 
-                if (quantity > 0) {
-                    var resumenRow = document.createElement("tr");
+        // Trigger slider update to refresh the summary
+        updateTotal(slider);
+    }
 
-                    var productCell = document.createElement("td");
-                    productCell.innerText = product;
+    // Function to update the resumen table
+    function updateResumen() {
+        var resumenTableBody = document.querySelector("#resumen-table tbody");
+        resumenTableBody.innerHTML = ""; // Clear existing resumen
 
-                    var unitCell = document.createElement("td");
-                    unitCell.innerText = unit;
+        var rows = document.querySelectorAll("#product-table tbody tr");
 
-                    var quantityCell = document.createElement("td");
-                    quantityCell.innerText = quantity;
+        rows.forEach(row => {
+            var quantity = row.querySelector(".slider").value;
+            var product = row.querySelector("td:nth-child(2)").innerText;
+            var unit = row.querySelector("td:nth-child(3)").innerText;
+            var notes = row.querySelector("td:nth-child(5) input").value;
 
-                    var notesCell = document.createElement("td");
-                    notesCell.innerText = notes;
+            if (quantity > 0) {
+                var resumenRow = document.createElement("tr");
 
-                    resumenRow.appendChild(productCell);
-                    resumenRow.appendChild(unitCell);
-                    resumenRow.appendChild(quantityCell);
-                    resumenRow.appendChild(notesCell);
+                var productCell = document.createElement("td");
+                productCell.innerText = product;
 
-                    resumenTableBody.appendChild(resumenRow);
-                }
-            });
-        }
+                var unitCell = document.createElement("td");
+                unitCell.innerText = unit;
 
-        // Toggle submit button based on checkbox state
-        function toggleSubmitButton() {
-            var checkbox = document.getElementById("confirm-checkbox");
-            var submitButton = document.getElementById("submit-button");
+                var quantityCell = document.createElement("td");
+                quantityCell.innerText = quantity;
 
-            submitButton.disabled = !checkbox.checked;
-        }
+                var notesCell = document.createElement("td");
+                notesCell.innerText = notes;
 
-        // Simulate order submission
-        function submitOrder() {
-            alert("¡Pedido enviado con éxito!");
-            // Integration with GitHub, Zapier, or another system goes here
-        }
+                resumenRow.appendChild(productCell);
+                resumenRow.appendChild(unitCell);
+                resumenRow.appendChild(quantityCell);
+                resumenRow.appendChild(notesCell);
+
+                resumenTableBody.appendChild(resumenRow);
+            }
+        });
+    }
+
+    // Toggle submit button based on checkbox state
+    function toggleSubmitButton() {
+        var checkbox = document.getElementById("confirm-checkbox");
+        var submitButton = document.getElementById("submit-button");
+
+        submitButton.disabled = !checkbox.checked;
+    }
+
+    // Simulate order submission
+    function submitOrder() {
+        alert("¡Pedido enviado con éxito!");
+        // Integration with GitHub, Zapier, or another system goes here
+    }
+
+
+
     </script>
 
 </body>
