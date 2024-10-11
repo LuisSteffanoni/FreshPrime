@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Grupo Directo Alimentos (GDA) - Catalogo de productos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Directo Alimentos (GDA) - Catálogo de productos</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -18,7 +20,7 @@
             margin-bottom: 20px;
         }
         .letterhead img {
-            max-width: 135px; /* Adjust width of the logo */
+            max-width: 135px;
         }
         .letterhead h2 {
             font-size: 24px;
@@ -79,16 +81,12 @@
         .print-button:hover {
             background-color: #d32f2f;
         }
-
-        /* Ensure green bar shows in print */
         @media print {
             th {
                 background-color: #4CAF50 !important;
                 color: white;
             }
         }
-
-        /* Footer styling */
         footer {
             text-align: center;
             padding: 10px;
@@ -102,7 +100,7 @@
 
     <!-- Letterhead section -->
     <div class="letterhead">
-        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Pollo Directo Logo"> <!-- Logo Placeholder -->
+        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Pollo Directo Logo">
         <h2>Fresh Prime - Suministro de ingredientes frescos de calidad.</h2>
         <address>
             Grupo Directo S.A. de C.V.<br>
@@ -111,124 +109,30 @@
             Email: FreshPrimeGroup@outlook.com
         </address>
     </div>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Directo - Pedido de Productos</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background-color: #f4f4f4; 
-            margin: 0; 
-            padding: 20px;
-        }
-        h1 { 
-            text-align: center; 
-            color: #333; 
-            margin-bottom: 20px;
-        }
-        .filter-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        table { 
-            width: 90%; 
-            margin: 0 auto 20px; 
-            border-collapse: collapse; 
-            background-color: #fff;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 12px 20px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        tr:hover { background-color: #f1f1f1; }
-        .slider {
-            width: 100px;
-        }
-        .slider-value {
-            width: 50px;
-            text-align: center;
-        }
-        .total-row {
-            font-weight: bold;
-            background-color: #e0f7fa;
-        }
-        .resumen-section {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            margin: auto;
-        }
-        .resumen-section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #4CAF50;
-        }
-        .confirm-section {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .confirm-section input {
-            margin-right: 10px;
-        }
-        .confirm-section button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .confirm-section button:disabled {
-            background-color: #999;
-            cursor: not-allowed;
-        }
-    </style>
-</head>
-<body>
 
- <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formato de Pedido</title>
-</head>
-<body>
-
-    <!-- Order Title -->
     <h1>Formato de Pedido</h1>
 
- <!-- Filter Section -->
-<div class="filter-section">
-    <label for="class-filter">Filter by Class: </label>
-    <select id="class-filter" onchange="filterTable()">
-        <option value="All">All Groups</option>
-        <option value="Class A">Abarrotes</option>
-        <option value="Class B">Aderezos</option>
-        <option value="Class C">Carnes frias</option>
-        <option value="Class D">Chiles, semillas y especias</option>
-        <option value="Class E">Especiales</option>
-        <option value="Class F">Frutas</option>
-        <option value="Class G">Lacteos</option>
-        <option value="Class H">Otros</option>
-        <option value="Class I">Panaderia y postres</option>
-        <option value="Class J">Preparados</option>
-        <option value="Class K">Proteinas</option>
-        <option value="Class L">Secos</option>
-        <option value="Class M">Verduras</option>
-        <option value="Class N">Vinos y licores</option>
-	<option value="Class O">Resumen de compra</option>
-    </select>
-</div>
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <label for="class-filter">Filtrar por Grupo: </label>
+        <select id="class-filter" onchange="filterTable()">
+            <option value="All">Todos los Grupos</option>
+            <option value="Class A">Abarrotes</option>
+            <option value="Class B">Aderezos</option>
+            <option value="Class C">Carnes frías</option>
+            <option value="Class D">Chiles, semillas y especias</option>
+            <option value="Class E">Especiales</option>
+            <option value="Class F">Frutas</option>
+            <option value="Class G">Lácteos</option>
+            <option value="Class H">Otros</option>
+            <option value="Class I">Panadería y postres</option>
+            <option value="Class J">Preparados</option>
+            <option value="Class K">Proteínas</option>
+            <option value="Class L">Secos</option>
+            <option value="Class M">Verduras</option>
+            <option value="Class N">Vinos y licores</option>
+        </select>
+    </div>
 
     <!-- Product Table with Classifications -->
     <table id="product-table">
@@ -236,16 +140,13 @@
             <tr>
                 <th>Grupo</th>
                 <th>Producto</th>
-                <th>Unidad</th> <!-- Updated Unit column -->
+                <th>Unidad</th>
                 <th>Cantidad</th>
-                <th>Notas</th> <!-- Replaced "Total por Producto" with "Notas" -->
+                <th>Notas</th>
             </tr>
         </thead>
         <tbody>
             
-
-
-        
         <tr data-class='Class A'>
             <td>Abarrotes</td>
             <td>Aceite de ajonjoli</td>
@@ -2394,10 +2295,6 @@
             </td>
         </tr>
         
-        
-        
-
-
         </tbody>
     </table>
 
@@ -2407,14 +2304,15 @@
         <table id="resumen-table">
             <thead>
                 <tr>
+                    <th>Grupo</th>
                     <th>Producto</th>
                     <th>Unidad</th>
                     <th>Total</th>
-                    <th>Notas</th> <!-- Added Notes column -->
+                    <th>Notas</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Resumen items will be added here dynamically -->
+                <!-- Resumen items will be dynamically added here -->
             </tbody>
         </table>
     </div>
@@ -2426,79 +2324,86 @@
         <br>
         <button id="submit-button" disabled onclick="submitOrder()">Enviar Pedido</button>
     </div>
-    
-    <!-- Footer with rights information -->
+
+    <!-- Footer -->
     <footer>
         © 2024 FRESH PRIME. All rights reserved.
     </footer>
 
     <script>
-	// Filter table based on selected group
-    function filterTable() {
-        var filter = document.getElementById("class-filter").value;
-        var rows = document.querySelectorAll("#product-table tbody tr");
+        // Filter function to display rows based on group
+        function filterTable() {
+            var filter = document.getElementById("class-filter").value;
+            var rows = document.querySelectorAll("#product-table tbody tr");
 
-        rows.forEach(row => {
-            if (filter === "All" || row.getAttribute("data-class") === filter) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
-	document.getElementById("class-filter").addEventListener("change", filterTable); 
-
-	// Function to update the resumen table based on the number inputs
-	    // Function to update the resumen table based on the number inputs
-function updateResumen() {
-    var resumenTableBody = document.querySelector("#resumen-table tbody");
-    resumenTableBody.innerHTML = ""; // Clear existing resumen
-
-    var rows = document.querySelectorAll("#product-table tbody tr");
-
-    rows.forEach(row => {
-        var quantity = row.querySelector(".quantity-input").value;
-        var grupo = row.querySelector("td:nth-child(1)").innerText;  // Extract 'grupo'
-        var product = row.querySelector("td:nth-child(2)").innerText;
-        var unit = row.querySelector("td:nth-child(3)").innerText;
-        var notes = row.querySelector("td:nth-child(5) input").value;
-
-        if (quantity > 0) {
-            var resumenRow = document.createElement("tr");
-
-            var grupoCell = document.createElement("td");
-            grupoCell.innerText = grupo; // Add 'grupo' to resumen
-
-            var productCell = document.createElement("td");
-            productCell.innerText = product;
-
-            var unitCell = document.createElement("td");
-            unitCell.innerText = unit;
-
-            var quantityCell = document.createElement("td");
-            quantityCell.innerText = quantity;
-
-            var notesCell = document.createElement("td");
-            notesCell.innerText = notes;
-
-            resumenRow.appendChild(grupoCell);  // Append 'grupo' column to resumen row
-            resumenRow.appendChild(productCell);
-            resumenRow.appendChild(unitCell);
-            resumenRow.appendChild(quantityCell);
-            resumenRow.appendChild(notesCell);
-
-            resumenTableBody.appendChild(resumenRow);
+            rows.forEach(row => {
+                if (filter === "All" || row.getAttribute("data-class") === filter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
         }
-    });
-}
 
+        // Update resumen table based on selected quantities
+        function updateResumen() {
+            var resumenTableBody = document.querySelector("#resumen-table tbody");
+            resumenTableBody.innerHTML = "";  // Clear existing resumen
 
+            var rows = document.querySelectorAll("#product-table tbody tr");
 
+            rows.forEach(row => {
+                var quantity = row.querySelector(".quantity-input").value;
+                var grupo = row.querySelector("td:nth-child(1)").innerText;
+                var producto = row.querySelector("td:nth-child(2)").innerText;
+                var unidad = row.querySelector("td:nth-child(3)").innerText;
+                var notas = row.querySelector("td:nth-child(5) input").value;
 
+                if (quantity > 0) {
+                    var newRow = document.createElement("tr");
 
-	    
+                    var grupoCell = document.createElement("td");
+                    grupoCell.innerText = grupo;
+                    newRow.appendChild(grupoCell);
+
+                    var productoCell = document.createElement("td");
+                    productoCell.innerText = producto;
+                    newRow.appendChild(productoCell);
+
+                    var unidadCell = document.createElement("td");
+                    unidadCell.innerText = unidad;
+                    newRow.appendChild(unidadCell);
+
+                    var totalCell = document.createElement("td");
+                    totalCell.innerText = quantity;
+                    newRow.appendChild(totalCell);
+
+                    var notesCell = document.createElement("td");
+                    notesCell.innerText = notas;
+                    newRow.appendChild(notesCell);
+
+                    resumenTableBody.appendChild(newRow);
+                }
+            });
+        }
+
+        // Enable or disable the submit button based on the checkbox
+        function toggleSubmitButton() {
+            var confirmCheckbox = document.getElementById("confirm-checkbox");
+            var submitButton = document.getElementById("submit-button");
+
+            if (confirmCheckbox.checked) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+
+        // Function to submit order
+        function submitOrder() {
+            alert("Pedido enviado con éxito!");
+        }
     </script>
-
 </body>
 </html>
 
