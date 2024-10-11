@@ -2433,7 +2433,7 @@
     </footer>
 
     <script>
-// Function to filter the table based on the selected group
+	// Filter table based on selected group
     function filterTable() {
         var filter = document.getElementById("class-filter").value;
         var rows = document.querySelectorAll("#product-table tbody tr");
@@ -2447,61 +2447,44 @@
         });
     }
 
-    // Function to update the resumen table based on the number inputs
-    function updateResumen() {
-        var resumenTableBody = document.querySelector("#resumen-table tbody");
-        resumenTableBody.innerHTML = ""; // Clear existing resumen
 
-        var rows = document.querySelectorAll("#product-table tbody tr");
+	// Function to update the resumen table based on the number inputs
+function updateResumen() {
+    var resumenTableBody = document.querySelector("#resumen-table tbody");
+    resumenTableBody.innerHTML = ""; // Clear existing resumen
 
-        rows.forEach(row => {
-            var quantity = row.querySelector(".quantity-input").value;
-            var product = row.querySelector("td:nth-child(2)").innerText;
-            var unit = row.querySelector("td:nth-child(3)").innerText;
-            var notes = row.querySelector("td:nth-child(5) input").value;
+    var rows = document.querySelectorAll("#product-table tbody tr");
 
-            if (quantity > 0) {
-                var resumenRow = document.createElement("tr");
+    rows.forEach(row => {
+        var quantity = row.querySelector(".quantity-input").value;
+        var product = row.querySelector("td:nth-child(2)").innerText;
+        var unit = row.querySelector("td:nth-child(3)").innerText;
+        var notes = row.querySelector("td:nth-child(5) input").value;
 
-                var productCell = document.createElement("td");
-                productCell.innerText = product;
+        if (quantity > 0) {
+            var resumenRow = document.createElement("tr");
 
-                var unitCell = document.createElement("td");
-                unitCell.innerText = unit;
+            var productCell = document.createElement("td");
+            productCell.innerText = product;
 
-                var quantityCell = document.createElement("td");
-                quantityCell.innerText = quantity;
+            var unitCell = document.createElement("td");
+            unitCell.innerText = unit;
 
-                var notesCell = document.createElement("td");
-                notesCell.innerText = notes;
+            var quantityCell = document.createElement("td");
+            quantityCell.innerText = quantity;
 
-                resumenRow.appendChild(productCell);
-                resumenRow.appendChild(unitCell);
-                resumenRow.appendChild(quantityCell);
-                resumenRow.appendChild(notesCell);
+            var notesCell = document.createElement("td");
+            notesCell.innerText = notes;
 
-                resumenTableBody.appendChild(resumenRow);
-            }
-        });
-    }
+            resumenRow.appendChild(productCell);
+            resumenRow.appendChild(unitCell);
+            resumenRow.appendChild(quantityCell);
+            resumenRow.appendChild(notesCell);
 
-    // Toggle submit button based on checkbox state
-    function toggleSubmitButton() {
-        var checkbox = document.getElementById("confirm-checkbox");
-        var submitButton = document.getElementById("submit-button");
-
-        submitButton.disabled = !checkbox.checked;
-    }
-
-    // Simulate order submission
-    function submitOrder() {
-        alert("¡Pedido enviado con éxito!");
-        // Integration with GitHub, Zapier, or another system goes here
-    }
-
-    // Event listener to call filterTable when the filter changes
-    document.getElementById("class-filter").addEventListener("change", filterTable);
-
+            resumenTableBody.appendChild(resumenRow);
+        }
+    });
+}
 
     </script>
 
