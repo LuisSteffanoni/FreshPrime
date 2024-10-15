@@ -2330,80 +2330,89 @@
         © 2024 FRESH PRIME. All rights reserved.
     </footer>
 
-    <script>
-        // Filter function to display rows based on group
-        function filterTable() {
-            var filter = document.getElementById("class-filter").value;
-            var rows = document.querySelectorAll("#product-table tbody tr");
+<script>
+    // Function to update resumen and send order to the backend
+    function updateResumen() {
+        var resumenTableBody = document.querySelector("#resumen-table tbody");
+        resumenTableBody.innerHTML = "";  // Clear existing resumen
 
-            rows.forEach(row => {
-                if (filter === "All" || row.getAttribute("data-class") === filter) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        }
+        var rows = document.querySelectorAll("#product-table tbody tr");
+        var orderSummary = [];
 
-        // Update resumen table based on selected quantities
-        function updateResumen() {
-            var resumenTableBody = document.querySelector("#resumen-table tbody");
-            resumenTableBody.innerHTML = "";  // Clear existing resumen
+        rows.forEach(row => {
+            var quantity = row.querySelector(".quantity-input").value;
+            var grupo = row.querySelector("td:nth-child(1)").innerText;
+            var producto = row.querySelector("td:nth-child(2)").innerText;
+            var unidad = row.querySelector("td:nth-child(3)").innerText;
+            var notas = row.querySelector("td:nth-child(5) input").value;
 
-            var rows = document.querySelectorAll("#product-table tbody tr");
+            if (quantity > 0) {
+                // Create a new row for the resumen table
+                var newRow = document.createElement("tr");
 
-            rows.forEach(row => {
-                var quantity = row.querySelector(".quantity-input").value;
-                var grupo = row.querySelector("td:nth-child(1)").innerText;
-                var producto = row.querySelector("td:nth-child(2)").innerText;
-                var unidad = row.querySelector("td:nth-child(3)").innerText;
-                var notas = row.querySelector("td:nth-child(5) input").value;
+                var grupoCell = document.createElement("td");
+                grupoCell.innerText = grupo;
+                newRow.appendChild(grupoCell);
 
-                if (quantity > 0) {
-                    var newRow = document.createElement("tr");
+                var productoCell = document.createElement("td");
+                productoCell.innerText = producto;
+                newRow.appendChild(productoCell);
 
-                    var grupoCell = document.createElement("td");
-                    grupoCell.innerText = grupo;
-                    newRow.appendChild(grupoCell);
+                var unidadCell = document.createElement("td");
+                unidadCell.innerText = unidad;
+                newRow.appendChild(unidadCell);
 
-                    var productoCell = document.createElement("td");
-                    productoCell.innerText = producto;
-                    newRow.appendChild(productoCell);
+                var totalCell = document.createElement("td");
+                totalCell.innerText = quantity;
+                newRow.appendChild(totalCell);
 
-                    var unidadCell = document.createElement("td");
-                    unidadCell.innerText = unidad;
-                    newRow.appendChild(unidadCell);
+                var notesCell = document.createElement("td");
+                notesCell.innerText = notas;
+                newRow.appendChild(notesCell);
 
-                    var totalCell = document.createElement("td");
-                    totalCell.innerText = quantity;
-                    newRow.appendChild(totalCell);
+                resumenTableBody.appendChild(newRow);
 
-                    var notesCell = document.createElement("td");
-                    notesCell.innerText = notas;
-                    newRow.appendChild(notesCell);
-
-                    resumenTableBody.appendChild(newRow);
-                }
-            });
-        }
-
-        // Enable or disable the submit button based on the checkbox
-        function toggleSubmitButton() {
-            var confirmCheckbox = document.getElementById("confirm-checkbox");
-            var submitButton = document.getElementById("submit-button");
-
-            if (confirmCheckbox.checked) {
-                submitButton.disabled = false;
-            } else {
-                submitButton.disabled = true;
+                // Add this item to the order summary to be sent to the backend
+                orderSummary.push({
+                    grupo: grupo,
+                    producto: producto,
+                    unidad: unidad,
+                    cantidad: quantity,
+                    notas: notas
+                });
             }
-        }
+        });
 
-        // Function to submit order
-        function submitOrder() {
-            alert("Pedido enviado con éxito!");
-        }
-    </script>
+        return orderSummary;
+    }
+
+    // Function to submit the order
+function submitOrder() {
+    var orderSummary = updateResumen();  // Update resumen and get the order summary
+
+    // Send the order summary to the Zapier webhook via POST
+    fetch('YOUR_ZAPIER_WEBHOOK_URL', {  // Replace with your actual webhook URLa
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderSummary)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Order sent to Zapier successfully!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+
+</script>
+
+
+
 </body>
 </html>
 
