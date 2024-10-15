@@ -2308,7 +2308,7 @@
                     <th>Grupo</th>
                     <th>Producto</th>
                     <th>Unidad</th>
-                    <th>Total</th>
+                    <th>Cantidad</th>
                     <th>Notas</th>
                 </tr>
             </thead>
@@ -2319,6 +2319,7 @@
     </div>
 
 <!-- Confirmation and Submit Section -->
+<!-- Confirmation and Submit Section -->
 <div class="confirm-section">
     <input type="checkbox" id="confirm-checkbox" onchange="toggleSubmitButton()">
     <label for="confirm-checkbox">Confirmo que he revisado el pedido</label>
@@ -2327,54 +2328,87 @@
 </div>
 
 
+
 <!-- Footer -->
 <footer>
     © 2024 FRESH PRIME. All rights reserved.
 </footer>
 
 <script>
-    // Function to update resumen and send order to the backend
-    function updateResumen() {
-        var resumenTableBody = document.querySelector("#resumen-table tbody");
-        resumenTableBody.innerHTML = "";  // Clear existing resumen
+    let orderSummary = []; // Accesible a todas las funciones
+    const submitButton = document.querySelector('#submit-button'); // Verifica que este ID coincida
+    const loadingSpinner = document.querySelector('#loadingSpinner');
 
-        var rows = document.querySelectorAll("#product-table tbody tr");
-        var orderSummary = [];
+    // Event listener para el botón de enviar
+    submitButton.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevenir el comportamiento predeterminado
+
+        // Actualiza el resumen y obtén el pedido
+        orderSummary = updateResumen(); // Asegúrate de que orderSummary se actualice antes de validar
+
+        if (orderSummary.length === 0) {
+            alert('Por favor, añade al menos un producto antes de enviar tu pedido.');
+            return;
+        }
+
+        submitButton.disabled = true; // Deshabilitar el botón
+        loadingSpinner.style.display = 'block'; // Mostrar el spinner
+
+        // Enviar el resumen del pedido a Zapier
+        fetch('https://hooks.zapier.com/hooks/catch/20198988/21m08ip/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ orders: orderSummary }) // Enviar el pedido como un objeto
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('¡Pedido enviado con éxito!');
+            } else {
+                throw new Error('Error al enviar el pedido.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al enviar el pedido. Por favor, intenta de nuevo.');
+        })
+        .finally(() => {
+            submitButton.disabled = false; // Habilitar nuevamente el botón
+            loadingSpinner.style.display = 'none'; // Ocultar el spinner
+        });
+    });
+
+    // Función para actualizar el resumen
+    function updateResumen() {
+        const resumenTableBody = document.querySelector("#resumen-table tbody");
+        resumenTableBody.innerHTML = ""; // Limpiar el resumen existente
+        orderSummary = []; // Limpiar el array de resumen
+
+        const rows = document.querySelectorAll("#product-table tbody tr");
 
         rows.forEach(row => {
-            var quantity = row.querySelector(".quantity-input").value;
-            var grupo = row.querySelector("td:nth-child(1)").innerText;
-            var producto = row.querySelector("td:nth-child(2)").innerText;
-            var unidad = row.querySelector("td:nth-child(3)").innerText;
-            var notas = row.querySelector("td:nth-child(5) input").value;
+            const quantity = row.querySelector(".quantity-input").value;
+            const grupo = row.querySelector("td:nth-child(1)").innerText;
+            const producto = row.querySelector("td:nth-child(2)").innerText;
+            const unidad = row.querySelector("td:nth-child(3)").innerText;
+            const notas = row.querySelector("td:nth-child(5) input").value;
 
             if (quantity > 0) {
-                // Create a new row for the resumen table
-                var newRow = document.createElement("tr");
+                // Crear una nueva fila para el resumen
+                const newRow = document.createElement("tr");
 
-                var grupoCell = document.createElement("td");
-                grupoCell.innerText = grupo;
-                newRow.appendChild(grupoCell);
-
-                var productoCell = document.createElement("td");
-                productoCell.innerText = producto;
-                newRow.appendChild(productoCell);
-
-                var unidadCell = document.createElement("td");
-                unidadCell.innerText = unidad;
-                newRow.appendChild(unidadCell);
-
-                var totalCell = document.createElement("td");
-                totalCell.innerText = quantity;
-                newRow.appendChild(totalCell);
-
-                var notesCell = document.createElement("td");
-                notesCell.innerText = notas;
-                newRow.appendChild(notesCell);
+                newRow.innerHTML = `
+                    <td>${grupo}</td>
+                    <td>${producto}</td>
+                    <td>${unidad}</td>
+                    <td>${quantity}</td>
+                    <td>${notas}</td>
+                `;
 
                 resumenTableBody.appendChild(newRow);
 
-                // Add this item to the order summary to be sent to the backend
+                // Añadir este ítem al resumen de pedidos para enviar al backend
                 orderSummary.push({
                     grupo: grupo,
                     producto: producto,
@@ -2382,60 +2416,39 @@
                     cantidad: quantity,
                     notas: notas
                 });
+                console.log('Order Summary:', orderSummary); // Verificar el contenido del resumen
             }
         });
 
-        return orderSummary;
+        return orderSummary; // Retornar el resumen actualizado
     }
 
-    // Function to submit the order
-    function submitOrder() {
-        var orderSummary = updateResumen();  // Update resumen and get the order summary
+    // Función para alternar el botón de envío basado en el estado del checkbox
+    function toggleSubmitButton() {
+        const checkbox = document.getElementById("confirm-checkbox");
+        submitButton.disabled = !checkbox.checked; // Habilitar el botón si el checkbox está marcado
+        console.log("Checkbox estado:", checkbox.checked); // Verificar el estado del checkbox
+    }
 
-        // Send the order summary to the Zapier webhook via POST
-        fetch('https://hooks.zapier.com/hooks/catch/20198988/21msjf2/', {  // Replace with your actual webhook URL
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(orderSummary)
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Order sent to Zapier successfully!');
-        })
-        .catch(error => {
-            console.error('Error:', error);
+    // Función para filtrar la tabla
+    function filterTable() {
+        const filter = document.getElementById("class-filter").value;
+        const rows = document.querySelectorAll("#product-table tbody tr");
+
+        rows.forEach(row => {
+            if (filter === "All" || row.getAttribute("data-class") === filter) {
+                row.style.display = ""; // Mostrar la fila
+            } else {
+                row.style.display = "none"; // Ocultar la fila
+            }
         });
     }
-
-    // Function to toggle submit button based on checkbox state
-    function toggleSubmitButton() {
-        var checkbox = document.getElementById("confirm-checkbox");
-        var submitButton = document.getElementById("submit-button");
-        submitButton.disabled = !checkbox.checked;  // Enable the button if the checkbox is checked
-    }
-
-        // Filter function to display rows based on group
-        function filterTable() {
-            var filter = document.getElementById("class-filter").value;
-            var rows = document.querySelectorAll("#product-table tbody tr");
-
-            rows.forEach(row => {
-                if (filter === "All" || row.getAttribute("data-class") === filter) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        }
-
-
-
 </script>
+
+
+
 
 </body>
 </html>
-
 
 
