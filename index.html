@@ -2391,7 +2391,7 @@ function submitOrder() {
     var orderSummary = updateResumen();  // Update resumen and get the order summary
 
     // Send the order summary to the Zapier webhook via POST
-    fetch('YOUR_ZAPIER_WEBHOOK_URL', {  // Replace with your actual webhook URLa
+    fetch('https://hooks.zapier.com/hooks/catch/20198988/21msjf2/', {  // Replace with your actual webhook URLa
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
