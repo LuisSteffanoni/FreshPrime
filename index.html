@@ -100,7 +100,7 @@
 
     <!-- Letterhead section -->
     <div class="letterhead">
-        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Pollo Directo Logo">
+        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Fresh Prime Logo">
         <h2>Fresh Prime - Suministro de ingredientes frescos de calidad.</h2>
         <address>
             Grupo Directo S.A. de C.V.<br>
@@ -131,6 +131,7 @@
             <option value="Class L">Secos</option>
             <option value="Class M">Verduras</option>
             <option value="Class N">Vinos y licores</option>
+            <option value="Class N">Resumen</option>
         </select>
     </div>
 
@@ -2317,18 +2318,19 @@
         </table>
     </div>
 
-    <!-- Confirmation and Submit Section -->
-    <div class="confirm-section">
-        <input type="checkbox" id="confirm-checkbox" onchange="toggleSubmitButton()">
-        <label for="confirm-checkbox">Confirmo que he revisado el pedido</label>
-        <br>
-        <button id="submit-button" disabled onclick="submitOrder()">Enviar Pedido</button>
-    </div>
+<!-- Confirmation and Submit Section -->
+<div class="confirm-section">
+    <input type="checkbox" id="confirm-checkbox" onchange="toggleSubmitButton()">
+    <label for="confirm-checkbox">Confirmo que he revisado el pedido</label>
+    <br>
+    <button id="submit-button" disabled onclick="submitOrder()">Enviar Pedido</button>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        © 2024 FRESH PRIME. All rights reserved.
-    </footer>
+
+<!-- Footer -->
+<footer>
+    © 2024 FRESH PRIME. All rights reserved.
+</footer>
 
 <script>
     // Function to update resumen and send order to the backend
@@ -2387,33 +2389,53 @@
     }
 
     // Function to submit the order
-function submitOrder() {
-    var orderSummary = updateResumen();  // Update resumen and get the order summary
+    function submitOrder() {
+        var orderSummary = updateResumen();  // Update resumen and get the order summary
 
-    // Send the order summary to the Zapier webhook via POST
-    fetch('https://hooks.zapier.com/hooks/catch/20198988/21msjf2/', {  // Replace with your actual webhook URLa
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderSummary)
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Order sent to Zapier successfully!');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
+        // Send the order summary to the Zapier webhook via POST
+        fetch('https://hooks.zapier.com/hooks/catch/20198988/21msjf2/', {  // Replace with your actual webhook URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderSummary)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Order sent to Zapier successfully!');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    // Function to toggle submit button based on checkbox state
+    function toggleSubmitButton() {
+        var checkbox = document.getElementById("confirm-checkbox");
+        var submitButton = document.getElementById("submit-button");
+        submitButton.disabled = !checkbox.checked;  // Enable the button if the checkbox is checked
+    }
+
+        // Filter function to display rows based on group
+        function filterTable() {
+            var filter = document.getElementById("class-filter").value;
+            var rows = document.querySelectorAll("#product-table tbody tr");
+
+            rows.forEach(row => {
+                if (filter === "All" || row.getAttribute("data-class") === filter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
 
 
 
 </script>
 
-
-
 </body>
 </html>
+
 
 
