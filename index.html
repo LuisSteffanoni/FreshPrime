@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Directo Alimentos (GDA) - Catálogo de productos</title>
+    <title>Fresh Prime - Orden de compra COR</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -20,17 +18,16 @@
             margin-bottom: 20px;
         }
         .letterhead img {
-            max-width: 135px;
+            max-width: 200px; /* Adjust width of the logo */
         }
         .letterhead h2 {
-            font-size: 24px;
             margin: 0;
             color: #4CAF50;
             text-align: center;
             width: 100%;
         }
         .letterhead address {
-            font-size: 16px;
+            font-size: 14px;
             color: #333;
             text-align: right;
         }
@@ -81,12 +78,16 @@
         .print-button:hover {
             background-color: #d32f2f;
         }
+
+        /* Ensure green bar shows in print */
         @media print {
             th {
                 background-color: #4CAF50 !important;
                 color: white;
             }
         }
+
+        /* Footer styling */
         footer {
             text-align: center;
             padding: 10px;
@@ -94,14 +95,35 @@
             color: white;
             margin-top: 40px;
         }
+
+        .total-section {
+            text-align: right;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 10%;
+            margin-top: 20px;
+        }
+        
+        /* Resumen section styling */
+        .resumen {
+            margin-top: 40px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .resumen h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
     </style>
 </head>
 <body>
 
     <!-- Letterhead section -->
     <div class="letterhead">
-        <img src="https://i.imgur.com/ZL2r1uL.jpeg" alt="Fresh Prime Logo">
-        <h2>Fresh Prime - Suministro de ingredientes frescos de calidad.</h2>
+        <img src="https://i.imgur.com/5adH4YT.png" alt="Pollo Directo Logo"> <!-- Logo Placeholder -->
+        <h2>FRESH PRIME - PRODUCTOS FRESCOS, ENTREGADOS CON RAPIDEZ Y CUIDADO.</h2>
         <address>
             Grupo Directo S.A. de C.V.<br>
             Paseo de Varsovia #202, Querétaro, Mexico<br>
@@ -110,30 +132,27 @@
         </address>
     </div>
 
-    <h1>Formato de Pedido</h1>
+    <!-- Catalog Title -->
+    <h1>Orden de Compra</h1>
 
     <!-- Filter Section -->
-    <div class="filter-section">
-        <label for="class-filter">Filtrar por Grupo: </label>
-        <select id="class-filter" onchange="filterTable()">
-            <option value="All">Todos los Grupos</option>
-            <option value="Class A">Abarrotes</option>
-            <option value="Class B">Aderezos</option>
-            <option value="Class C">Carnes frías</option>
-            <option value="Class D">Chiles, semillas y especias</option>
-            <option value="Class E">Especiales</option>
-            <option value="Class F">Frutas</option>
-            <option value="Class G">Lácteos</option>
-            <option value="Class H">Otros</option>
-            <option value="Class I">Panadería y postres</option>
-            <option value="Class J">Preparados</option>
-            <option value="Class K">Proteínas</option>
-            <option value="Class L">Secos</option>
-            <option value="Class M">Verduras</option>
-            <option value="Class N">Vinos y licores</option>
-            <option value="Class O">Resumen</option>
-        </select>
-    </div>
+<div class="filter-section">
+    <label for="class-filter">Filter by Group: </label>
+    <select id="class-filter" onchange="filterTable()">
+        <option value="All">All Groups</option>
+        <option value="A">Abarrotes</option>
+        <option value="B">Aderezos</option>
+        <option value="C">Carnes Frias</option>
+        <option value="D">Chiles, semillas y especies</option>
+        <option value="E">Especiales</option>
+        <option value="F">Frutas</option>
+        <option value="G">Lacteos</option>
+        <option value="K">Proteinas</option>
+        <option value="M">Verduras</option>
+        <option value="Resumen">Resumen</option> 
+    </select>
+</div>
+
 
     <!-- Product Table with Classifications -->
     <table id="product-table">
@@ -143,2312 +162,1262 @@
                 <th>Producto</th>
                 <th>Unidad</th>
                 <th>Cantidad</th>
-                <th>Notas</th>
+                <th>Precio</th>
+                <th>Total</th> <!-- Nueva columna para el total -->
+		<th>Notas</th>
             </tr>
         </thead>
         <tbody>
-            
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite de ajonjoli</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite de cacahuates</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Arroz para Risotto (Carnarolli)</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite de Oliva</td>
-            <td>Galon</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite para freir</td>
-            <td>Cubeta</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceitunas Negras</td>
-            <td>Lata</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Almendra Fileteada</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Avena</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Azucar</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Canela en Polvo</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Catsup</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Chocolate Blanco</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Chocolate Semi-Amargo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Pimienta negra molida</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Semillas de Cardamomo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Curry</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Comino (Molido)</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Curcuma</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Fetuccine</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Granola rosa</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Grenetina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Harina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Jugo Sazonador </td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Nuez Mozcada</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Knor Suiza de pollo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>leche carnation</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Lechera</td>
-            <td>Lata</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Media crema</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Mayonesa McCormik</td>
-            <td>Bote (Grande)</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Miel de agave</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Mostaza</td>
-            <td>Bote (Grande)</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Panko</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Paprika</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Pistaches pelados</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Polvo para hornear</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Sal fina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Salsa de soya</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Salsa inglesa</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Semillas de cacao</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vainilla</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vino blanco</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vino tinto</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre balsamico</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre blanco</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre de arroz</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre de Manzanan</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Agua mineral 2 lts</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Chocomilk</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Bolsa chai</td>
-            <td>Bolsa</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Café en grano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Café molido</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Leche entera</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Leche deslactosada</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Piloncillo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Palitos de Bambu</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Agua garrafon</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class C'>
-            <td>Carnes frias</td>
-            <td>Salame</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class C'>
-            <td>Carnes frias</td>
-            <td>Chorizo argentino</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class C'>
-            <td>Carnes frias</td>
-            <td>Salchicha alemana</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Ajonjoli negro</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Clavo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Comino</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Frijol peruano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Garbanzo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Pimienta Gorda</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Tomillo (Seco)</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Laurel seco</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Jengibre en polvo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Oregano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Totomoxtle</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Aguacate</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Flores comestibles</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Frambuesas</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Arandanos</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Blueberry</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Fresas</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Jitomate bola</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Jitomate saladette</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Jitomate cherry</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Limon persa</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Maracuya (Pulpa)</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Melon</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Mora azul</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Naranjas</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Papaya</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Pepino</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Pina</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Platano macho</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Tomate limpio</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Zarzamoras</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Toronja</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Mandarina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Melon</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Sandia</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Higo Natural</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Higo caramelizado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Pera</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Bollo de hamburguesa</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Crema (Para batir) Anchor</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Crema Natural</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Huevo</td>
-            <td>Cono</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Leche</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Mantequilla</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Mezcla de quesos</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso de cabra</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso chihuahua ahumado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso mascarpone</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso provolone</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso parmesano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso ranchero</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso ricota</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Tostadas moradas</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Yogurth griego</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Yogurt Natural</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Tortillas</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Spirulina</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Camarones</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Carne molida</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Arrachera</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Jamon Serrano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Pechuga de pollo Entera</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Pollo Entero</td>
-            <td>piezas</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Pechuga de pollo aplanado </td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Surimi</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Salmon</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Acelga</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Ajo pelado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Betabel</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cebolla blanca</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cebolla morada</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chicharo pelado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile ancho</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile de arbol</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile guajillo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile morita</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile negro</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile pasilla</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile serrano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cebollin</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Champinones</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cilantro</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Col blanca</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Col morada</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Elote amarillo</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Elote (Pelado)</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Esparrago</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Epazote</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Espinacas</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Flor de calabaza</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Hongos portobello</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Huitlacoche</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Jengibre en polvo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Mix de lechugas (Sangria, Rizada, Escarolla)</td>
-            <td>Piezas</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Nopales</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Papa blanca</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Papa cambray</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Perejil</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Pimiento rojo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Pimiento verde</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Setas (24 Pzs)</td>
-            <td>Bandejas</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Verdolaga</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Zanahorias</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Apio</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Alfalfa</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Menta</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Hierbabuena</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Romero</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Ajo</td>
-            <td>Cabeza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Papa Grand</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Arugula</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Albahaca</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Hinojo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y licores</td>
-            <td>Licor 43</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Testimonio</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Colimita</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Barrilito</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Corona</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Modelo especial</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Negra Modelo</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
+            <tr data-class='M'>
+<td>VERDURAS</td>
+<td>ACELGA KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$15.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>ACITRON KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$279.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>AGUACATE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$112.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>AJO A GRANEL</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$230.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>AJO PELADO MR LUCKY</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$123.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ALBAHACA KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$63.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>APIO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$37.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ARUGULA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$339.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ARUGULA DOMO 250GR</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$93.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BERENJENA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$72.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BETABEL KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$88.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>BLUEBERRY DOMO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$97.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BROCOLI</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$43.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BROTE BETABEL</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$88.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BROTE CHICHARO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$87.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BROTE CILANTRO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$88.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>BULBO DE HINOJO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$225.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CALABAZA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$57.20</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>CARAMBOLA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$72.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CEBOLLA BLANCA GRANDE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$33.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CEBOLLA CAMBRAY KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$84.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CEBOLLA MORADA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$69.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CEBOLLIN KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$650.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>CEREZA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$149.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHAMPIÑON KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$116.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHAMPIÑON REBANADO MONTE BLANCO 2.835KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$227.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHAYOTE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$46.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHICHARO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$51.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHILE HABANERO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$169.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHILE JALAPEÑO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$41.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHILE POBLANO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$35.88</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CHILE SERRANO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$39.27</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>CILANTRO MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$56.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>CIRUELA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$120.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>COL BLANCA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$45.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>COL DE BRUSELAS</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$75.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>COL MORADA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$60.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>COLIFLOR PZA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$49.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>DAIKON NABO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$60.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>DOMO COGOLLOS DE LECHUGA (LECHUGA BABY)</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$77.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>DOMO ESPINACA BABY</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$149.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>DURAZNO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$85.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>DURAZNO CRIOLLO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$50.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>EJOTE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$85.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ELOTE DESGRANADO NATURAL KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$78.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ELOTE PZA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$10.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>EPAZOTE MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$45.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ESPARRAGOS</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$250.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ESPINACA MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$94.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>FLOR DE CALABAZA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$150.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>FRAMBUESA DOMO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$49.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>FRESA A GRANEL KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$95.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>FRESA DOMO 454GR</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$98.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>GENGIBRE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$65.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>GERMEN DE ALFALFA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$68.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>GERMEN DE SOYA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$113.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>GRANADA KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$79.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>GUAYABA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$45.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>HIERBABUENA MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$32.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>HOJA DE HINOJO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$37.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>JICAMA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$38.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>JITOMATE BOLA GRANDE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$54.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>JITOMATE BOLA JUMBO 2.8 KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$152.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>JITOMATE CHERRY A GRANEL</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$44.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>JITOMATE SALADET PRIMERA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$53.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>JITOMATE SALADET SEGUNDA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$44.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>KIWI</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$143.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LECHUGA ITALIANA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$28.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LECHUGA OREJONA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$28.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LECHUGA ROMANA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$28.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LECHUGA SANGRIA</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$28.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LIMON CON SEMILLA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$25.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LIMON EUREKA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$90.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>LIMON SIN SEMILLA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$55.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MAMEY</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$107.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANDARINA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$36.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANGO ATAULFO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$64.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANGO PETACON HEIDI</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$53.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANZANA GALA NACIONAL</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$54.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANZANA GOLDEN NACIONAL</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$50.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANZANA GRANNY NACIONAL</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$54.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANZANA ROJA NACIONAL</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$63.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MANZANA STARKING</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$63.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MELON CHINO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$55.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>MELON VALENCIANO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$56.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>MENTA MANOJO KG</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$150.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>NARANJA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$43.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>NOPAL LIMPIO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$55.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PAPA ALPHA KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$44.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PAPA BLANCA ARPILLA 4.5 KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$203.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PAPA CAMBRAY</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$44.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PAPALO MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$100.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PAPAYA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$64.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PEPINO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$63.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PERA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$93.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PERA CRIOLLO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$45.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PEREJIL CHINO MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$205.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PEREJIL MANOJO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$53.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PIMIENTOS MORRON</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$65.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PIÑA KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$75.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PLATANO MACHO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$48.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PLATANO TABASCO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$34.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PORO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$39.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>PORTOBELLO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$250.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>PULPA DE MARACUYA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$239.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>RABANO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$55.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ROMERO KG</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$66.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>SANDIA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$53.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>SETAS</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$31.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>TAMARINDO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$68.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>TOMATE PELADO</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$40.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>TOMATE SIN PELAR</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$30.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>TORONJA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$68.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>TUNA MORADA PRIMERA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$23.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>TUNA VERDE PRIMERA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$37.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>TURRON 150GR</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$130.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>UVA ROJA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$158.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>UVA VERDE S/S</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$150.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>VERDOLAGAS</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$50.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>XOCONOSTLE</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$49.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ZANAHORIA</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$23.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td>
+<td>ZANAHORIA DE COLORES</td>
+<td>KGM</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$300.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td>
+<td>ZARZAMORA DOMO</td>
+<td>PIEZA</td>
+<td><input type='number' value='0' onchange='updateTotal()'></td>
+<td class='price'>$65.00</td>
+<td class='item-total'>$0</td> <!-- Nueva columna de total por producto -->
+<td><input type='text' placeholder='Ingrese notas aquí'></td> <!-- Notes input -->
+</tr>
+
+
         </tbody>
     </table>
 
+    <!-- Total Section -->
+    <div class="total-section" id="total-section">
+        Total: $<span id="total-amount">0</span>
+    </div>
+
+
+
+
+
     <!-- Resumen Section -->
-    <div class="resumen-section">
-        <h2>Resumen de Pedido</h2>
+    <div class="resumen">
+        <h2>Resumen de compra</h2>
         <table id="resumen-table">
             <thead>
                 <tr>
-                    <th>Grupo</th>
                     <th>Producto</th>
-                    <th>Unidad</th>
                     <th>Cantidad</th>
-                    <th>Notas</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+		    <th>Notas</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Resumen items will be dynamically added here -->
+            <tbody id="resumen-tbody">
+                <!-- Rows will be dynamically added here -->
             </tbody>
         </table>
+        <div class="total-section" id="resumen-total-section">
+            Total a Pagar: $<span id="resumen-total-amount">0</span>
+        </div>
+    </div>
+   <!-- Checkbox section for order confirmation -->
+    <div class="button">
+        <input type="checkbox" id="confirm-checkbox">
+        <label for="confirm-checkbox">Confirmo que los datos son correctos y estoy listo para comprar.</label>
     </div>
 
-<!-- Confirmation and Submit Section -->
-<!-- Confirmation and Submit Section -->
-<div class="confirm-section">
-    <input type="checkbox" id="confirm-checkbox" onchange="toggleSubmitButton()">
-    <label for="confirm-checkbox">Confirmo que he revisado el pedido</label>
-    <br>
-    <button id="submit-button" disabled onclick="submitOrder()">Enviar Pedido</button>
-</div>
 
+    <!-- Buttons for Buy and Print -->
+    <div class="button">
+        <button class="buy-button" onclick="submitOrder()">Comprar</button>
+        <button class="print-button" onclick="window.print()">Imprimir</button>
+    </div>
 
+    <!-- Footer -->
+    <footer>
+        <p>Derechos reservados © 2024 FRESH PRIME.</p>
+    </footer>
 
-<!-- Footer -->
-<footer>
-    © 2024 FRESH PRIME. All rights reserved.
-</footer>
+   <script>
+    function updateTotal() {
+    let total = 0;
+    const rows = document.querySelectorAll('#product-table tbody tr');
+    const resumenTbody = document.getElementById('resumen-tbody');
+    resumenTbody.innerHTML = ''; // Clear the resumen table
 
-<script>
-    let orderSummary = []; // Accesible a todas las funciones
-    const submitButton = document.querySelector('#submit-button'); // Verifica que este ID coincida
-    const loadingSpinner = document.querySelector('#loadingSpinner');
+    rows.forEach(row => {
+        const quantityInput = row.querySelector('input[type="number"]');
+        
+        // Change from parseInt to parseFloat to handle decimals
+        let quantity = parseFloat(quantityInput.value) || 0;
 
-    // Event listener para el botón de enviar
-    submitButton.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevenir el comportamiento predeterminado
-
-        // Actualiza el resumen y obtén el pedido
-        orderSummary = updateResumen(); // Asegúrate de que orderSummary se actualice antes de validar
-
-        if (orderSummary.length === 0) {
-            alert('Por favor, añade al menos un producto antes de enviar tu pedido.');
-            return;
+        // Prevent negative values
+        if (quantity < 0) {
+            quantity = 0;
+            quantityInput.value = 0; // Reset the input to 0 if negative
         }
 
-        submitButton.disabled = true; // Deshabilitar el botón
-        loadingSpinner.style.display = 'block'; // Mostrar el spinner
+        // Get the price and remove '$' symbol
+        const price = parseFloat(row.querySelector('.price').innerText.replace('$', '').replace(',', '')) || 0;
 
-        // Enviar el resumen del pedido a Zapier
-        fetch('https://hooks.zapier.com/hooks/catch/20198988/21m08ip/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ orders: orderSummary }) // Enviar el pedido como un objeto
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('¡Pedido enviado con éxito!');
-            } else {
-                throw new Error('Error al enviar el pedido.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error al enviar el pedido. Por favor, intenta de nuevo.');
-        })
-        .finally(() => {
-            submitButton.disabled = false; // Habilitar nuevamente el botón
-            loadingSpinner.style.display = 'none'; // Ocultar el spinner
-        });
+        // Calculate total for the item (quantity * price)
+        const itemTotal = price * quantity;
+
+        // Update the total for this row in the '.item-total' column
+        row.querySelector('.item-total').innerText = `$${itemTotal.toFixed(2)}`;
+
+        // Capture the notes for the current row
+        const notes = row.querySelector('input[type="text"]').value;
+
+        // If quantity is greater than 0, add it to the "resumen" section
+        if (quantity > 0) {
+            const newRow = resumenTbody.insertRow();
+            newRow.innerHTML = `
+                <td>${row.cells[1].innerText}</td> <!-- Item name -->
+                <td>${quantity}</td> <!-- Quantity -->
+                <td>${row.cells[4].innerText}</td> <!-- Unit price -->
+                <td>$${itemTotal.toFixed(2)}</td> <!-- Total price -->
+                <td>${notes || 'Sin notas'}</td> <!-- Notes -->
+            `;
+        }
+
+        // Accumulate total for all rows
+        total += itemTotal;
     });
 
-    // Función para actualizar el resumen
-    function updateResumen() {
-        const resumenTableBody = document.querySelector("#resumen-table tbody");
-        resumenTableBody.innerHTML = ""; // Limpiar el resumen existente
-        orderSummary = []; // Limpiar el array de resumen
+    // Update the total amount in the UI
+    document.getElementById('total-amount').innerText = total.toFixed(2);
+    document.getElementById('resumen-total-amount').innerText = total.toFixed(2);
 
-        const rows = document.querySelectorAll("#product-table tbody tr");
+    // Update the button state after calculating the total
+    toggleBuyButton();
+}
 
-        rows.forEach(row => {
-            const quantity = row.querySelector(".quantity-input").value;
-            const grupo = row.querySelector("td:nth-child(1)").innerText;
-            const producto = row.querySelector("td:nth-child(2)").innerText;
-            const unidad = row.querySelector("td:nth-child(3)").innerText;
-            const notas = row.querySelector("td:nth-child(5) input").value;
 
-            if (quantity > 0) {
-                // Crear una nueva fila para el resumen
-                const newRow = document.createElement("tr");
 
-                newRow.innerHTML = `
-                    <td>${grupo}</td>
-                    <td>${producto}</td>
-                    <td>${unidad}</td>
-                    <td>${quantity}</td>
-                    <td>${notas}</td>
-                `;
 
-                resumenTableBody.appendChild(newRow);
-
-                // Añadir este ítem al resumen de pedidos para enviar al backend
-                orderSummary.push({
-                    grupo: grupo,
-                    producto: producto,
-                    unidad: unidad,
-                    cantidad: quantity,
-                    notas: notas
-                });
-                console.log('Order Summary:', orderSummary); // Verificar el contenido del resumen
-            }
-        });
-
-        return orderSummary; // Retornar el resumen actualizado
+    function toggleBuyButton() {
+        const checkbox = document.getElementById('confirm-checkbox');
+        const buyButton = document.getElementById('buy-button');
+        buyButton.disabled = !checkbox.checked; // Enable button if checkbox is checked
     }
 
-    // Función para alternar el botón de envío basado en el estado del checkbox
-    function toggleSubmitButton() {
-        const checkbox = document.getElementById("confirm-checkbox");
-        submitButton.disabled = !checkbox.checked; // Habilitar el botón si el checkbox está marcado
-        console.log("Checkbox estado:", checkbox.checked); // Verificar el estado del checkbox
-    }
-
-    // Función para filtrar la tabla
     function filterTable() {
         const filter = document.getElementById("class-filter").value;
-        const rows = document.querySelectorAll("#product-table tbody tr");
+        const rows = document.querySelectorAll('#product-table tbody tr');
 
         rows.forEach(row => {
-            if (filter === "All" || row.getAttribute("data-class") === filter) {
-                row.style.display = ""; // Mostrar la fila
+            const rowClass = row.getAttribute("data-class");
+            if (filter === "All" || rowClass === filter) {
+                row.style.display = ""; // Show row
             } else {
-                row.style.display = "none"; // Ocultar la fila
+                row.style.display = "none"; // Hide row
             }
         });
+    }
+
+    function submitOrder() {
+        const checkbox = document.getElementById('confirm-checkbox');
+        if (checkbox.checked) {
+            alert('Orden enviada exitosamente!');
+            // Implement the order submission logic here
+        } else {
+            alert('Por favor, confirme que los datos son correctos antes de enviar la orden.');
+        }
     }
 </script>
 
 
 
-
 </body>
 </html>
-
-
