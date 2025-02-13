@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Prime - Orden de Compra</title>
+    <title>Fresh Prime Group (FPG) - Catalogo de productos</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
-            background-color: #fFF; 
+            background-color: #fff; 
             margin: 0; 
             padding: 20px;
         }
@@ -20,10 +18,9 @@
             margin-bottom: 20px;
         }
         .letterhead img {
-            max-width: 135px;
+            max-width: 200px; /* Adjust width of the logo */
         }
         .letterhead h2 {
-            font-size: 24px;
             margin: 0;
             color: #4CAF50;
             text-align: center;
@@ -81,12 +78,16 @@
         .print-button:hover {
             background-color: #d32f2f;
         }
+
+        /* Ensure green bar shows in print */
         @media print {
             th {
                 background-color: #4CAF50 !important;
                 color: white;
             }
         }
+
+        /* Footer styling */
         footer {
             text-align: center;
             padding: 10px;
@@ -100,2352 +101,2080 @@
 
     <!-- Letterhead section -->
     <div class="letterhead">
-        <img src="https://i.imgur.com/HegNprK.jpeg" alt="Fresh Prime Logo">
+        <img src="https://i.imgur.com/HegNprK.jpeg" alt="Pollo Directo Logo"> <!-- Logo Placeholder -->
         <h2>FRESH PRIME - GESTIÓN DE FRESCURA, SOLUCIONES A MEDIDA.</h2>
         <address>
             Grupo Directo S.A. de C.V.<br>
             Paseo de Varsovia #202, Querétaro, Mexico<br>
-            Tel: +52 442 422 5756<br>
+            Tel: +52 442 772 3974<br>
+            Tel: +52 442 422 5756<br> 
             Email: FreshPrimeGroup@outlook.com
         </address>
     </div>
 
-    <h1>Orden de compra</h1>
+    <!-- Catalog Title -->
+    <h1>Lista de productos - Precios Febrero 2025</h1>
 
-    <!-- Filter Section -->
-    <div class="filter-section">
-        <label for="class-filter">Filtrar por Grupo: </label>
-        <select id="class-filter" onchange="filterTable()">
-            <option value="All">Todos los Grupos</option>
-            <option value="Class A">Abarrotes</option>
-            <option value="Class B">Aderezos</option>
-            <option value="Class C">Carnes frías</option>
-            <option value="Class D">Chiles, semillas y especias</option>
-            <option value="Class E">Especiales</option>
-            <option value="Class F">Frutas</option>
-            <option value="Class G">Lácteos</option>
-            <option value="Class H">Otros</option>
-            <option value="Class I">Panadería y postres</option>
-            <option value="Class J">Preparados</option>
-            <option value="Class K">Proteínas</option>
-            <option value="Class L">Secos</option>
-            <option value="Class M">Verduras</option>
-            <option value="Class N">Vinos y licores</option>
-            <option value="Class O">Resumen</option>
-        </select>
-    </div>
+<!-- Filter Section -->
+<div class="filter-section">
+    <label for="class-filter">Filter by Class: </label>
+    <select id="class-filter" onchange="filterTable()">
+        <option value="All">All Groups</option>
+        <option value="Class A">Abarrotes</option>
+        <option value="Class C"> Cremeria y Carnes frias</option>
+        <option value="Class D">Chiles, semillas y especias</option>
+        <option value="Class F">Frutas</option>
+        <option value="Class J">Preparados</option>
+        <option value="Class K">Proteinas</option>
+        <option value="Class L">Secos</option>
+        <option value="Class M">Verduras</option>
+    </select>
+</div>
+
 
     <!-- Product Table with Classifications -->
     <table id="product-table">
         <thead>
             <tr>
-                <th>Grupo</th>
-                <th>Producto</th>
-                <th>Unidad</th>
-                <th>Cantidad</th>
-                <th>Notas</th>
+                <th>Group</th>
+                <th>Product</th>
+                <th>Unit</th>
+                <th>Price</th>
             </tr>
         </thead>
         <tbody>
-            
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite de ajonjoli</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite de cacahuates</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Arroz para Risotto (Carnarolli)</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite de Oliva</td>
-            <td>Galon</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceite para freir</td>
-            <td>Cubeta</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Aceitunas Negras</td>
-            <td>Lata</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Almendra Fileteada</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Avena</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Azucar</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Canela en Polvo</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Catsup</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Chocolate Blanco</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Chocolate Semi-Amargo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Pimienta negra molida</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Semillas de Cardamomo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Curry</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Comino (Molido)</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Curcuma</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Fetuccine</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Granola rosa</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Grenetina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Harina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Jugo Sazonador </td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Nuez Mozcada</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Knor Suiza de pollo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>leche carnation</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Lechera</td>
-            <td>Lata</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Media crema</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Mayonesa McCormik</td>
-            <td>Bote (Grande)</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Miel de agave</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Mostaza</td>
-            <td>Bote (Grande)</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Panko</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Paprika</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Pistaches pelados</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Polvo para hornear</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Sal fina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Salsa de soya</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Salsa inglesa</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Semillas de cacao</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vainilla</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vino blanco</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vino tinto</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre balsamico</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre blanco</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre de arroz</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Vinagre de Manzanan</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Agua mineral 2 lts</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Chocomilk</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Bolsa chai</td>
-            <td>Bolsa</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Café en grano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Café molido</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Leche entera</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Leche deslactosada</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Piloncillo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Palitos de Bambu</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class A'>
-            <td>Abarrotes</td>
-            <td>Agua garrafon</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class C'>
-            <td>Carnes frias</td>
-            <td>Salame</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class C'>
-            <td>Carnes frias</td>
-            <td>Chorizo argentino</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class C'>
-            <td>Carnes frias</td>
-            <td>Salchicha alemana</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Ajonjoli negro</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Clavo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Comino</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Frijol peruano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Garbanzo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Pimienta Gorda</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Tomillo (Seco)</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Laurel seco</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Jengibre en polvo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Oregano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class D'>
-            <td>Chiles, semillas y especias</td>
-            <td>Totomoxtle</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Aguacate</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Flores comestibles</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Frambuesas</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Arandanos</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Blueberry</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Fresas</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Jitomate bola</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Jitomate saladette</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Jitomate cherry</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Limon persa</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Maracuya (Pulpa)</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Melon</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Mora azul</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Naranjas</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Papaya</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Pepino</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Pina</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Platano macho</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Tomate limpio</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Zarzamoras</td>
-            <td>Domo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Toronja</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Mandarina</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Melon</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Sandia</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Higo Natural</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Higo caramelizado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class F'>
-            <td>Frutas</td>
-            <td>Pera</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Bollo de hamburguesa</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Crema (Para batir) Anchor</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Crema Natural</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Huevo</td>
-            <td>Cono</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Leche</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Mantequilla</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Mezcla de quesos</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso de cabra</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso chihuahua ahumado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso mascarpone</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso provolone</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso parmesano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso ranchero</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Queso ricota</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Tostadas moradas</td>
-            <td>Paquete</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Yogurth griego</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Yogurt Natural</td>
-            <td>Litro</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class G'>
-            <td>Lacteos</td>
-            <td>Tortillas</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Spirulina</td>
-            <td>Bote</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Camarones</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Carne molida</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Arrachera</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Jamon Serrano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Pechuga de pollo Entera</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Pollo Entero</td>
-            <td>piezas</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Pechuga de pollo aplanado </td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Surimi</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class K'>
-            <td>Proteinas</td>
-            <td>Salmon</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Acelga</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Ajo pelado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Betabel</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cebolla blanca</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cebolla morada</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chicharo pelado</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile ancho</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile de arbol</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile guajillo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile morita</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile negro</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile pasilla</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Chile serrano</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cebollin</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Champinones</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Cilantro</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Col blanca</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Col morada</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Elote amarillo</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Elote (Pelado)</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Esparrago</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Epazote</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Espinacas</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Flor de calabaza</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Hongos portobello</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Huitlacoche</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Jengibre en polvo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Mix de lechugas (Sangria, Rizada, Escarolla)</td>
-            <td>Piezas</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Nopales</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Papa blanca</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Papa cambray</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Perejil</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Pimiento rojo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Pimiento verde</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Setas (24 Pzs)</td>
-            <td>Bandejas</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Verdolaga</td>
-            <td>Atado</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Zanahorias</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Apio</td>
-            <td>Pieza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Alfalfa</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Menta</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Hierbabuena</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Romero</td>
-            <td>Manojo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Ajo</td>
-            <td>Cabeza</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Papa Grand</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Arugula</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Albahaca</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class M'>
-            <td>Verduras</td>
-            <td>Hinojo</td>
-            <td>Kilo</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y licores</td>
-            <td>Licor 43</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Testimonio</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Colimita</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Barrilito</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Corona</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Modelo especial</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
-        <tr data-class='Class N'>
-            <td>Vinos y Licores</td>
-            <td>Negra Modelo</td>
-            <td>Botella</td> <!-- Unit -->
-            <td>
-                <input type="number" class="quantity-input" step="0.1" value="0" min="0" max="100" oninput="updateResumen()" />
-            </td>
-            <td>
-                <input type="text" placeholder="Añadir notas" />
-            </td>
-        </tr>
-        
+          
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACAI EN POLVO</td><td>PIEZA</td><td>348.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE 1LT 123</td><td>PIEZA</td><td>51.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE AJONJOLI PICANTE INES 250 ML</td><td>PIEZA</td><td>93.12</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE AJONJOLI YUKAI 2PZAS 320ML</td><td>PIEZA</td><td>300.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE COCO MEMBERS MARK COCOCARE EXTRA VIRGEN ORGÁNICO 1.66 L</td><td>PIEZA</td><td>214.82</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE OLIVA EXTRA VIRGEN CON AJO 250 ML GIOIA</td><td>PIEZA</td><td>280.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE OLIVA KS 2LTS</td><td>PIEZA</td><td>638.1</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE OLIVA MM 1LT</td><td>PIEZA</td><td>313.28</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE OLIVA MM 5L</td><td>PIEZA</td><td>1008.92</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE SOYA MEMBERS MARK 10 L</td><td>PIEZA</td><td>505.09</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE TRUFA ACIERTO 250ML</td><td>PIEZA</td><td>251.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE DE UVA 2LT</td><td>PIEZA</td><td>292.83</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE MM 20LTS</td><td>PIEZA</td><td>983.36</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITE PAM EN AEROSOL 2 PZAS DE 340 G C/U</td><td>PIEZA</td><td>241.67</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITUNAS NEGRAS CARBONELL SIN HUESO 340 G</td><td>PIEZA</td><td>24.37</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITUNAS NEGRAS SIN HUESO CARBONEL 920 GRS</td><td>PIEZA</td><td>124.03</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITUNAS VERDES DESHUESADAS MM 880 G</td><td>PIEZA</td><td>117.65</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACEITUNAS VERDES MM SIN HUESO 3KG</td><td>PIEZA</td><td>274.92</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACHIOTE 100GR</td><td>PIEZA</td><td>18.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ACHIOTE 1KG</td><td>PIEZA</td><td>85.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ADEREZO CESAR MM 3.7KG</td><td>PIEZA</td><td>313.28</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ADEREZO DE MAYONESA HEINZ 200 PZAS DE 8 G C/U</td><td>PIEZA</td><td>159.83</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ADEREZO RANCH MM 3.7KG</td><td>PIEZA</td><td>390.01</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ADES BEBIDA DE SOYA 946ML</td><td>PIEZA</td><td>49.37</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL 1 UD 235 ML LATA</td><td>PIEZA</td><td>236.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL 1 UD 355 ML LATA</td><td>PIEZA</td><td>21.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL 12 UD 235 ML LATA</td><td>PIEZA</td><td>236.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL 12 UD 355 ML LATA</td><td>PIEZA</td><td>236.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL 6 UD 296 ML LATA</td><td>PIEZA</td><td>236.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL LOURDES 24 UD 355 ML</td><td>PIEZA</td><td>285.54</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA MINERAL PEÑAFIEL SIFÓN 1.75 L</td><td>PIEZA</td><td>32.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA NATURAL BONAFONT 40 PZAS DE 330 ML</td><td>PIEZA</td><td>189.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUA TONICA 12 UD 355 ML LATA</td><td>PIEZA</td><td>164.26</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUAMINERAL PEÑAFIEL 24UD 296ML</td><td>PIEZA</td><td>319.48</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AGUAMINERAL PEÑAFIEL 8UD 2LT</td><td>PIEZA</td><td>240.3</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AJO MOLIDO KG</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ALCAPARRAS SERPIS 2 PZAS 220GR</td><td>PIEZA</td><td>93.35</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ALCOHOL SOLIDO 24 PZAS 250ML</td><td>PIEZA</td><td>495.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ALFALFA MANOJO KG</td><td>KGM</td><td>12.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ALUMINIO ALUPRACTIC 400 MTS</td><td>PIEZA</td><td>663.67</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ANCHOAS RÍAS BAIXAS EN ACEITE DE OLIVA 184 G</td><td>PIEZA</td><td>265.97</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ANTIOXIDANTE DE ALIMENTOS INDIVIDUAL 1 PZ 1L</td><td>PIEZA</td><td>937.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ANTIOXIDANTE DE ALIMENTOS INDIVIDUAL 1 PZ 60 ML</td><td>PIEZA</td><td>191.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ARANDANO DESHIDRATADO A GRANEL</td><td>KGM</td><td>145.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ATOMIZADOR INDUSTRIAL 1L. ECO.</td><td>PIEZA</td><td>21.87</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ATÚN ALETA AMARILLA MEMBERS MARK EN AGUA DE 1.02 KG</td><td>PIEZA</td><td>287.71</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ATÚN DOLORES ALETA AMARILLA EN AGUA CON ACEITE 140 G</td><td>PIEZA</td><td>28.12</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ATÚN EN ACEITE DOLORES 8 PZAS DE 140 G C/U</td><td>PIEZA</td><td>210.98</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ATUN EN LATA MM 1.8KG</td><td>KGM</td><td>300.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AZUCAR A GRANEL</td><td>KGM</td><td>26.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AZUCAR BULTO 50KG</td><td>PIEZA</td><td>1375.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AZUCAR GLASS 500GR</td><td>PIEZA</td><td>32.95</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AZUCAR MAZCABADO PORCION</td><td>KGM</td><td>406.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>AZÚCAR REFINADA MEMBERS MARK 1000 PZAS DE 5 G C/U</td><td>KGM</td><td>274.92</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BARRAS DE GRANOLA NATURE VALLEY FRUT & NUT TRAIL MIX 24 PZAS DE 30 G C/U</td><td>PIEZA</td><td>267.26</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA JUMEX CON FRUTA SABORES SURTIDOS 24 PZAS DE 335 ML</td><td>PIEZA</td><td>326.07</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA JUMEX CON PIÑA 960 ML</td><td>PIEZA</td><td>30.04</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA JUMEX CON TOMATE 960 ML</td><td>PIEZA</td><td>31.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA JUMEX CON TORONJA 960 ML</td><td>PIEZA</td><td>44.37</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA MEMBERS MARK SABOR ALMENDRA 6 PZAS DE 946 ML C/U</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA OCEAN SPRAY ARANDANO 1L</td><td>PIEZA</td><td>46.87</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA SABOR ALMENDRA 1LT</td><td>PIEZA</td><td>68.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BEBIDA SABOR SOYA 1LT</td><td>PIEZA</td><td>68.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BICARBONATO 500MG</td><td>PIEZA</td><td>68.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BIMBOLLOS PANES BRIOCHE PARA HAMBURGUESAS 6 PZ</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BIMBOLLOS PARRILLEROS BIMBO 12 PZAS</td><td>PIEZA</td><td>95.91</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BOLSA NEGRA P/BASURA 90X120 KG</td><td>KGM</td><td>41.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>BRANDY DON PEDRO</td><td>PIEZA</td><td>230.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CACAO EN POLVO</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CACAO ENTERO</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CAFÉ EN GRANO MEMBERS MARK COLOMBIANO 1 KG</td><td>PIEZA</td><td>268.56</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CAFÉ TOSTADO Y MOLIDO MEMBERS MARK COLOMBIANO 1 KG</td><td>PIEZA</td><td>331.18</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CAJETA CORONADO ENVINADA 594 G</td><td>PIEZA</td><td>136.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CAJETA MM 1.2KG</td><td>PIEZA</td><td>152.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CALAHUA COCO 1LT</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CALAVERITAS DE AZUCAR SERGRAFIADAS</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CALDO DE CAMARÓN KNORR 1.6 KG</td><td>KGM</td><td>652.16</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CANASTAS GREAT VALUE DE GALLETA 195 G</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CATSUP MM 3.8KG</td><td>PIEZA</td><td>144.96</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL ALL-BRAN KELLOGGS FLAKES 1.1 KG</td><td>PIEZA</td><td>159.83</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL ALL-BRAN KELLOGGS PASAS 980 G</td><td>PIEZA</td><td>191.8</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL FROOT LOOPS KELLOGGS 790 G</td><td>PIEZA</td><td>139.38</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL INTEGRAL  NESTLÉ FITNESS 600 G</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL INTEGRAL ALL BRAN 1.1KG</td><td>PIEZA</td><td>172.62</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL KELLOGGS SPECIAL K ORIGINAL 980 G</td><td>PIEZA</td><td>121.47</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREAL KELLOGGS SURTIDO 20 PZAS</td><td>PIEZA</td><td>164.95</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CEREZAS CON TALLOS MEMBERS MARK MARASCHINO 2.1 K</td><td>PIEZA</td><td>292.82</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHAMOY 1LT</td><td>PIEZA</td><td>34.55</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHEESECAKE MEMBERS MARK DE ZARZAMORA 1 PZA</td><td>PIEZA</td><td>318.4</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHILE CHIPOTLE LA COSTEÑA PAQ 10PZAS 105GR</td><td>PIEZA</td><td>186.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHILE CHIPOTLES ADOBADO MM 2.8KG</td><td>PIEZA</td><td>236.56</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHILES EN VINAGRE MM 3KGS</td><td>PIEZA</td><td>107.71</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHILES JALAPEÑOS LA COSTEÑA 2.8KG</td><td>PIEZA</td><td>113.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHILES JALAPEÑOS MM BOLSA DE RODAJAS 3KG</td><td>PIEZA</td><td>101.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHILES JALAPEÑOS MM RAJAS 3KG</td><td>PIEZA</td><td>103.575</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHISPAS CHOCOLATE TURIN</td><td>PIEZA</td><td>284.93</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCO KRISPIS 1.2KG</td><td>PIEZA</td><td>164.96</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCO KRISPIS 5KG</td><td>PIEZA</td><td>331.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCOLATE ABUELITA 2PZAS 630GR</td><td>PIEZA</td><td>185.42</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCOLATE BLANCO</td><td>PIEZA</td><td>285.99</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCOLATE HERSHEYS 214 PZ</td><td>PIEZA</td><td>216.11</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCOLATE TURIN EN TROZO</td><td>PIEZA</td><td>391.92</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CHOCOMILK 2KG</td><td>PIEZA</td><td>287.71</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CIRUELA PASAS SIN HUESO MM 1.13KGS</td><td>KGM</td><td>171.35</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CLAMATO 1.89</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CLAMATO PARTY PACK 2 PZAS DE 2.54 L</td><td>PIEZA</td><td>205.87</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CLORALEX 950ML</td><td>PIEZA</td><td>20.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCA COLA LIGHT 12UD 355ML</td><td>PIEZA</td><td>290.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCA COLA REGULAR 12UD 220ML</td><td>PIEZA</td><td>137.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCA COLA REGULAR 12UD 355ML</td><td>PIEZA</td><td>285.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCA COLA SIN AZUCAR 6UD 355ML</td><td>PIEZA</td><td>143.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCO RALLADO</td><td>KGM</td><td>125.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCOA EN POLVO</td><td>KGM</td><td>62.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COCTEL DE FRUTAS EN ALMÍBAR LA COSTEÑA 2 PZAS DE 850G</td><td>PIEZA</td><td>152.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COLORANTE AMARILLO EN GEL</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COLORANTE ROJO EN GEL</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>COMINO MOLIDO MEMBERS MARK BY MCCORMICK 410 G</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CONDIMIENTO ESTILO ITALIANO</td><td>PIEZA</td><td>95.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CONO PARA HELADO DE GALLETA 10 PZA GREAT VALUE</td><td>PIEZA</td><td>32.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CONTENEDOR DE UNICEL LISO SIN DIVISION 8X8 100PZAS</td><td>PIEZA</td><td>243.16</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CREMA ALPURA 900ML</td><td>PIEZA</td><td>93.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CREMA DE AVELLANA MM 1KG</td><td>PIEZA</td><td>152.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CREMA DE CACAHUATE MEMBERS MARK 1.13 KG</td><td>PIEZA</td><td>121.47</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CREMA DE COCO CALAHUA 1 LT</td><td>PIEZA</td><td>81.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CREMA LALA ENTERA 4 LT</td><td>PIEZA</td><td>296.67</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CREMA PARA BATIR 1LT</td><td>PIEZA</td><td>120.29</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CRUTONES MEMBERS MARK SABOR ITALIANO 907 G</td><td>PIEZA</td><td>159.83</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CUBETA DE MOLE 4 KG</td><td>PIEZA</td><td>525.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CUCHARA PASTELERA 50 PZA</td><td>PIEZA</td><td>13.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CUERITOS KG</td><td>PIEZA</td><td>68.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>CUITLACOCHE SAN MIGUEL 420 G</td><td>PIEZA</td><td>66.48</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>DESENGRASANTE MEMBERS MARK CONCENTRADO 10L</td><td>PIEZA</td><td>308.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>DETERGENTE EN POLVO ROMA MULTIUSOS BIODEGRADABLE 1 KG</td><td>PIEZA</td><td>52.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>DULCE DE LECHE</td><td>PIEZA</td><td>194.97</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>DURAZNO EN MITADES LA COSTEÑA 2 PZAS DE 820G</td><td>PIEZA</td><td>139.38</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>DURAZNOS EN ALMIBAR MM 3KG</td><td>PIEZA</td><td>216.1</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>EDULCORANTE DE MESA MEMBERS MARK CON STEVIA 400 SOBRES DE 1 G</td><td>PIEZA</td><td>249.35</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ELOTE ENTERO LA HUERTA 2 KG</td><td>PIEZA</td><td>152.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>EMPANIZADOR A GRANEL KG</td><td>KGM</td><td>61.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ENCENDEDOR DE ANTORCHA TOKAI 2</td><td>PIEZA</td><td>95.9</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ENSALADA CAMPESINA DEL MONTE 400 GR</td><td>PIEZA</td><td>23.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ENVASE TERMICO 32J32</td><td>PIEZA</td><td>2.16</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ESPINACA MORADA KG</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>EXTRACTO DE VAINILLA</td><td>PIEZA</td><td>446.28</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>FILETE DE ANCHOA 284GR</td><td>PIEZA</td><td>234.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>FLOR COMESTIBLE</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>FRIJOL PERUANO</td><td>PIEZA</td><td>42.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>FROOT LOOPS 5KG</td><td>PIEZA</td><td>250.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>FRUTSI 24PZA</td><td>PIEZA</td><td>135.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GALLETAS CRACKETS</td><td>PIEZA</td><td>60.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GALLETAS MARIAS 170 G C/20</td><td>PIEZA</td><td>16.87</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GELATINA DE GARY CAJA DE 50</td><td>PIEZA</td><td>593.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GELATINA DE SOBRE VARIOS SABORES GARY</td><td>PIEZA</td><td>13.12</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GELATINA SABOR LECHE CONDENSADA 120GR</td><td>PIEZA</td><td>12.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GOMITA GUSANO</td><td>PIEZA</td><td>132.28</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRANILLO DE COLORES</td><td>KGM</td><td>97.76</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRANOLA GRANVITA 800GR</td><td>PIEZA</td><td>111.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRANOLA KG</td><td>PIEZA</td><td>70.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRANOLA MM CON PROBIOTICOS 1 KG</td><td>PIEZA</td><td>203.31</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRANOS DE ELOTE CONGELADO LA HUERTA 2KG</td><td>PIEZA</td><td>177.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRANOS DE ELOTE HERDEZ 2.9 KG</td><td>PIEZA</td><td>162.39</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>GRENETINA KG</td><td>KGM</td><td>282.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HARINA HOTCAKES 3 ESTRELLAS</td><td>PIEZA</td><td>73.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HARINA HOTCAKES MM 4.54KG</td><td>PIEZA</td><td>172.65</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HELADO CHOCOLATE MM 4.7LTS</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HELADO DE FRESA VAINILLA Y CHOCOLATE MM 4.7LTS</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HELADO FRESA MM 4.7LTS</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HELADO VAINILLA MM 4.7LTS</td><td>PIEZA</td><td>241.68</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HIGO</td><td>KGM</td><td>87.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HIGO CRISTALIZADO</td><td>KGM</td><td>175.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HOJA DE AGUACATE 1PZA GRANDE</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HOJA DE NARANJA</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HOJA DE PLATANO 1PZA GRANDE</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HOJUELA DE PAPA MM 2.26 KG</td><td>PIEZA</td><td>407.91</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HOJUELAS DE PAPA MEMBERS MARK 2.26 KG</td><td>PIEZA</td><td>318.41</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HUEVO</td><td>KGM</td><td>47.44</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>HUEVO BLANCO SAN JUAN SELECTO 90 PIEZAS</td><td>PIEZA</td><td>650.93</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>JABON P/ TRASTES MM 2.9 LT</td><td>PIEZA</td><td>208.37</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>JARABE DE CHOCOLATE HERSHEYS 3 PZAS DE 589 G</td><td>PIEZA</td><td>185.41</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>JARABE HEINZ SABOR MAPLE 72 PZAS DE 30 G</td><td>PIEZA</td><td>251.9</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>JARABE NATURAL MADRILEÑA ENDULZANTE 1 L</td><td>PIEZA</td><td>93.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>JITOMATE DESHIDRATADO 992G</td><td>KGM</td><td>305.62</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>JUGO DE NARANJA LT</td><td>KGM</td><td>71.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>KIRKLAND SIGNATURE PIMIENTA NEGRA MOLIDO GRUESO 359 G</td><td>PIEZA</td><td>173.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>KIRKLAND SIGNATURE PLÁSTICO ADHERENTE 1 ROLLO 914.4MTSX30.5CMS</td><td>PIEZA</td><td>473.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>KNORR CONDIMIX POLLO 3.6 KG</td><td>PIEZA</td><td>382.35</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LALA BEBIDA DE COCO SIN AZÚCAR VITA</td><td>PIEZA</td><td>58.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LATA DE ELOTE 220 GR</td><td>PIEZA</td><td>17.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LATA MAIZ POZOLERO POZOLE OBAR 3.3KG</td><td>PIEZA</td><td>75.45</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE ALPURA LIGHT 1L</td><td>PIEZA</td><td>35.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE CARNATION  NESTLÉ 4PZA 944.3 ML C/U</td><td>PIEZA</td><td>254.46</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE CARNATION 1LT</td><td>PIEZA</td><td>68.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE DE SOYA</td><td>PIEZA</td><td>216.11</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE DESLACTOSADA MM 12PZAS</td><td>PIEZA</td><td>338.86</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE DESLACTOSADA SANTA CLARA VARIOS SABORES 27 PZAS DE 180 ML C/U</td><td>PIEZA</td><td>280.05</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE ENTERA MM 12PZAS</td><td>PIEZA</td><td>338.86</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHE EVAPORADA NESTLÉ 2 PZAS DE 720 GR C/U</td><td>PIEZA</td><td>98.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>LECHERA 387GR</td><td>PIEZA</td><td>37.45</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MACHACA TIA LENCHA 100GR</td><td>PIEZA</td><td>121.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MAÍZ BLANCO EL MEXICANO 822G</td><td>PIEZA</td><td>57.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MAIZENA 750GR</td><td>KGM</td><td>114.37</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MANGA CREMA PASTELERA</td><td>PIEZA</td><td>38.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MANGA FRESA</td><td>PIEZA</td><td>51.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MANGA PIÑA</td><td>PIEZA</td><td>50.625</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MAYONESA MM CON JUGO DE LIMON 3.35KG</td><td>PIEZA</td><td>351.65</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MEDIA CREMA AZUCARADA CHANTILLY CHANTY WIP AZUCARADA 200 G</td><td>PIEZA</td><td>80.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MEDIAS NOCHES PAQ 16PZAS</td><td>PIEZA</td><td>88.23</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MEMBRILLO 250 GR</td><td>PIEZA</td><td>25.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MERMELADA DE FRESA HEINZ 120 PZAS DE 20 G C/U</td><td>PIEZA</td><td>347.81</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MERMELADA DE FRESA SAN ANDRES 5KG</td><td>PIEZA</td><td>369.54</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MEZCLA CAMPESINA LA HUERTA 2 KG</td><td>PIEZA</td><td>147.05</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MIEL DE ABEJA HEINZ 120 PZAS DE 20 G</td><td>PIEZA</td><td>638.08</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MIEL DE ABEJA MEMBERS MARK 2 PZAS DE 1 KG C/U</td><td>PIEZA</td><td>292.83</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MIEL MAPLE MM 1.2KG</td><td>PIEZA</td><td>86.95</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOLE ALMENDRADO</td><td>KGM</td><td>156.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOLE NEGRO EL SABOR DE OAXACA 500GR</td><td>PIEZA</td><td>130.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOLE ROJO</td><td>KGM</td><td>143.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOLE VERDE DOÑA MARIA FRASCO</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOSTAZA ANTIGUA MAILLE 865GR</td><td>PIEZA</td><td>216.1</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOSTAZA DIJON MAILLE 865GR</td><td>PIEZA</td><td>184.16</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOSTAZA MEMBERS MARK 3.7 L</td><td>PIEZA</td><td>152.16</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>MOZZARELLA BELGIOIOSO 2PZA 453GR</td><td>PIEZA</td><td>304.33</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>NACHOS BARCEL TOSTACHOS 3 PZAS DE 950G</td><td>PIEZA</td><td>356.78</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>NESCAFE 1.5KG</td><td>PIEZA</td><td>696.16</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>OREGANO</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PALILLOS DE MADERA PINGÜINO REDONDOS DOS PUNTAS 250 PZAS</td><td>PIEZA</td><td>30.55</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PALOS ABATELENGUA</td><td>KGM</td><td>83.19</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PALOS PARA ELOTE</td><td>KGM</td><td>13.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN BIMBO BLANCO</td><td>PIEZA</td><td>54.98</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN BIMBO INTEGRAL</td><td>PIEZA</td><td>57.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN DE 12 GRANOS OROWEAT 600GR</td><td>PIEZA</td><td>107.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN DE CENTENO OROWEAT 600GR</td><td>PIEZA</td><td>105.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN MOLIDO A GRANEL</td><td>KGM</td><td>23.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN OROWEAT MANTEQUILLA, MULTIGRANO 680GR</td><td>PIEZA</td><td>107.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAN PETITE VARIEDAD MEMBERS MARK 20 PZAS</td><td>PIEZA</td><td>152.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAPA GAJO MCCAIN 2KG</td><td>PIEZA</td><td>179.02</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAPAS CHIPS A GRANEL</td><td>KGM</td><td>263.95</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAPAS CHIPS ADOBADA</td><td>KGM</td><td>260.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAPAS CHIPS RUFLADA</td><td>KGM</td><td>134.28</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAPEL ENCERADO 60.9 MTS</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PAPEL HIGIÉNICO KLEENEX COTTONELLE SOFT CARE CON 40 ROLLOS</td><td>PIEZA</td><td>249.36</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA BARILLA FIDEO NO.0 500 G</td><td>PIEZA</td><td>33.23</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA BARILLA PENNE RIGATE 500 G</td><td>PIEZA</td><td>35.62</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA DE HOJALDRE 2KG</td><td>PIEZA</td><td>98.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA DE TOMATE MEMBERS MARK 3 KG</td><td>PIEZA</td><td>210.98</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA FARFALLE LA MODERNA 500 G</td><td>PIEZA</td><td>30.62</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA FETUCCINI BARILLA 500GR</td><td>PIEZA</td><td>33.23</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA FUSILLI BARILLA 500GR</td><td>PIEZA</td><td>33.23</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA MM CODO MEDIANO 3 KG</td><td>PIEZA</td><td>113.80</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA MM FIDEO CORTADO 3 KG</td><td>PIEZA</td><td>113.80</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA RIGATONI DE LUIGI 500 G</td><td>PIEZA</td><td>33.27</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTA SPAGHETTI BARILLA 500GRS</td><td>PIEZA</td><td>31.67</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PASTEL DE CHOCOLATE</td><td>PIEZA</td><td>407.99</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PECHUGA DE PAVO NATURAL KG</td><td>KGM</td><td>328.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PEPINILLO AGRIO SAN MIGUEL ONDULADO Y REBANADO 3.94 KG</td><td>PIEZA</td><td>175.18</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PEREJIL SECO MEMBERS MARK</td><td>KGM</td><td>133.92</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PIMIENTA NEGRA ENTERA MEMBERS MARK BY MCCORMICK 520 G</td><td>PIEZA</td><td>190.59</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PIMIENTA NEGRA KS 360G</td><td>PIEZA</td><td>139.38</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PIMIENTA NEGRA MM MOLIDA 545 G</td><td>PIEZA</td><td>223.77</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>PLATANO CHIP A GRANEL</td><td>KGM</td><td>200.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>POPOTES CAJA BIODEGRADABLE</td><td>PIEZA</td><td>58.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>QUESO COTTAGE LYNCOTT 960GR</td><td>PIEZA</td><td>134.31</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO FANTA SABOR NARANJA DE 355 ML 1PZA</td><td>PIEZA</td><td>21.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO FRESCA SABOR TORONJA DE 1.5 L 1PZA</td><td>PIEZA</td><td>36.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO FRESCA SABOR TORONJA DE 355 ML 1PZA</td><td>PIEZA</td><td>21.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO SIDRAL MUNDET 6UD 355ML</td><td>PIEZA</td><td>127.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO SIDRAL MUNDET SABOR MANZANA 355 ML</td><td>PIEZA</td><td>21.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO SPRITE 6UD 355ML</td><td>PIEZA</td><td>123.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>REFRESCO SPRITE SABOR LIMA-LIMÓN 6 LATAS DE 355 ML C/U</td><td>PIEZA</td><td>112.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ROLLO DE PLÁSTICO REYNOLDS 300 M</td><td>PIEZA</td><td>295.38</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ROYAL 110GR</td><td>PIEZA</td><td>27.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ROYAL ICILING</td><td>KGM</td><td>106.51</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SABRITONES</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAL CON AJO MEMBERS MARK BY MCCORMICK 1.03 KG</td><td>PIEZA</td><td>164.95</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAL DE GRANO 1 KG</td><td>PIEZA</td><td>18.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAL DE MESA LA FINA YODADA 1 KG</td><td>PIEZA</td><td>26.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAL DEL HIMALAYA 370G</td><td>PIEZA</td><td>190.53</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAL MOLIDA</td><td>PIEZA</td><td>12.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALADITAS GAMESA CON 200 PZAS DE 13 G C/U</td><td>PIEZA</td><td>280.03</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA BBQ HANES 4.3KG</td><td>PIEZA</td><td>331.2</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA CATSUP HEINZ 200 PZAS DE 9 G C/U</td><td>PIEZA</td><td>177.73</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA DE SOYA MM 2LTS</td><td>PIEZA</td><td>296.66</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA DE TOMATE CONTADINA PARA PIZZA 3 KG</td><td>PIEZA</td><td>185.41</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA DEMIGLACE KNORR PROFESIONAL EN POLVO 1.2 KG</td><td>PIEZA</td><td>352.92</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA INGLESA CROSSE & BLACKWELL 980ML</td><td>PIEZA</td><td>181.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA JUGO MAGGI 800ML</td><td>PIEZA</td><td>248.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA MANGO HABANERO MM 4.15KG</td><td>PIEZA</td><td>230.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA RED HOT BUFALO 3.7KG</td><td>PIEZA</td><td>277.48</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA TABASCO MC ILHENNY 4 PZAS DE 60 ML</td><td>PIEZA</td><td>225.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA TIPO INGLESA FRENCHS 1.76 L</td><td>PIEZA</td><td>199.47</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SALSA VALENTINA 6PZAS 350ML</td><td>PIEZA</td><td>113.80</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAZONADOR DE PAELLA EL UNICO 20 G</td><td>PIEZA</td><td>75.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SAZONADOR MAGGI 800 ML</td><td>PIEZA</td><td>228.9</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SERVILLETAS PÉTALO HOJA SENCILLA 4 PAQUETES CON 450 PZAS C/U</td><td>PIEZA</td><td>262.12</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOPA DE CARACOL LA MODERNA 250 G</td><td>PIEZA</td><td>15.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOPA DE CODO LA MODERNA 250 G</td><td>PIEZA</td><td>15.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOPA DE ESTRELLA LA MODERNA 250 G</td><td>PIEZA</td><td>15.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOPA DE FIDEO LA MODERNA 250 G</td><td>PIEZA</td><td>15.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOPA DE LETRA LA MODERNA 250 G</td><td>PIEZA</td><td>15.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOPA DE MUNICIÓN LA MODERNA 250 G</td><td>PIEZA</td><td>15.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SOYA WANDS</td><td>PIEZA</td><td>25.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SUSTITUTO DE CREMA COFFEE MATE NESTLÉ 2 BOTES DE 980 G C/U</td><td>PIEZA</td><td>262.13</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>SUSTITUTO DE CREMA COFFEE MATE NESTLÉ 200 PZAS DE 4 G</td><td>PIEZA</td><td>191.81</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TAJIN 3 PZAS 255GR</td><td>PIEZA</td><td>172.65</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TAPA ENVASE TERMICO 100PZAS .5LT 1LT</td><td>PIEZA</td><td>106.64</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TAPA TERMICA 32RL</td><td>PIEZA</td><td>1.56</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TAPA VASO TÉRMICO</td><td>PIEZA</td><td>585.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TE MCK 25 HIERBABUENA MCK</td><td>PIEZA</td><td>25.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TE MCK 25 MANZANA CANELA</td><td>PIEZA</td><td>25.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TE MCK 25 SOBRES MANZANILLA PKT</td><td>PIEZA</td><td>36.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TE MCK 25 SOBRES NEGRO PKT</td><td>PIEZA</td><td>62.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TE MCK 25 VERDE GREAT VALUE PKT</td><td>PIEZA</td><td>45.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TÉ MEMBERS MARK SABORES SURTIDOS 120 PZAS</td><td>PIEZA</td><td>216.1</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TENEDORES PASTELERO 50 PZA</td><td>PIEZA</td><td>13.17</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TOALLA EN ROLLO INSTITUCIONAL C/6 ROLLOS</td><td>PIEZA</td><td>327.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TOALLAS INTERDOBLADAS KIMBERLY-CLARK SANITAS 20 FAJILLAS CON 150 PZAS C/U</td><td>PIEZA</td><td>534.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TOCINO ECONOMICO</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TORTILLA BURRERA MISSION 2PKT 12PZAS</td><td>PIEZA</td><td>76.72</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TORTILLA DE HARINA TIA ROSA 1.275KG</td><td>PIEZA</td><td>90.78</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TORTILLA DE MAIZ MISSION MAIZ</td><td>KGM</td><td>41.12</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TORTILLA DE MAIZ TORTILLERIA</td><td>KGM</td><td>33.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TORTILLA DE MAIZ WAL-MART</td><td>KGM</td><td>18.62</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TOSTADAS DE MAIZ ECONOMICA PKT</td><td>PIEZA</td><td>41.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>TOTOMOXTLE</td><td>PIEZA</td><td>62.5</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VAINILLA 1LT</td><td>PIEZA</td><td>70.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VASO DE PAPEL P/ CAFÉ 50 PZA DETALLES AZULES</td><td>PIEZA</td><td>138.12</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VASO TÉRMICO 10OZ</td><td>PIEZA</td><td>641.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VASO TERMICO 32 OZ 45PZA</td><td>PIEZA</td><td>210.98</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VASO UNICEL 6 OZ 50 PZA</td><td>PIEZA</td><td>14.29</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINAGRE BALSÁMICO PIANELLO ITALIANO 1 L</td><td>PIEZA</td><td>122.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINAGRE BLANCO MM 6LTS</td><td>PIEZA</td><td>83.11</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINAGRE CLEMENTE JACQUES 3.700 ML BLANCO PZA</td><td>PIEZA</td><td>43.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINAGRE DE BLANCO GREAT VALUE 1LT</td><td>PIEZA</td><td>21.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINAGRE DE MANZANA GREAT VALUE 1LT</td><td>PIEZA</td><td>21.25</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINO BLANCO DON SIMÓN 1 L</td><td>PIEZA</td><td>93.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINO PROSECCO ROSE</td><td>PIEZA</td><td>373.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINO TINTO DON SIMON 1LT</td><td>PIEZA</td><td>73.75</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>VINO TRES CORONAS ORO DULCE TIPO JEREZ 1 L</td><td>PIEZA</td><td>175.45</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>WAFER STICK CHOCOLATE</td><td>PIEZA</td><td>175.0</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ZUCARITAS 1.2KG</td><td>PIEZA</td><td>144.48</td>
+</tr>
+<tr data-class='A'>
+<td>ABARROTES</td><td>ZUCARITAS A GRANEL 5KG</td><td>PIEZA</td><td>293.75</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>JAMON AMERICANO EL MEXICANO KG</td><td>PIEZA</td><td>124.70</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>JAMON DE PAVO FUD VIRGINIA NATURAL 1KG</td><td>PIEZA</td><td>228.9</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>JAMÓN KIR 2 PIEZAS DE 900 GR</td><td>PIEZA</td><td>222.5</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>JAMON SERRANO PKT</td><td>PIEZA</td><td>186.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>JAMON TRADICIONAL DE PAVO CHIMEX KG</td><td>KGM</td><td>103.82</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>MANTEQUILLA GLORIA 1 KG</td><td>PIEZA</td><td>292.83</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>MANTEQUILLA GLORIA 100 PZAS</td><td>PIEZA</td><td>296.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>MANTEQUILLA GLORIA 90GR</td><td>PIEZA</td><td>36.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>MARGARINA SIN SAL MM BARRA DE 1 KG</td><td>PIEZA</td><td>76.72</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>PARMESANO KG</td><td>KGM</td><td>157.97</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>PEPERONI TANGAMANGA 100G</td><td>PIEZA</td><td>93.75</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO AMARILLO AMERICANO MM 1.57 KG</td><td>PIEZA</td><td>203.32</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO AZUL PORTA BLEU 100 GR</td><td>KGM</td><td>85.0</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO BURRATA 454G</td><td>KGM</td><td>203.32</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO CHEDDAR KG</td><td>KGM</td><td>218.75</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO CREMA</td><td>KGM</td><td>118.62</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO CREMA 120 G</td><td>KGM</td><td>36.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO DE CABRA MEMBERS MARK 500G</td><td>PIEZA</td><td>177.75</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO FETA PRESIDENTE 225G</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO GOUDA</td><td>KGM</td><td>181.68</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO MANCHEGO RALLADO MARIPOSA</td><td>KGM</td><td>253.18</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO MEZCLA PARA PIZZA KG</td><td>KGM</td><td>471.86</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO OAXACA KG</td><td>KGM</td><td>162.5</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO PANELA</td><td>KGM</td><td>115.19</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO PARMESANO MM RALLADO 680.4 GR</td><td>PIEZA</td><td>254.46</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO RALLADO PARA ELOTE</td><td>KGM</td><td>58.6</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>QUESO ROQUEFORT KG</td><td>KGM</td><td>320.0</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>SALAMI ESITLO MILANO DANIELE 340G</td><td>PIEZA</td><td>254.46</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>SALCHICHA GO JOCHOS PAVO KG</td><td>KGM</td><td>53.75</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>SALCHICHA P/ HOTDOG 2 KG</td><td>PIEZA</td><td>150.0</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>SALCHICHA PAVO FUD 2.1KG</td><td>KGM</td><td>173.91</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>TOCINETA FORASTERO KG</td><td>KGM</td><td>146.23</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>TOCINO AHUMADO FUD 1 KG</td><td>PIEZA</td><td>343.45</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT ALPURA 125 GRS NATURAL</td><td>PIEZA</td><td>9.37</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT ALPURA 125 GRS SABOR</td><td>PIEZA</td><td>12.5</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT ALPURA CON FRESA 900 G</td><td>PIEZA</td><td>61.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT ALPURA SABOR FRESA 4 KG</td><td>PIEZA</td><td>200.76</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT NATURAL ORGÁNICO MEMBERS MARK 1 KG</td><td>PIEZA</td><td>79.28</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT YOPLAIT BEBILE NATURAL 242GR</td><td>PIEZA</td><td>16.12</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT YOPLAIT CON DURAZNO 1 KG</td><td>PIEZA</td><td>68.75</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT YOPLAIT CON MANGO 1 KG</td><td>PIEZA</td><td>61.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT YOPLAIT CON MANZANA 1 KG</td><td>PIEZA</td><td>61.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGHURT YOPLAIT CON PIÑA COCO 1 KG</td><td>PIEZA</td><td>61.25</td>
+</tr>
+<tr data-class='C'>
+<td>CRE & C. FRIAS</td><td>YOGURT YOPLAIT BATIDO NATURAL 4 KG</td><td>PIEZA</td><td>239.15</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>ACITRON KG</td><td>KGM</td><td>262.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>BLUEBERRY DOMO</td><td>PIEZA</td><td>75.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>CARAMBOLA</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>CEREZA</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>CIRUELA</td><td>KGM</td><td>100.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>CONCENTRADO HORCHATA F DÍAZ 1 L</td><td>KGM</td><td>91.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>CONCENTRADO JAMAICA F DÍAZ 1 L</td><td>KGM</td><td>91.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>CONCENTRADO TAMARINDO F DÍAZ 1 L</td><td>KGM</td><td>91.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>DURAZNO</td><td>KGM</td><td>125.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>DURAZNO CRIOLLO</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>FLOR DE CEMPASUCHITL</td><td>PIEZA</td><td>62.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>FLORES COMESTIBLES</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>FRAMBUESA DOMO</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>FRESA A GRANEL KG</td><td>KGM</td><td>81.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>FRESA DOMO 454GR</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>GRANADA KG</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>GUAYABA</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>JICAMA</td><td>KGM</td><td>12.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>KIWI</td><td>KGM</td><td>100.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MAMEY</td><td>KGM</td><td>100.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MANDARINA</td><td>KGM</td><td>40.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MANGO ATAULFO</td><td>KGM</td><td>50.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MANGO PETACON HEIDI</td><td>KGM</td><td>50.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MANZANA GALA NACIONAL</td><td>KGM</td><td>40.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MANZANA GOLDEN NACIONAL</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MANZANA VERDE NACIONAL</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MELON CHINO</td><td>KGM</td><td>20.4</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>MELON VALENCIANO</td><td>KGM</td><td>20.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>NARANJA</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PAPAYA</td><td>KGM</td><td>63.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PERA</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PERA CRIOLLO</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PIÑA KG</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PLATANO MACHO</td><td>KGM</td><td>32.03</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PLATANO TABASCO</td><td>KGM</td><td>12.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>PULPA DE MARACUYA</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>SANDIA</td><td>KGM</td><td>13.75</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>TAMARINDO</td><td>KGM</td><td>42.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>TORONJA</td><td>KGM</td><td>56.04</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>TURRON 150GR</td><td>KGM</td><td>112.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>UVA ROJA</td><td>KGM</td><td>150.0</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>UVA VERDE S/S</td><td>KGM</td><td>112.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>XOCONOSTLE</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='F'>
+<td>FRUTAS</td><td>ZARZAMORA DOMO</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>AGUAYÓN</td><td>KGM</td><td>200.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ALA ADOBADA</td><td>KGM</td><td>92.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ALA NATURAL</td><td>KGM</td><td>102.66</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ALITAS DE POLLO KG</td><td>KGM</td><td>100.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ALMEJA CHICA</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ARRACHERA CHOICE</td><td>KGM</td><td>237.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ARRACHERA ECONÓMICA BRESCO</td><td>KGM</td><td>125.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>BISTEC DE RES</td><td>KGM</td><td>181.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>BOLSA PAPA A LA FRANCESA CORTE RECTO</td><td>KGM</td><td>63.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CABEZA DE CERDO</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CALAMAR</td><td>KGM</td><td>281.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CALLO DE HACHA</td><td>KGM</td><td>412.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARÓN 31/40 680 G</td><td>KGM</td><td>318.41</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARÓN CHICO</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARON COCIDO GRANDE</td><td>KGM</td><td>350.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARON COCIDO JUMBO</td><td>KGM</td><td>450.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARON COCIDO MEDIANO</td><td>KGM</td><td>300.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARÓN COCTELERO</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARÓN MEDIANO</td><td>KGM</td><td>262.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARÓN PACOTILLA</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARON S/CÁSCARA</td><td>KGM</td><td>212.54</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAMARÓN SECO MEDIANO</td><td>KGM</td><td>412.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CAÑA DE LOMO DE CERDO</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CARNE MOLIDA 80/20</td><td>KGM</td><td>160.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CARNE P/HAMBURGUESA</td><td>KGM</td><td>156.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CARNE PARA HAMBURGUESA BACHOCO 2.4 KG</td><td>KGM</td><td>331.18</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CARNITAS</td><td>KGM</td><td>350.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CECINA ADOBADA</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CECINA NATURAL</td><td>KGM</td><td>262.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHAMBARETE COCIDO C/H</td><td>KGM</td><td>143.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHAMBARETE COCIDO S/H</td><td>KGM</td><td>206.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHICARRÓN PRENSADO</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHICHARRÓN SECO</td><td>KGM</td><td>175.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHISTORRA</td><td>KGM</td><td>150.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHORIZO</td><td>KGM</td><td>81.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHULETA AHUMADA</td><td>KGM</td><td>122.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHULETA DE RES</td><td>KGM</td><td>181.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CHULETA NATURAL</td><td>KGM</td><td>118.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CODILLO</td><td>KGM</td><td>66.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>COSTILLA DE CERDO</td><td>KGM</td><td>107.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>COSTILLA DE RES</td><td>KGM</td><td>143.42</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>CUETE DE RES</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>DEDOS DE QUESO</td><td>KGM</td><td>150.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ESPINAZO DE CERDO</td><td>KGM</td><td>111.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>FALDA DE CERDO ALDILLA</td><td>KGM</td><td>210.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>FILETE BASSA</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>FILETE DE POLLO</td><td>KGM</td><td>210.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>FILETE DE RES EN CAÑA</td><td>KGM</td><td>363.71</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>FILETE TILAPIA</td><td>KGM</td><td>143.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>HAMBURGUESA DE POLLO</td><td>KGM</td><td>112.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>LENGUA DE CERDO</td><td>KGM</td><td>103.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>LENGUA DE RES</td><td>KGM</td><td>337.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>LOMO CANADIENSE PKT</td><td>KGM</td><td>102.37</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MANTECA</td><td>KGM</td><td>69.95</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MEDALLON DE ATUN KG</td><td>KGM</td><td>331.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MIGAJA CHICHARRON PRENSADO</td><td>KGM</td><td>175.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MILANESA DE CERDO</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MILANESA DE POLLO</td><td>KGM</td><td>168.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MILANESA DE RES</td><td>KGM</td><td>223.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MOJARRA ENTERA</td><td>KGM</td><td>125.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MOLIDA DE CERDO</td><td>KGM</td><td>136.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>MOLIDA DE RES PRIME</td><td>KGM</td><td>200.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>NUGGETS</td><td>KGM</td><td>87.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PANZA DE RES</td><td>KGM</td><td>110.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PAPAS A LA FRANCESA RECTA</td><td>KGM</td><td>63.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PATA PICADA</td><td>KGM</td><td>73.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PECHUGA ENTERA</td><td>KGM</td><td>156.25</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PICAÑA KG</td><td>KGM</td><td>413.68</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PIERNA DE CERDO LIMPIA</td><td>KGM</td><td>137.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PIERNA Y MUSLO</td><td>KGM</td><td>78.75</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>POLLO ENTERO</td><td>KGM</td><td>66.3</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>PRINGLES MIX 15 PZAS DE 37 Y 40 G C/U</td><td>KGM</td><td>274.91</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ROBALO ENTERO</td><td>KGM</td><td>287.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>ROBALO FILETE</td><td>KGM</td><td>450.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>SALMON AHUMADO CARPACCIO KG</td><td>KGM</td><td>437.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>SALMON LONJA KG</td><td>KGM</td><td>375.0</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>SUADERO</td><td>KGM</td><td>157.5</td>
+</tr>
+<tr data-class='K'>
+<td>PROTEINAS</td><td>SURIMI KG</td><td>KGM</td><td>87.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>AJONJOLI BLANCO</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>AJONJOLI GARAPIÑADO</td><td>KGM</td><td>120.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>AJONJOLI NEGRO</td><td>KGM</td><td>93.75</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ALMENDRA ENTERA</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ALMENDRA FILETEADA</td><td>KGM</td><td>212.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ALUBIAS</td><td>KGM</td><td>45.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>AMARANTO</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ANIS ESTRELLA</td><td>KGM</td><td>450.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ARROZ ARBORIO</td><td>PIEZA</td><td>81.12</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ARROZ PAISA A GRANEL</td><td>KGM</td><td>26.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ARROZ PARA PAELLA CRISTAL 750 G</td><td>PIEZA</td><td>75.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ARROZ PARA SUSHI SOS SUPER EXTRA 1KG</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ARROZ SALVAJE SANTINA 500G</td><td>PIEZA</td><td>81.15</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>ARROZ SHETTINO PRECOCIDO 5PZAS 1KG</td><td>PIEZA</td><td>143.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>AVENA</td><td>KGM</td><td>26.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>AVENA INTEGRAL QUAKER INSTANT VARIEDAD DE SABORES 31 PZAS</td><td>PIEZA</td><td>300.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CACAHUATE ENCHILADO</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CACAHUATE JAPONES</td><td>KGM</td><td>70.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CACAHUATE SALADO</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CACAHUATE TOSTADO</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CAMARON SECO SIN CABEZA MEDIANO</td><td>KGM</td><td>412.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CAMOTE AMARILLO</td><td>KGM</td><td>56.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CANELA EN RAMA</td><td>KGM</td><td>437.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CANELA MOLIDA</td><td>KGM</td><td>52.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHIA</td><td>KGM</td><td>93.75</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE ANCHO KG</td><td>KGM</td><td>275.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE CHIPOTLE SECO</td><td>KGM</td><td>412.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE DE ARBOL</td><td>KGM</td><td>187.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE EN HOJUELA BOTE</td><td>PIEZA</td><td>100.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE GUAJILLO</td><td>KGM</td><td>145.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE MORITA</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CHILE PASILLA</td><td>KGM</td><td>212.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>CLAVO</td><td>KGM</td><td>312.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>COMINO</td><td>KGM</td><td>175.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FECULA DE MAIZ</td><td>KGM</td><td>27.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FRIJOL MICHIGAN</td><td>KGM</td><td>46.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FRIJOL NEGRO</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FRIJOL PINTO</td><td>KGM</td><td>40.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FRIJOLES ISADORA BAYOS REFRITOS 6 PZAS DE 430 G</td><td>PIEZA</td><td>121.47</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FRIJOLES NEGROS MEMBERS MARK REFRITOS DE 3 KG</td><td>PIEZA</td><td>101.01</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>FRUTOS SECOS</td><td>KGM</td><td>150.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>GARBANZO</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>HARINA DE TRIGO</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>HARINA DE TRIGO BULTO</td><td>KGM</td><td>562.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>JAMAICA</td><td>KGM</td><td>162.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>LAUREL</td><td>KGM</td><td>125.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>LENTEJA CHICA</td><td>KGM</td><td>40.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>LENTEJA GRANDE</td><td>KGM</td><td>45.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>LEVADURA FRESCA 500G</td><td>KGM</td><td>87.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>LEVADURA SECA 500G</td><td>PIEZA</td><td>93.375</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>MAIZ PALOMERO</td><td>KGM</td><td>26.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>MEJORANA</td><td>KGM</td><td>120.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>MEZCLA SALADA MEMBERS MARK DE CACAHUATES Y SEMILLAS 850 G</td><td>KGM</td><td>121.47</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>NUEZ</td><td>KGM</td><td>325.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>NUEZ DE CASTILLA 1.13KG</td><td>KGM</td><td>216.91</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>NUEZ GRANILLO</td><td>KGM</td><td>300.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PAN MOLIDO YUKAI PANKO 1 KG</td><td>PIEZA</td><td>216.98</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PAPRIKA</td><td>KGM</td><td>56.25</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PASTA PARA FRITURA REDONDA</td><td>KGM</td><td>45.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PEPITA VERDE</td><td>KGM</td><td>250.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PILONCILLO</td><td>KGM</td><td>47.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PIMIENTA GORDA</td><td>KGM</td><td>237.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PIÑON</td><td>KGM</td><td>1187.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PISTACHE</td><td>KGM</td><td>325.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>PRETZEL</td><td>KGM</td><td>125.3125</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>QUINOA KG</td><td>KGM</td><td>87.5</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>SEMOLA DE TRIGO</td><td>KGM</td><td>23.75</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>TAPIOCA</td><td>KGM</td><td>93.75</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>TOMILLO</td><td>KGM</td><td>200.0</td>
+</tr>
+<tr data-class='D'>
+<td>SEM. Y ESP.</td><td>UVA PASA KG</td><td>KGM</td><td>68.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ACELGA KG</td><td>KGM</td><td>56.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>AGUACATE</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>AJO A GRANEL</td><td>KGM</td><td>200.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>AJO PELADO MR LUCKY</td><td>PIEZA</td><td>112.59</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ALBAHACA KG</td><td>KGM</td><td>62.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>APIO</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ARUGULA</td><td>KGM</td><td>250.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ARUGULA DOMO 250GR</td><td>PIEZA</td><td>89.38</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BERENJENA</td><td>KGM</td><td>75.37</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BETABEL KG</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BROCOLI</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BROTE BETABEL</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BROTE CHICHARO</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BROTE CILANTRO</td><td>PIEZA</td><td>87.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>BULBO DE HINOJO</td><td>PIEZA</td><td>225.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CALABAZA</td><td>KGM</td><td>18.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CALABAZA DE HALLOWEEN</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CEBOLLA BLANCA GRANDE</td><td>KGM</td><td>27.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CEBOLLA CAMBRAY KG</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CEBOLLA MORADA</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CEBOLLIN KG</td><td>KGM</td><td>625.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHAMPIÑON KG</td><td>KGM</td><td>107.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHAMPIÑON REBANADO MONTE BLANCO 2.835KG</td><td>KGM</td><td>210.98</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHAROLA DE VERDURA SOPAS</td><td>PIEZA</td><td>16.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHAYOTE</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHICHARO</td><td>PIEZA</td><td>36.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHICHARO LA HUERTA CONGELADO 500G</td><td>PIEZA</td><td>62.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHILE HABANERO</td><td>KGM</td><td>162.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHILE JALAPEÑO</td><td>KGM</td><td>41.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHILE POBLANO</td><td>KGM</td><td>42.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CHILE SERRANO</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>CILANTRO MANOJO KG</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>COL BLANCA</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>COL DE BRUSELAS</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>COL MORADA</td><td>PIEZA</td><td>50.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>COLIFLOR PZA</td><td>PIEZA</td><td>43.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>DAIKON NABO</td><td>PIEZA</td><td>56.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>DOMO COGOLLOS DE LECHUGA (LECHUGA BABY)</td><td>PIEZA</td><td>57.55</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>DOMO ESPINACA BABY</td><td>KGM</td><td>148.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>EJOTE</td><td>KGM</td><td>50.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ELOTE DESGRANADO NATURAL KG</td><td>KGM</td><td>75.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ELOTE PZA</td><td>PIEZA</td><td>10.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>EPAZOTE MANOJO KG</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ESPARRAGOS</td><td>KGM</td><td>225.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ESPINACA MANOJO KG</td><td>KGM</td><td>50.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>FLOR DE CALABAZA</td><td>KGM</td><td>125.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>GENGIBRE</td><td>KGM</td><td>150.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>GERMEN DE ALFALFA</td><td>KGM</td><td>62.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>GERMEN DE SOYA</td><td>KGM</td><td>65.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>HIERBABUENA MANOJO KG</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>HOJA DE HINOJO</td><td>KGM</td><td>38.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>HOJA DE LIMON ZACATILLO</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>HUITLACOCHE</td><td>PIEZA</td><td>100.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>JITOMATE BOLA GRANDE</td><td>KGM</td><td>54.3375</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>JITOMATE BOLA JUMBO 2.8 KG</td><td>KGM</td><td>152.19</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>JITOMATE CHERRY A GRANEL</td><td>KGM</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>JITOMATE SALADET PRIMERA</td><td>KGM</td><td>33.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>JITOMATE SALADET SEGUNDA</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LECHUGA ESCAROLA</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LECHUGA ITALIANA</td><td>PIEZA</td><td>16.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LECHUGA OREJONA</td><td>PIEZA</td><td>16.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LECHUGA ROMANA</td><td>PIEZA</td><td>12.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LECHUGA SANGRIA</td><td>PIEZA</td><td>16.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LIMON CON SEMILLA</td><td>KGM</td><td>13.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LIMON EUREKA</td><td>KGM</td><td>86.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>LIMON SIN SEMILLA</td><td>KGM</td><td>28.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>MENTA MANOJO KG</td><td>PIEZA</td><td>125.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>NOPAL LIMPIO</td><td>KGM</td><td>40.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PAPA ALPHA KG</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PAPA BLANCA ARPILLA 4.5 KG</td><td>KGM</td><td>203.35</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PAPA CAMBRAY</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PAPALO MANOJO KG</td><td>KGM</td><td>50.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PEPINO</td><td>KGM</td><td>28.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PEREJIL CHINO MANOJO KG</td><td>KGM</td><td>187.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PEREJIL MANOJO KG</td><td>KGM</td><td>43.75</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PIMIENTOS MORRON</td><td>KGM</td><td>50.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PORO</td><td>PIEZA</td><td>37.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>PORTOBELLO KG</td><td>KGM</td><td>250.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>RABANO</td><td>KGM</td><td>32.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ROMERO KG</td><td>KGM</td><td>65.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>SETAS</td><td>KGM</td><td>31.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>TOMATE PELADO</td><td>KGM</td><td>27.5</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>TUNA MORADA PRIMERA</td><td>KGM</td><td>15.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>TUNA VERDE PRIMERA</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>VERDOLAGAS</td><td>KGM</td><td>25.0</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ZANAHORIA</td><td>KGM</td><td>16.25</td>
+</tr>
+<tr data-class='M'>
+<td>VERDURAS</td><td>ZANAHORIA DE COLORES</td><td>KGM</td><td>312.5</td>
+</tr>
+
         </tbody>
     </table>
 
-    <!-- Resumen Section -->
-    <div class="resumen-section">
-        <h2>Resumen de Pedido</h2>
-        <table id="resumen-table">
-            <thead>
-                <tr>
-                    <th>Grupo</th>
-                    <th>Producto</th>
-                    <th>Unidad</th>
-                    <th>Cantidad</th>
-                    <th>Notas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Resumen items will be dynamically added here -->
-            </tbody>
-        </table>
+    <!-- Buttons for printing and buying -->
+    <div class="button">
+        <button class="buy-button">Buy Now</button>
+        <button class="print-button" onclick="window.print()">Print Catalog</button>
     </div>
 
-<!-- Confirmation and Submit Section -->
-<!-- Confirmation and Submit Section -->
-<div class="confirm-section">
-    <input type="checkbox" id="confirm-checkbox" onchange="toggleSubmitButton()">
-    <label for="confirm-checkbox">Confirmo que he revisado el pedido</label>
-    <br>
-    <button id="submit-button" disabled onclick="submitOrder()">Enviar Pedido</button>
-</div>
+    <!-- Footer with rights information -->
+    <footer>
+        © 2025 FRESH PRIME. All rights reserved.
+    </footer>
 
-
-
-<!-- Footer -->
-<footer>
-    © 2024 FRESH PRIME. All rights reserved.
-</footer>
-
+<!-- JavaScript function to filter table rows based on class -->
 <script>
-let orderSummary = []; // Accesible a todas las funciones
-const submitButton = document.querySelector('#submit-button'); // Verifica que este ID coincida
-const loadingSpinner = document.querySelector('#loadingSpinner');
-
-// Event listener para el botón de enviar
-submitButton.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevenir el comportamiento predeterminado
-
-    // Actualiza el resumen y obtén el pedido
-    orderSummary = updateResumen(); // Asegúrate de que orderSummary se actualice antes de validar
-
-    if (orderSummary.length === 0) {
-        alert('Por favor, añade al menos un producto antes de enviar tu pedido.');
-        return;
-    }
-
-    submitButton.disabled = true; // Deshabilitar el botón
-    loadingSpinner.style.display = 'block'; // Mostrar el spinner
-
-    // 🔹 **Send Order to Google Sheets**
-    fetch('https://script.google.com/macros/s/AKfycbxcH9gXMepOHYM-6hel6vZ7UQLYWYs2hb_2kNZFM3wOWwlgZsQia7lnhi2se-wG2DW4Uw/exec', { // Replace with your Google Apps Script URL
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderSummary) // Send the full order summary
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message); // Show success message
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error al enviar el pedido. Por favor, intenta de nuevo.');
-    })
-    .finally(() => {
-        submitButton.disabled = false; // Habilitar nuevamente el botón
-        loadingSpinner.style.display = 'none'; // Ocultar el spinner
-    });
-});
-
-// Función para actualizar el resumen
-function updateResumen() {
-    const resumenTableBody = document.querySelector("#resumen-table tbody");
-    resumenTableBody.innerHTML = ""; // Limpiar el resumen existente
-    orderSummary = []; // Limpiar el array de resumen
-
-    const rows = document.querySelectorAll("#product-table tbody tr");
-
-    rows.forEach(row => {
-        const quantity = row.querySelector(".quantity-input").value;
-        const grupo = row.querySelector("td:nth-child(1)").innerText;
-        const producto = row.querySelector("td:nth-child(2)").innerText;
-        const unidad = row.querySelector("td:nth-child(3)").innerText;
-        const notas = row.querySelector("td:nth-child(5) input").value;
-
-        if (quantity > 0) {
-            // Crear una nueva fila para el resumen
-            const newRow = document.createElement("tr");
-
-            newRow.innerHTML = `
-                <td>${grupo}</td>
-                <td>${producto}</td>
-                <td>${unidad}</td>
-                <td>${quantity}</td>
-                <td>${notas}</td>
-            `;
-
-            resumenTableBody.appendChild(newRow);
-
-            // Añadir este ítem al resumen de pedidos para enviar al backend
-            orderSummary.push({
-                grupo: grupo,
-                producto: producto,
-                unidad: unidad,
-                cantidad: quantity,
-                notas: notas
-            });
-            console.log('Order Summary:', orderSummary); // Verificar el contenido del resumen
-        }
-    });
-
-    return orderSummary; // Retornar el resumen actualizado
-}
-
-// Función para alternar el botón de envío basado en el estado del checkbox
-function toggleSubmitButton() {
-    const checkbox = document.getElementById("confirm-checkbox");
-    submitButton.disabled = !checkbox.checked; // Habilitar el botón si el checkbox está marcado
-    console.log("Checkbox estado:", checkbox.checked); // Verificar el estado del checkbox
-}
-
-// Función para filtrar la tabla
 function filterTable() {
-    const filter = document.getElementById("class-filter").value;
-    const rows = document.querySelectorAll("#product-table tbody tr");
+    // Get the selected filter value
+    var selectedClass = document.getElementById("class-filter").value;
 
-    rows.forEach(row => {
-        if (filter === "All" || row.getAttribute("data-class") === filter) {
-            row.style.display = ""; // Mostrar la fila
+    // Get all table rows
+    var rows = document.querySelectorAll("#product-table tbody tr");
+
+    // Loop through rows and show/hide based on the selected filter
+    rows.forEach(function(row) {
+        var rowClass = row.getAttribute("data-class");
+
+        // If "All" is selected or row's class matches the selected filter, show the row
+        if (selectedClass === "All" || selectedClass === "Class " + rowClass) {
+            row.style.display = "";
         } else {
-            row.style.display = "none"; // Ocultar la fila
+            // Otherwise, hide the row
+            row.style.display = "none";
         }
     });
 }
-
-    </script>
-
-
-
+</script>
 
 </body>
 </html>
-
