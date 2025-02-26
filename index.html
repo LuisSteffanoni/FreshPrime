@@ -328,30 +328,8 @@
             .buttons { margin-top: 15px; }
             .btn { padding: 8px 12px; font-size: 14px; }
         }
-        .buy-button {
-            background-color: #4CAF50; /* Green buy button */
-        }
-        .buy-button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-        .print-button {
-            background-color: #f44336; /* Red print button */
-        }
-        .print-button:hover {
-            background-color: #d32f2f; /* Darker red on hover */
-        }
         .print-resumen-button {
-            background-color: #4CAF50; /* Green print resumen button */
-            margin-top: 4px; /* Reduced margin for mobile */
-        }
-        .print-resumen-button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-        @media (min-width: 768px) {
-            .print-resumen-button { margin-top: 8px; }
-        }
-        .pdf-button {
-            background-color: #4CAF50; /* Green PDF button */
+            background-color: #4CAF50; /* Green Excel button */
             padding: 6px 10px; /* Reduced padding for mobile */
             border: none;
             color: white;
@@ -360,11 +338,11 @@
             border-radius: 3px; /* Smaller radius for performance */
             font-size: 12px; /* Smaller on mobile */
         }
-        .pdf-button:hover {
+        .print-resumen-button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
         @media (min-width: 768px) {
-            .pdf-button { padding: 8px 12px; font-size: 14px; border-radius: 4px; }
+            .print-resumen-button { margin-top: 8px; }
         }
         .excel-button {
             background-color: #4CAF50; /* Green Excel button */
@@ -381,6 +359,29 @@
         }
         @media (min-width: 768px) {
             .excel-button { padding: 8px 12px; font-size: 14px; border-radius: 4px; }
+        }
+        .link {
+            color: #4CAF50; /* Green text to match your design */
+            text-decoration: none; /* Remove default underline */
+            font-weight: bold; /* Make it stand out */
+        }
+        .link:hover {
+            text-decoration: underline; /* Underline on hover for interactivity */
+            color: #45a049; /* Darker green on hover */
+        }
+        @media (max-width: 768px) {
+            .link { font-size: 10px; } /* Smaller on mobile */
+        }
+        @media (min-width: 768px) {
+            .link { font-size: 12px; } /* Larger on desktop/tablet */
+        }
+        @media print {
+            .link {
+                color: #4CAF50 !important; /* Ensure green prints */
+                text-decoration: underline; /* Ensure underline prints */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
         footer {
             text-align: center;
@@ -502,7 +503,7 @@
                 print-color-adjust: exact;
             }
             /* Ensure all green elements print correctly */
-            .header h2, .buy-button, .print-resumen-button, .pdf-button, .excel-button, .notes-btn, .resumen h2, .loading {
+            .header h2, .print-resumen-button, .excel-button, .notes-btn, .resumen h2, .loading, .link {
                 color: white !important; /* Ensure text color prints */
                 background-color: #4CAF50 !important; /* Green background in RGB */
                 -webkit-print-color-adjust: exact;
@@ -532,6 +533,7 @@
                 <p>Orden de Compra 2025</p>
                 <p id="dynamic-timestamp">19 Febrero - 6 Marzo</p>
                 <p>Contacto: info@freshprime.com | Tel: (55) 1234-5678</p>
+                <p>Visítanos en Instagram: <a href="https://www.instagram.com/fresh_prime_foods?igsh=MWFyendicGV4bnRxMQ%3D%3D&utm_source=qr" target="_blank" class="link">visit us here</a></p>
                 <p>Visítanos en: www.freshprime.com</p>
             </div>
         </div>
@@ -566,6 +568,7 @@
 
         <div class="loading">Cargando productos...</div>
         
+
 <div class="product-table" id="product-list">
     <div class="product-card" data-class="Abarrotes">
         <h3>ACEITUNA NEGRA</h3>
@@ -2874,7 +2877,6 @@
 </div>
 
 
-
             <!-- Add more product cards with your full product list here, ensuring data-class is set correctly (e.g., 'Frutas y Verduras' or 'Chiles, semillas y especias') -->
         </div>
 
@@ -2908,15 +2910,12 @@
         <!-- Checkbox section for order confirmation -->
         <div class="buttons">
             <input type="checkbox" id="confirm-checkbox">
-            <label for="confirm-checkbox">Confirmo que los datos son correctos y estoy listo para comprar.</label>
+            <label for="confirm-checkbox">Confirmo que los datos son correctos.</label>
         </div>
 
-        <!-- Buttons for Buy and Print -->
+        <!-- Buttons for Print Resumen and Excel Export -->
         <div class="buttons">
-            <button class="buy-button" onclick="submitOrder()">Comprar</button>
-            <button class="print-button" onclick="window.print()">Imprimir Todo</button>
             <button class="print-resumen-button" onclick="printResumen()">Imprimir Resumen</button>
-            <button class="pdf-button" onclick="downloadPDF()">Descargar PDF</button>
             <button class="excel-button" onclick="exportToExcel()">Exportar a Excel</button>
         </div>
     </div>
@@ -3037,17 +3036,6 @@
             });
         }
 
-        function submitOrder() {
-            const checkbox = document.getElementById('confirm-checkbox');
-            if (checkbox.checked) {
-                alert('Orden enviada exitosamente a Fresh Prime! Por favor, espera confirmación.');
-                // Here, you could add logic to send the order via email, form submission, or API
-                // For example: mailto:FreshPrimeGroup@outlook.com?subject=Orden de Compra&body=Resumen: ${document.getElementById('resumen-tbody').innerHTML}
-            } else {
-                alert('Por favor, confirme que los datos son correctos antes de enviar la orden.');
-            }
-        }
-
         function printResumen() {
             window.print();
         }
@@ -3080,135 +3068,6 @@
             }, 300); // Debounce by 300ms to reduce DOM updates
         });
 
-        function filterTable() {
-            const filter = document.getElementById("class-filter").value;
-            const cards = document.querySelectorAll('#product-list .product-card');
-
-            cards.forEach(card => {
-                const cardClass = card.getAttribute("data-class");
-                if (filter === "all" || cardClass === filter) {
-                    card.style.display = "block"; // Show card
-                } else {
-                    card.style.display = "none"; // Hide card
-                }
-            });
-        }
-
-        function downloadPDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
-            });
-
-            // Add Fresh Prime logo (using base64 or URL; adjust path if needed)
-            const logoImg = new Image();
-            logoImg.src = 'https://i.imgur.com/HegNprK.jpeg'; // Ensure this URL is accessible
-            doc.addImage(logoImg, 'JPEG', 10, 10, 30, 30); // Position and size logo
-
-            // Add header text
-            doc.setFontSize(16);
-            doc.setTextColor(76, 175, 80); // Green text (#4CAF50 in RGB)
-            doc.text("Fresh Prime Group", 50, 20);
-            doc.text("Resumen de Compra", 50, 45);
-
-            // Add dynamic timestamp
-            const now = new Date();
-            const options = { 
-                day: 'numeric', 
-                month: 'long', 
-                year: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit',
-                timeZone: 'America/Mexico_City' // Adjusted to Mexico City for your location
-            };
-            const formattedDate = now.toLocaleString('es-MX', options).replace(/,/, ' -');
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0); // Black text
-            doc.text(`Fecha y Hora: ${formattedDate}`, 50, 60);
-
-            // Add contact/info
-            doc.text("Contacto: info@freshprime.com | Tel: (55) 1234-5678", 50, 70);
-            doc.text("Visítanos en: www.freshprime.com", 50, 80);
-
-            // Add resumen table
-            doc.setFontSize(14);
-            doc.setTextColor(76, 175, 80); // Green header
-            const tableStartY = 100;
-            doc.text("Resumen de Compra", 10, tableStartY - 10);
-            doc.setFontSize(10); // Reduced font size for performance
-            doc.setTextColor(0, 0, 0); // Black text for table
-
-            const cards = document.querySelectorAll('#product-list .product-card');
-            let y = tableStartY;
-            let tableData = [];
-
-            cards.forEach(card => {
-                const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
-                if (quantity > 0) {
-                    const product = card.querySelector('h3').textContent;
-                    const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', '');
-                    const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
-                    const itemTotal = price * quantity;
-                    const notesInput = card.querySelector('.notes-input');
-                    const notes = notesInput?.style?.display === "block" ? notesInput.value : 'Sin notas';
-
-                    tableData.push([
-                        product,
-                        quantity.toFixed(2),
-                        unit,
-                        `$ ${price.toFixed(2)}`,
-                        `$ ${itemTotal.toFixed(2)}`,
-                        notes
-                    ]);
-                }
-            });
-
-            // Calculate total
-            const total = parseFloat(document.getElementById('resumen-total-amount').textContent) || 0;
-            tableData.push(['', '', '', '', 'Total a Pagar', `$ ${total.toFixed(2)}`]);
-
-            // Draw table with green header and borders (optimized for performance)
-            doc.autoTable({
-                startY: y,
-                head: [['Producto', 'Cantidad', 'Unidad', 'Precio', 'Total', 'Notas']],
-                body: tableData,
-                headStyles: {
-                    fillColor: [76, 175, 80], // Green header (#4CAF50)
-                    textColor: [255, 255, 255], // White text
-                    lineWidth: 0.1,
-                    lineColor: [76, 175, 80] // Green border
-                },
-                bodyStyles: {
-                    lineWidth: 0.1,
-                    lineColor: [76, 175, 80], // Green borders
-                    fillColor: [248, 250, 249] // Super light green (#f8faf9)
-                },
-                alternateRowStyles: {
-                    fillColor: [255, 255, 255] // White for alternating rows
-                },
-                margin: { left: 10, right: 10 },
-                styles: {
-                    fontSize: 8, // Reduced font size for performance
-                    cellPadding: 2,
-                    overflow: 'linebreak'
-                },
-                columnStyles: {
-                    0: { cellWidth: 40 }, // Adjust column widths for performance
-                    1: { cellWidth: 20 },
-                    2: { cellWidth: 20 },
-                    3: { cellWidth: 20 },
-                    4: { cellWidth: 20 },
-                    5: { cellWidth: 40 }
-                }
-            });
-
-            // Save the PDF
-            doc.save("resumen_compra_fresh_prime.pdf");
-        }
-
         function exportToExcel() {
             const cards = document.querySelectorAll('#product-list .product-card');
             let csvContent = "Producto,Cantidad,Unidad,Precio,Total,Notas\n";
@@ -3227,6 +3086,7 @@
                 }
             });
             csvContent += `\nTotal a Pagar,$${document.getElementById('resumen-total-amount').textContent},,,,,`;
+            csvContent += `\nVisítanos en Instagram: https://www.instagram.com/fresh_prime_foods?igsh=MWFyendicGV4bnRxMQ%3D%3D&utm_source=qr`;
 
             // Create a Blob and trigger download (optimized for performance)
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
