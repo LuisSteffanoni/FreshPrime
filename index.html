@@ -105,7 +105,7 @@
                 max-width: 200px; /* Larger logo on desktop/tablet */
             }
         }
-        /* Green glow effect for logo */
+        /* Green glow effect for logo (simplified to reduce performance impact) */
         .cover-page img.logo::after {
             content: '';
             position: absolute;
@@ -114,14 +114,10 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(144, 238, 144, 0.8); /* Green glow */
+            box-shadow: 0 0 5px rgba(144, 238, 144, 0.5); /* Simplified glow */
             opacity: 0.7;
             z-index: -1;
-            animation: glowPulse 2s infinite alternate;
-        }
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 5px rgba(144, 238, 144, 0.5); }
-            100% { box-shadow: 0 0 15px rgba(144, 238, 144, 0.8); }
+            animation: none; /* Removed animation to reduce CPU usage */
         }
         .cover-page h1 {
             font-size: 18px; /* Smaller on mobile */
@@ -151,28 +147,30 @@
         .info-container {
             border-left: 2px solid rgba(144, 238, 144, 0.5); /* Green border */
             padding-left: 15px;
-            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow on left */
+            box-shadow: 4px 0 5px rgba(0, 0, 0, 0.1); /* Reduced shadow for performance */
         }
         .container {
             max-width: 100%; /* Full width on mobile */
             margin: 10px auto; /* Reduced margin for mobile */
             background: white;
             padding: 10px; /* Reduced padding for mobile */
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 6px; /* Slightly smaller for performance */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Reduced shadow for performance */
         }
         @media (min-width: 768px) {
             .container {
                 max-width: 1200px;
                 margin: 20px auto;
                 padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             }
         }
         .header {
             text-align: center;
-            border-bottom: 3px solid #4CAF50; /* Green header */
-            padding-bottom: 10px; /* Reduced padding for mobile */
-            margin-bottom: 10px; /* Reduced margin for mobile */
+            border-bottom: 2px solid #4CAF50; /* Reduced border thickness for performance */
+            padding-bottom: 8px; /* Reduced padding for mobile */
+            margin-bottom: 8px; /* Reduced margin for mobile */
         }
         .header h2 {
             color: #4CAF50; /* Green text */
@@ -180,7 +178,7 @@
             margin: 5px 0;
         }
         @media (min-width: 768px) {
-            .header { padding-bottom: 15px; margin-bottom: 20px; }
+            .header { border-bottom: 3px solid #4CAF50; padding-bottom: 15px; margin-bottom: 20px; }
             .header h2 { font-size: 24px; margin: 10px 0; }
         }
         h1 {
@@ -193,12 +191,12 @@
         }
         .filter-section {
             text-align: center;
-            margin-bottom: 10px; /* Reduced margin for mobile */
+            margin-bottom: 8px; /* Reduced margin for mobile */
         }
         select, input[type="text"] {
-            padding: 8px; /* Reduced padding for mobile */
+            padding: 6px; /* Reduced padding for mobile */
             font-size: 14px; /* Smaller on mobile */
-            margin: 5px 0; /* Reduced margin for mobile */
+            margin: 4px 0; /* Reduced margin for mobile */
         }
         @media (min-width: 768px) {
             .filter-section { margin-bottom: 20px; }
@@ -207,14 +205,14 @@
         .product-table {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* Always two columns, everywhere */
-            gap: 15px; /* Reduced gap for mobile */
-            padding: 10px; /* Reduced padding for mobile */
+            gap: 10px; /* Reduced gap for performance */
+            padding: 8px; /* Reduced padding for mobile */
             display: none; /* Hidden until loaded */
         }
         @media (max-width: 768px) {
             .product-table {
-                gap: 10px; /* Smaller gap on mobile */
-                padding: 5px; /* Even smaller padding on mobile */
+                gap: 8px; /* Smaller gap on mobile */
+                padding: 4px; /* Even smaller padding on mobile */
             }
             .product-card {
                 width: 100%; /* Full width, but maintain two columns */
@@ -222,113 +220,113 @@
         }
         @media (min-width: 768px) {
             .product-table {
-                gap: 20px;
-                padding: 20px;
+                gap: 15px;
+                padding: 15px;
             }
         }
         .product-card {
             background: #f8faf9; /* Super light green for a smooth, subtle look */
-            padding: 10px; /* Reduced padding for mobile */
+            padding: 8px; /* Reduced padding for mobile */
             border: 1px solid #ddd;
-            border-radius: 6px;
-            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 4px; /* Smaller radius for performance */
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); /* Reduced shadow for performance */
+            transition: all 0.2s ease; /* Faster transition for performance */
             display: flex;
             flex-direction: column;
         }
         @media (min-width: 768px) {
-            .product-card { padding: 15px; }
+            .product-card { padding: 12px; border-radius: 6px; box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
         }
         .product-card:hover {
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-            transform: scale(1.03);
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02); /* Reduced scale for performance */
         }
         .product-card h3 {
             margin: 0;
             color: #333;
-            font-size: 16px; /* Smaller on mobile */
+            font-size: 14px; /* Smaller on mobile */
         }
         .product-card p {
-            margin: 5px 0;
+            margin: 4px 0; /* Reduced margin for mobile */
             color: #555;
-            font-size: 12px; /* Smaller on mobile */
+            font-size: 10px; /* Smaller on mobile */
         }
         @media (min-width: 768px) {
-            .product-card h3 { font-size: 18px; }
-            .product-card p { font-size: 14px; }
+            .product-card h3 { font-size: 16px; }
+            .product-card p { margin: 5px 0; font-size: 12px; }
         }
         .free-item {
             border: 2px solid #4CAF50; /* Green border for free items */
             background-color: #e8f5e9;
         }
         .quantity-controls {
-            margin: 5px 0; /* Reduced margin for mobile */
+            margin: 4px 0; /* Reduced margin for mobile */
         }
         @media (min-width: 768px) {
-            .quantity-controls { margin: 10px 0; }
+            .quantity-controls { margin: 8px 0; }
         }
         .quantity-input {
-            padding: 5px; /* Reduced padding for mobile */
-            width: 50px; /* Smaller width on mobile */
+            padding: 4px; /* Reduced padding for mobile */
+            width: 40px; /* Smaller width on mobile */
             text-align: center;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px; /* Smaller on mobile */
+            border-radius: 3px; /* Smaller radius for performance */
+            font-size: 12px; /* Smaller on mobile */
         }
         @media (min-width: 768px) {
-            .quantity-input { padding: 5px; width: 60px; font-size: 16px; }
+            .quantity-input { padding: 5px; width: 50px; font-size: 14px; }
         }
         .notes-btn {
-            padding: 5px 8px; /* Reduced padding for mobile */
+            padding: 4px 6px; /* Reduced padding for mobile */
             background-color: #4CAF50; /* Green button */
             color: white;
             border: none;
             cursor: pointer;
-            margin-top: 5px; /* Reduced margin for mobile */
-            border-radius: 4px;
-            font-size: 12px; /* Smaller on mobile */
+            margin-top: 4px; /* Reduced margin for mobile */
+            border-radius: 3px; /* Smaller radius for performance */
+            font-size: 10px; /* Smaller on mobile */
         }
         .notes-btn:hover {
             background-color: #45a049; /* Darker green on hover */
         }
         @media (min-width: 768px) {
-            .notes-btn { padding: 5px 10px; margin-top: 10px; font-size: 14px; }
+            .notes-btn { padding: 5px 8px; margin-top: 8px; font-size: 12px; border-radius: 4px; }
         }
         .notes-input {
             width: 100%;
-            padding: 5px; /* Reduced padding for mobile */
-            margin-top: 5px; /* Reduced margin for mobile */
+            padding: 4px; /* Reduced padding for mobile */
+            margin-top: 4px; /* Reduced margin for mobile */
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 12px; /* Smaller on mobile */
+            border-radius: 3px; /* Smaller radius for performance */
+            font-size: 10px; /* Smaller on mobile */
             display: none; /* Hidden by default */
         }
         @media (min-width: 768px) {
-            .notes-input { padding: 5px; margin-top: 10px; font-size: 14px; }
+            .notes-input { padding: 5px; margin-top: 8px; font-size: 12px; border-radius: 4px; }
         }
         .price, .item-total {
             font-weight: bold;
             color: #333;
-            font-size: 14px; /* Smaller on mobile */
+            font-size: 12px; /* Smaller on mobile */
         }
         @media (min-width: 768px) {
-            .price, .item-total { font-size: 16px; }
+            .price, .item-total { font-size: 14px; }
         }
         .buttons {
             text-align: center;
-            margin-top: 10px; /* Reduced margin for mobile */
+            margin-top: 8px; /* Reduced margin for mobile */
         }
         .btn {
-            padding: 8px 12px; /* Reduced padding for mobile */
+            padding: 6px 10px; /* Reduced padding for mobile */
             border: none;
             color: white;
             cursor: pointer;
-            margin: 5px;
-            font-size: 14px; /* Smaller on mobile */
+            margin: 4px;
+            font-size: 12px; /* Smaller on mobile */
         }
         @media (min-width: 768px) {
-            .buttons { margin-top: 20px; }
-            .btn { padding: 10px 15px; font-size: 16px; }
+            .buttons { margin-top: 15px; }
+            .btn { padding: 8px 12px; font-size: 14px; }
         }
         .buy-button {
             background-color: #4CAF50; /* Green buy button */
@@ -344,71 +342,71 @@
         }
         .print-resumen-button {
             background-color: #4CAF50; /* Green print resumen button */
-            margin-top: 5px; /* Reduced margin for mobile */
+            margin-top: 4px; /* Reduced margin for mobile */
         }
         .print-resumen-button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
         @media (min-width: 768px) {
-            .print-resumen-button { margin-top: 10px; }
+            .print-resumen-button { margin-top: 8px; }
         }
         .pdf-button {
             background-color: #4CAF50; /* Green PDF button */
-            padding: 8px 12px; /* Reduced padding for mobile */
+            padding: 6px 10px; /* Reduced padding for mobile */
             border: none;
             color: white;
             cursor: pointer;
-            margin: 5px;
-            border-radius: 4px;
-            font-size: 14px; /* Smaller on mobile */
+            margin: 4px;
+            border-radius: 3px; /* Smaller radius for performance */
+            font-size: 12px; /* Smaller on mobile */
         }
         .pdf-button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
         @media (min-width: 768px) {
-            .pdf-button { padding: 10px 15px; font-size: 16px; }
+            .pdf-button { padding: 8px 12px; font-size: 14px; border-radius: 4px; }
         }
         .excel-button {
             background-color: #4CAF50; /* Green Excel button */
-            padding: 8px 12px; /* Reduced padding for mobile */
+            padding: 6px 10px; /* Reduced padding for mobile */
             border: none;
             color: white;
             cursor: pointer;
-            margin: 5px;
-            border-radius: 4px;
-            font-size: 14px; /* Smaller on mobile */
+            margin: 4px;
+            border-radius: 3px; /* Smaller radius for performance */
+            font-size: 12px; /* Smaller on mobile */
         }
         .excel-button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
         @media (min-width: 768px) {
-            .excel-button { padding: 10px 15px; font-size: 16px; }
+            .excel-button { padding: 8px 12px; font-size: 14px; border-radius: 4px; }
         }
         footer {
             text-align: center;
-            padding: 10px; /* Reduced padding for mobile */
+            padding: 8px; /* Reduced padding for mobile */
             background-color: #333;
             color: white;
-            margin-top: 10px; /* Reduced margin for mobile */
+            margin-top: 8px; /* Reduced margin for mobile */
             font-weight: bold;
             letter-spacing: 1px;
-            font-size: 12px; /* Smaller on mobile */
+            font-size: 10px; /* Smaller on mobile */
         }
         @media (min-width: 768px) {
-            footer { padding: 15px; margin-top: 30px; font-size: 14px; }
+            footer { padding: 12px; margin-top: 20px; font-size: 12px; }
         }
         .loading {
             text-align: center;
-            font-size: 16px; /* Smaller on mobile */
+            font-size: 14px; /* Smaller on mobile */
             color: #4CAF50; /* Green loading text */
             display: block;
         }
         .loading::after {
             content: "🍎";
-            animation: spin 1s infinite;
+            animation: spin 0.8s infinite; /* Faster animation for performance */
         }
         @media (min-width: 768px) {
-            .loading { font-size: 20px; }
+            .loading { font-size: 16px; }
         }
         @keyframes spin {
             100% { transform: rotate(360deg); }
@@ -416,39 +414,39 @@
         .total-section {
             text-align: right;
             font-weight: bold;
-            font-size: 16px; /* Smaller on mobile */
-            margin-right: 5%; /* Reduced margin for mobile */
-            margin-top: 10px; /* Reduced margin for mobile */
+            font-size: 12px; /* Smaller on mobile */
+            margin-right: 4%; /* Reduced margin for mobile */
+            margin-top: 8px; /* Reduced margin for mobile */
         }
         @media (min-width: 768px) {
-            .total-section { font-size: 18px; margin-right: 10%; margin-top: 20px; }
+            .total-section { font-size: 14px; margin-right: 8%; margin-top: 15px; }
         }
         .resumen {
-            margin-top: 20px; /* Reduced margin for mobile */
+            margin-top: 15px; /* Reduced margin for mobile */
             background-color: #fff;
-            padding: 10px; /* Reduced padding for mobile */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow for mobile */
-            border-radius: 6px; /* Slightly smaller radius for mobile */
+            padding: 8px; /* Reduced padding for mobile */
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); /* Reduced shadow for performance */
+            border-radius: 4px; /* Smaller radius for performance */
         }
         .resumen h2 {
             text-align: center;
             color: #4CAF50; /* Green header */
-            font-size: 18px; /* Smaller on mobile */
+            font-size: 16px; /* Smaller on mobile */
         }
         @media (min-width: 768px) {
-            .resumen { margin-top: 40px; padding: 20px; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); border-radius: 8px; }
-            .resumen h2 { font-size: 24px; }
+            .resumen { margin-top: 30px; padding: 15px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); border-radius: 6px; }
+            .resumen h2 { font-size: 20px; }
         }
         .resumen-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px; /* Reduced margin for mobile */
+            margin-top: 8px; /* Reduced margin for mobile */
         }
         .resumen-table th, .resumen-table td {
-            padding: 8px 12px; /* Reduced padding for mobile */
+            padding: 6px 8px; /* Reduced padding for mobile */
             text-align: left;
             border-bottom: 1px solid #ddd;
-            font-size: 12px; /* Smaller on mobile */
+            font-size: 10px; /* Smaller on mobile */
         }
         .resumen-table th {
             background-color: #4CAF50; /* Green header */
@@ -457,7 +455,7 @@
         .resumen-table tr:hover { background-color: #f1f1f1; }
         @media (min-width: 768px) {
             .resumen-table { margin-top: 10px; }
-            .resumen-table th, .resumen-table td { padding: 12px 20px; font-size: 14px; }
+            .resumen-table th, .resumen-table td { padding: 8px 12px; font-size: 12px; }
         }
         /* Ensure green design shows in print, only Resumen and cover upper section */
         @media print {
@@ -480,7 +478,7 @@
             }
             .banner img, .cover-page img.logo, .info-container {
                 border: 2px solid rgba(76, 175, 80, 0.5) !important; /* Green border in RGB */
-                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3) !important; /* Ensure shadows print */
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1) !important; /* Reduced shadow for performance */
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -499,7 +497,7 @@
                 box-shadow: none;
                 border: none;
                 margin: 0;
-                padding: 10px;
+                padding: 8px; /* Reduced padding for print performance */
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -525,7 +523,7 @@
     <div class="cover-page">
         <div class="upper-section">
             <div class="logo-container">
-                <img class="logo" src="https://i.imgur.com/HegNprK.jpeg" alt="Fresh Prime Logo">
+                <img class="logo" src="https://i.imgur.com/HegNprK.jpeg" alt="Fresh Prime Logo" loading="lazy"> <!-- Lazy loading for performance -->
             </div>
             <div class="info-container">
                 <h1>Fresh Prime Group</h1>
@@ -538,7 +536,7 @@
             </div>
         </div>
         <div class="banner">
-            <img src="https://i.imgur.com/0R2tBOV.jpeg" alt="Futuristic Produce Container">
+            <img src="https://i.imgur.com/0R2tBOV.jpeg" alt="Futuristic Produce Container" loading="lazy"> <!-- Lazy loading for performance -->
         </div>
     </div>
 
@@ -567,7 +565,8 @@
 </div>
 
         <div class="loading">Cargando productos...</div>
-        <div class="product-table" id="product-list">
+        
+<div class="product-table" id="product-list">
     <div class="product-card" data-class="Abarrotes">
         <h3>ACEITUNA NEGRA</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
@@ -2876,8 +2875,6 @@
 
 
 
-
-
             <!-- Add more product cards with your full product list here, ensuring data-class is set correctly (e.g., 'Frutas y Verduras' or 'Chiles, semillas y especias') -->
         </div>
 
@@ -2893,7 +2890,7 @@
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
-                        <th>Unidad</th> <!-- New column for units -->
+                        <th>Unidad</th>
                         <th>Precio</th>
                         <th>Total</th>
                         <th>Notas</th>
@@ -2943,7 +2940,7 @@
                 hour: '2-digit', 
                 minute: '2-digit', 
                 second: '2-digit',
-                timeZone: 'America/Los_Angeles' // Adjust timezone as needed (e.g., for Mexico, use 'America/Mexico_City')
+                timeZone: 'America/Mexico_City' // Adjusted to Mexico City for your location
             };
             const formattedDate = now.toLocaleString('es-MX', options).replace(/,/, ' -');
             timestampElement.textContent = formattedDate;
@@ -2994,7 +2991,7 @@
                 const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
                 const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', ''); // Get unit
                 const notesInput = card.querySelector('.notes-input');
-                const notes = notesInput.style.display === "block" ? notesInput.value : '';
+                const notes = notesInput?.style?.display === "block" ? notesInput.value : ''; // Use optional chaining for safety
 
                 const itemTotal = price * quantity;
                 card.querySelector('.item-total').textContent = `$${itemTotal.toFixed(2)}`;
@@ -3055,137 +3052,162 @@
             window.print();
         }
 
-        // Add event listener for search
+        // Add event listener for search (debounced for performance)
+        let searchTimeout;
         document.getElementById("search-bar").addEventListener("keyup", function() {
-            const searchQuery = this.value.toLowerCase();
-            const cards = document.querySelectorAll('#product-list .product-card');
-            
-            cards.forEach(card => {
-                const productName = card.querySelector('h3').textContent.toLowerCase();
-                if (productName.includes(searchQuery)) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const searchQuery = this.value.toLowerCase();
+                const cards = document.querySelectorAll('#product-list .product-card');
+                
+                cards.forEach(card => {
+                    const productName = card.querySelector('h3').textContent.toLowerCase();
+                    if (productName.includes(searchQuery)) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            }, 300); // Debounce by 300ms to reduce DOM updates
         });
 
-        // Combine filter and search on change
-        document.getElementById("class-filter").addEventListener("change", filterTable);
+        // Combine filter and search on change (debounced for performance)
+        let filterTimeout;
+        document.getElementById("class-filter").addEventListener("change", function() {
+            clearTimeout(filterTimeout);
+            filterTimeout = setTimeout(() => {
+                filterTable();
+            }, 300); // Debounce by 300ms to reduce DOM updates
+        });
 
-        
-function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
-    });
+        function filterTable() {
+            const filter = document.getElementById("class-filter").value;
+            const cards = document.querySelectorAll('#product-list .product-card');
 
-    // Add Fresh Prime logo (using base64 or URL; adjust path if needed)
-    const logoImg = new Image();
-    logoImg.src = 'https://i.imgur.com/HegNprK.jpeg'; // Ensure this URL is accessible
-    doc.addImage(logoImg, 'JPEG', 10, 10, 30, 30); // Position and size logo
-
-    // Add banner image (optional, adjust path/size if needed)
-    const bannerImg = new Image();
-    bannerImg.src = 'https://i.imgur.com/0R2tBOV.jpeg'; // Ensure this URL is accessible
-    doc.addImage(bannerImg, 'JPEG', 10, 50, 180, 50); // Position and size banner
-
-    // Add header text
-    doc.setFontSize(16);
-    doc.setTextColor(76, 175, 80); // Green text (#4CAF50 in RGB)
-    doc.text("Fresh Prime Group", 50, 20);
-    doc.text("Resumen de Compra", 50, 45);
-
-    // Add dynamic timestamp
-    const now = new Date();
-    const options = { 
-        day: 'numeric', 
-        month: 'long', 
-        year: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit',
-        timeZone: 'America/Mexico_City' // Adjusted to Mexico City for your location
-    };
-    const formattedDate = now.toLocaleString('es-MX', options).replace(/,/, ' -');
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // Black text
-    doc.text(`Fecha y Hora: ${formattedDate}`, 50, 60);
-
-    // Add contact/info
-    doc.text("Contacto: info@freshprime.com | Tel: (55) 1234-5678", 50, 70);
-    doc.text("Visítanos en: www.freshprime.com", 50, 80);
-
-    // Add resumen table
-    doc.setFontSize(14);
-    doc.setTextColor(76, 175, 80); // Green header
-    const tableStartY = 100;
-    doc.text("Resumen de Compra", 10, tableStartY - 10);
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // Black text for table
-
-    const cards = document.querySelectorAll('#product-list .product-card');
-    let y = tableStartY;
-    let tableData = [];
-
-    cards.forEach(card => {
-        const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
-        if (quantity > 0) {
-            const product = card.querySelector('h3').textContent;
-            const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', '');
-            const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
-            const itemTotal = price * quantity;
-            const notesInput = card.querySelector('.notes-input');
-            const notes = notesInput.style.display === "block" ? notesInput.value : 'Sin notas';
-
-            tableData.push([
-                product,
-                quantity.toFixed(2),
-                unit,
-                `$ ${price.toFixed(2)}`,
-                `$ ${itemTotal.toFixed(2)}`,
-                notes
-            ]);
+            cards.forEach(card => {
+                const cardClass = card.getAttribute("data-class");
+                if (filter === "all" || cardClass === filter) {
+                    card.style.display = "block"; // Show card
+                } else {
+                    card.style.display = "none"; // Hide card
+                }
+            });
         }
-    });
 
-    // Calculate total
-    const total = parseFloat(document.getElementById('resumen-total-amount').textContent) || 0;
-    tableData.push(['', '', '', '', 'Total a Pagar', `$ ${total.toFixed(2)}`]);
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
 
-    // Draw table with green header and borders
-    doc.autoTable({
-        startY: y,
-        head: [['Producto', 'Cantidad', 'Unidad', 'Precio', 'Total', 'Notas']],
-        body: tableData,
-        headStyles: {
-            fillColor: [76, 175, 80], // Green header (#4CAF50)
-            textColor: [255, 255, 255], // White text
-            lineWidth: 0.1,
-            lineColor: [76, 175, 80] // Green border
-        },
-        bodyStyles: {
-            lineWidth: 0.1,
-            lineColor: [76, 175, 80], // Green borders
-            fillColor: [248, 250, 249] // Super light green (#f8faf9)
-        },
-        alternateRowStyles: {
-            fillColor: [255, 255, 255] // White for alternating rows
-        },
-        margin: { left: 10, right: 10 },
-        styles: {
-            fontSize: 10,
-            cellPadding: 2,
-            overflow: 'linebreak'
+            // Add Fresh Prime logo (using base64 or URL; adjust path if needed)
+            const logoImg = new Image();
+            logoImg.src = 'https://i.imgur.com/HegNprK.jpeg'; // Ensure this URL is accessible
+            doc.addImage(logoImg, 'JPEG', 10, 10, 30, 30); // Position and size logo
+
+            // Add header text
+            doc.setFontSize(16);
+            doc.setTextColor(76, 175, 80); // Green text (#4CAF50 in RGB)
+            doc.text("Fresh Prime Group", 50, 20);
+            doc.text("Resumen de Compra", 50, 45);
+
+            // Add dynamic timestamp
+            const now = new Date();
+            const options = { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                timeZone: 'America/Mexico_City' // Adjusted to Mexico City for your location
+            };
+            const formattedDate = now.toLocaleString('es-MX', options).replace(/,/, ' -');
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0); // Black text
+            doc.text(`Fecha y Hora: ${formattedDate}`, 50, 60);
+
+            // Add contact/info
+            doc.text("Contacto: info@freshprime.com | Tel: (55) 1234-5678", 50, 70);
+            doc.text("Visítanos en: www.freshprime.com", 50, 80);
+
+            // Add resumen table
+            doc.setFontSize(14);
+            doc.setTextColor(76, 175, 80); // Green header
+            const tableStartY = 100;
+            doc.text("Resumen de Compra", 10, tableStartY - 10);
+            doc.setFontSize(10); // Reduced font size for performance
+            doc.setTextColor(0, 0, 0); // Black text for table
+
+            const cards = document.querySelectorAll('#product-list .product-card');
+            let y = tableStartY;
+            let tableData = [];
+
+            cards.forEach(card => {
+                const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
+                if (quantity > 0) {
+                    const product = card.querySelector('h3').textContent;
+                    const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', '');
+                    const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
+                    const itemTotal = price * quantity;
+                    const notesInput = card.querySelector('.notes-input');
+                    const notes = notesInput?.style?.display === "block" ? notesInput.value : 'Sin notas';
+
+                    tableData.push([
+                        product,
+                        quantity.toFixed(2),
+                        unit,
+                        `$ ${price.toFixed(2)}`,
+                        `$ ${itemTotal.toFixed(2)}`,
+                        notes
+                    ]);
+                }
+            });
+
+            // Calculate total
+            const total = parseFloat(document.getElementById('resumen-total-amount').textContent) || 0;
+            tableData.push(['', '', '', '', 'Total a Pagar', `$ ${total.toFixed(2)}`]);
+
+            // Draw table with green header and borders (optimized for performance)
+            doc.autoTable({
+                startY: y,
+                head: [['Producto', 'Cantidad', 'Unidad', 'Precio', 'Total', 'Notas']],
+                body: tableData,
+                headStyles: {
+                    fillColor: [76, 175, 80], // Green header (#4CAF50)
+                    textColor: [255, 255, 255], // White text
+                    lineWidth: 0.1,
+                    lineColor: [76, 175, 80] // Green border
+                },
+                bodyStyles: {
+                    lineWidth: 0.1,
+                    lineColor: [76, 175, 80], // Green borders
+                    fillColor: [248, 250, 249] // Super light green (#f8faf9)
+                },
+                alternateRowStyles: {
+                    fillColor: [255, 255, 255] // White for alternating rows
+                },
+                margin: { left: 10, right: 10 },
+                styles: {
+                    fontSize: 8, // Reduced font size for performance
+                    cellPadding: 2,
+                    overflow: 'linebreak'
+                },
+                columnStyles: {
+                    0: { cellWidth: 40 }, // Adjust column widths for performance
+                    1: { cellWidth: 20 },
+                    2: { cellWidth: 20 },
+                    3: { cellWidth: 20 },
+                    4: { cellWidth: 20 },
+                    5: { cellWidth: 40 }
+                }
+            });
+
+            // Save the PDF
+            doc.save("resumen_compra_fresh_prime.pdf");
         }
-    });
-
-    // Save the PDF
-    doc.save("resumen_compra_fresh_prime.pdf");
-}
-
 
         function exportToExcel() {
             const cards = document.querySelectorAll('#product-list .product-card');
@@ -3199,14 +3221,14 @@ function downloadPDF() {
                     const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
                     const itemTotal = price * quantity;
                     const notesInput = card.querySelector('.notes-input');
-                    const notes = notesInput.style.display === "block" ? notesInput.value : 'Sin notas';
+                    const notes = notesInput?.style?.display === "block" ? notesInput.value : 'Sin notas'; // Use optional chaining for safety
 
                     csvContent += `"${product}",${quantity.toFixed(2)},"${unit}",$${price.toFixed(2)},$${itemTotal.toFixed(2)},"${notes}"\n`;
                 }
             });
             csvContent += `\nTotal a Pagar,$${document.getElementById('resumen-total-amount').textContent},,,,,`;
 
-            // Create a Blob and trigger download
+            // Create a Blob and trigger download (optimized for performance)
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
             if (link.download !== undefined) { // feature detection
