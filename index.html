@@ -352,6 +352,38 @@
         @media (min-width: 768px) {
             .print-resumen-button { margin-top: 10px; }
         }
+        .pdf-button {
+            background-color: #4CAF50; /* Green PDF button */
+            padding: 8px 12px; /* Reduced padding for mobile */
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 4px;
+            font-size: 14px; /* Smaller on mobile */
+        }
+        .pdf-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        @media (min-width: 768px) {
+            .pdf-button { padding: 10px 15px; font-size: 16px; }
+        }
+        .excel-button {
+            background-color: #4CAF50; /* Green Excel button */
+            padding: 8px 12px; /* Reduced padding for mobile */
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 4px;
+            font-size: 14px; /* Smaller on mobile */
+        }
+        .excel-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        @media (min-width: 768px) {
+            .excel-button { padding: 10px 15px; font-size: 16px; }
+        }
         footer {
             text-align: center;
             padding: 10px; /* Reduced padding for mobile */
@@ -434,33 +466,59 @@
                 margin: 0;
                 padding: 0;
                 background-color: #f5f5f5 !important; /* Reinforce light gray for print */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             .upper-section, .resumen {
                 display: block !important; /* Show only cover header and resumen */
                 page-break-inside: avoid;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             .banner, .container .header, #product-list, .filter-section, .buttons, .loading, .total-section:not(#resumen-total-section) {
                 display: none !important; /* Hide everything else */
             }
             .banner img, .cover-page img.logo, .info-container {
-                border: 2px solid rgba(144, 238, 144, 0.5) !important; /* Ensure green borders print */
+                border: 2px solid rgba(76, 175, 80, 0.5) !important; /* Green border in RGB */
                 box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3) !important; /* Ensure shadows print */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             .wave-line {
-                background: rgba(144, 238, 144, 0.5) !important; /* Ensure green wave prints */
+                background: rgba(76, 175, 80, 0.5) !important; /* Green wave in RGB */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             .resumen-table th {
-                background-color: #4CAF50 !important;
+                background-color: #4CAF50 !important; /* Green header */
                 color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             .container {
                 box-shadow: none;
                 border: none;
                 margin: 0;
                 padding: 10px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            /* Ensure all green elements print correctly */
+            .header h2, .buy-button, .print-resumen-button, .pdf-button, .excel-button, .notes-btn, .resumen h2, .loading {
+                color: white !important; /* Ensure text color prints */
+                background-color: #4CAF50 !important; /* Green background in RGB */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .free-item {
+                border: 2px solid #4CAF50 !important; /* Green border for free items */
+                background-color: #e8f5e9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <!-- Cover Page -->
@@ -474,7 +532,7 @@
                 <p>Gestión de Frescura, Soluciones a Medida</p>
                 <div class="wave-line"></div>
                 <p>Orden de Compra 2025</p>
-                <p>19 Febrero - 6 Marzo</p>
+                <p id="dynamic-timestamp">19 Febrero - 6 Marzo</p>
                 <p>Contacto: info@freshprime.com | Tel: (55) 1234-5678</p>
                 <p>Visítanos en: www.freshprime.com</p>
             </div>
@@ -509,10 +567,7 @@
 </div>
 
         <div class="loading">Cargando productos...</div>
-        
-
-
-<div class="product-table" id="product-list">
+        <div class="product-table" id="product-list">
     <div class="product-card" data-class="Abarrotes">
         <h3>ACEITUNA NEGRA</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
@@ -1137,7 +1192,18 @@
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
-   
+    <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>CH. GUAJILLO </h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$123.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
     <div class="product-card" data-class="Chiles, semillas y especias">
         <h3>CHIA</h3>
         <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
@@ -1642,7 +1708,18 @@
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
-    
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>CH. JALAPEÑO</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$25.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
     <div class="product-card" data-class="Frutas y Verduras">
         <h3>CHAMPINON</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
@@ -2436,7 +2513,7 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
-        <h3>PIÑA MIEL</h3>
+        <h3>PINA MIEL</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
@@ -2448,7 +2525,7 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
-        <h3>PLATANO MACHO </h3>
+        <h3>PLÁTANO MACHO </h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
@@ -2798,6 +2875,9 @@
 </div>
 
 
+
+
+
             <!-- Add more product cards with your full product list here, ensuring data-class is set correctly (e.g., 'Frutas y Verduras' or 'Chiles, semillas y especias') -->
         </div>
 
@@ -2813,6 +2893,7 @@
                     <tr>
                         <th>Producto</th>
                         <th>Cantidad</th>
+                        <th>Unidad</th> <!-- New column for units -->
                         <th>Precio</th>
                         <th>Total</th>
                         <th>Notas</th>
@@ -2838,6 +2919,8 @@
             <button class="buy-button" onclick="submitOrder()">Comprar</button>
             <button class="print-button" onclick="window.print()">Imprimir Todo</button>
             <button class="print-resumen-button" onclick="printResumen()">Imprimir Resumen</button>
+            <button class="pdf-button" onclick="downloadPDF()">Descargar PDF</button>
+            <button class="excel-button" onclick="exportToExcel()">Exportar a Excel</button>
         </div>
     </div>
 
@@ -2849,6 +2932,21 @@
         window.onload = function() {
             document.querySelector(".loading").style.display = "none";
             document.getElementById("product-list").style.display = "grid";
+            
+            // Add dynamic timestamp
+            const timestampElement = document.getElementById("dynamic-timestamp");
+            const now = new Date();
+            const options = { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                timeZone: 'America/Los_Angeles' // Adjust timezone as needed (e.g., for Mexico, use 'America/Mexico_City')
+            };
+            const formattedDate = now.toLocaleString('es-MX', options).replace(/,/, ' -');
+            timestampElement.textContent = formattedDate;
         };
 
         function updateQuantity(input) {
@@ -2894,6 +2992,7 @@
             cards.forEach(card => {
                 const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
                 const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
+                const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', ''); // Get unit
                 const notesInput = card.querySelector('.notes-input');
                 const notes = notesInput.style.display === "block" ? notesInput.value : '';
 
@@ -2905,6 +3004,7 @@
                     newRow.innerHTML = `
                         <td>${card.querySelector('h3').textContent}</td> <!-- Item name -->
                         <td>${quantity.toFixed(2)}</td> <!-- Quantity (with decimals if applicable) -->
+                        <td>${unit}</td> <!-- Unit -->
                         <td>${card.querySelector('.price').textContent}</td> <!-- Unit price -->
                         <td>$${itemTotal.toFixed(2)}</td> <!-- Total price -->
                         <td>${notes || 'Sin notas'}</td> <!-- Notes -->
@@ -2972,6 +3072,99 @@
 
         // Combine filter and search on change
         document.getElementById("class-filter").addEventListener("change", filterTable);
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add cover page content
+            doc.setFontSize(12);
+            doc.text("Fresh Prime Group", 20, 20);
+            doc.text("Gestión de Frescura, Soluciones a Medida", 20, 30);
+            doc.text("Orden de Compra 2025", 20, 40);
+            const now = new Date();
+            const options = { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                timeZone: 'America/Los_Angeles' // Adjust timezone as needed
+            };
+            const formattedDate = now.toLocaleString('es-MX', options).replace(/,/, ' -');
+            doc.text(`Fecha y Hora: ${formattedDate}`, 20, 50);
+            doc.text("Contacto: info@freshprime.com | Tel: (55) 1234-5678", 20, 60);
+            doc.text("Visítanos en: www.freshprime.com", 20, 70);
+
+            // Add resumen content
+            doc.addPage();
+            doc.setFontSize(16);
+            doc.text("Resumen de Compra", 20, 20);
+            const cards = document.querySelectorAll('#product-list .product-card');
+            let y = 30;
+            cards.forEach(card => {
+                const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
+                if (quantity > 0) {
+                    const product = card.querySelector('h3').textContent;
+                    const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', '');
+                    const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
+                    const itemTotal = price * quantity;
+                    const notesInput = card.querySelector('.notes-input');
+                    const notes = notesInput.style.display === "block" ? notesInput.value : 'Sin notas';
+
+                    doc.setFontSize(12);
+                    doc.text(`Producto: ${product}`, 20, y);
+                    doc.text(`Cantidad: ${quantity.toFixed(2)}`, 20, y + 10);
+                    doc.text(`Unidad: ${unit}`, 20, y + 20); // Add unit
+                    doc.text(`Precio: $${price.toFixed(2)}`, 20, y + 30);
+                    doc.text(`Total: $${itemTotal.toFixed(2)}`, 20, y + 40);
+                    doc.text(`Notas: ${notes}`, 20, y + 50);
+                    y += 60;
+                    if (y > 280) { // Start new page if content overflows
+                        doc.addPage();
+                        y = 20;
+                    }
+                }
+            });
+            doc.text(`Total a Pagar: $${document.getElementById('resumen-total-amount').textContent}`, 20, y);
+
+            // Save the PDF
+            doc.save("orden_compra_fresh_prime.pdf");
+        }
+
+        function exportToExcel() {
+            const cards = document.querySelectorAll('#product-list .product-card');
+            let csvContent = "Producto,Cantidad,Unidad,Precio,Total,Notas\n";
+
+            cards.forEach(card => {
+                const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
+                if (quantity > 0) {
+                    const product = card.querySelector('h3').textContent;
+                    const unit = card.querySelector('p:nth-child(3)').textContent.replace('Unidad: ', '');
+                    const price = parseFloat(card.querySelector('.price').textContent.replace('$', '').replace(',', '')) || 0;
+                    const itemTotal = price * quantity;
+                    const notesInput = card.querySelector('.notes-input');
+                    const notes = notesInput.style.display === "block" ? notesInput.value : 'Sin notas';
+
+                    csvContent += `"${product}",${quantity.toFixed(2)},"${unit}",$${price.toFixed(2)},$${itemTotal.toFixed(2)},"${notes}"\n`;
+                }
+            });
+            csvContent += `\nTotal a Pagar,$${document.getElementById('resumen-total-amount').textContent},,,,,`;
+
+            // Create a Blob and trigger download
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            if (link.download !== undefined) { // feature detection
+                const url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", "orden_compra_fresh_prime.csv");
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
     </script>
 </body>
 </html>
