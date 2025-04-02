@@ -499,105 +499,149 @@
             .resumen-table th, .resumen-table td { padding: 8px 12px; font-size: 12px; }
         }
         @media print {
-            body {
-                background: none !important;
-                color: #000 !important; /* Black text for readability */
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .cover-page {
-                height: auto;
-                margin: 0;
-                padding: 0;
-                background: #f5f5f5 !important; /* Light gray background for cover page */
-                backdrop-filter: none !important;
-                box-shadow: none !important;
-                border: 1px solid #000 !important; /* Black border for contrast */
-                border-radius: 0 !important; /* Remove rounded corners for print */
-                color: #000 !important; /* Black text for readability */
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .upper-section, .resumen {
-                display: block !important;
-                page-break-inside: avoid;
-                background: #fff !important; /* White background for resumen */
-                backdrop-filter: none !important;
-                box-shadow: none !important;
-                border: 1px solid #000 !important; /* Black border for contrast */
-                border-radius: 0 !important;
-                color: #000 !important; /* Black text for readability */
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .banner, .container .header, #product-list, .filter-section, .buttons, .loading, .total-section:not(#resumen-total-section) {
-                display: none !important;
-            }
-            .banner img, .cover-page img.logo, .info-container {
-                display: block !important;
-                width: 100% !important;
-                height: auto !important;
-                border: 2px solid #8CBA7F !important; /* Muted Lime Jelly */
-                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1) !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .wave-line {
-                background: #8CBA7F !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .info-container {
-                border-left: 2px solid #8CBA7F !important; /* Muted Lime Jelly */
-                box-shadow: none !important;
-            }
-            .resumen-table th {
-                background: #8CBA7F !important; /* Muted Lime Jelly */
-                color: #fff !important; /* White text for contrast */
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .resumen-table td {
-                color: #000 !important; /* Black text for readability */
-                border-bottom: 1px solid #000 !important; /* Black border for contrast */
-            }
-            .resumen-table tr:hover {
-                background: none !important; /* Disable hover effect for print */
-            }
-            .container {
-                box-shadow: none;
-                border: none;
-                margin: 0;
-                padding: 8px;
-                background: none !important;
-                backdrop-filter: none !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .link {
-                color: #8CBA7F !important;
-                text-decoration: underline !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .free-item {
-                border: 2px solid #8CBA7F !important;
-                background: #e8f5e9 !important; /* Light green background */
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            footer {
-                background: none !important;
-                backdrop-filter: none !important;
-                color: #000 !important;
-                border-top: none !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .total-section {
-                color: #000 !important;
-            }
-        }
+    body {
+        background: none !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .cover-page {
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5 !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+        border-radius: 0 !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-after: always;
+    }
+    .cover-page h1,
+    .cover-page p,
+    .cover-page span,
+    .cover-page .link {
+        color: #000 !important; /* Force all text in the cover page to be black */
+    }
+    .upper-section {
+        display: block !important;
+        page-break-inside: avoid;
+        background: #fff !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+        border-radius: 0 !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .banner, .container .header, .filter-section, .buttons, .loading, .total-section, .resumen {
+        display: none !important;
+    }
+    .banner img, .cover-page img.logo, .info-container {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        border: 2px solid #8CBA7F !important;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .wave-line {
+        background: #8CBA7F !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .info-container {
+        border-left: 2px solid #8CBA7F !important;
+        box-shadow: none !important;
+    }
+    .container {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 8px;
+        background: none !important;
+        backdrop-filter: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    #product-list.print-visible {
+        display: block !important;
+        page-break-inside: auto;
+    }
+    .product-table {
+        display: table !important;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+    .product-card {
+        display: none !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .product-card.visible-for-print {
+        display: table-row !important;
+    }
+    .product-card h3,
+    .product-card p:nth-child(2),
+    .product-card p:nth-child(3),
+    .product-card p:nth-child(5) {
+        display: table-cell !important;
+        padding: 8px;
+        border-bottom: 1px solid #000 !important;
+        color: #000 !important;
+        font-size: 12px !important;
+        vertical-align: middle;
+    }
+    .price {
+        color: #000 !important;
+    }
+    .quantity-controls, .notes-btn, .notes-input, .item-total {
+        display: none !important;
+    }
+    #product-list.print-visible::before {
+        content: "Lista de Productos";
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px 0;
+        color: #000 !important;
+    }
+    .product-table::before {
+        content: "Producto\tCategoría\tUnidad\tPrecio";
+        display: table-row;
+        font-weight: bold;
+        background: #8CBA7F !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .product-table::before > * {
+        display: table-cell;
+        padding: 8px;
+        border-bottom: 2px solid #000 !important;
+    }
+    .link {
+        color: #8CBA7F !important;
+        text-decoration: underline !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    footer {
+        background: none !important;
+        backdrop-filter: none !important;
+        color: #000 !important;
+        border-top: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -649,7 +693,14 @@
 
         <div class="loading">Cargando productos...</div>
         
-        
+   
+
+
+
+
+
+
+
 <div class="product-table" id="product-list">
     <div class="product-card" data-class="Abarrotes">
         <h3>ACEITE DE CANOLA ORIGINAL 170 GR PAM</h3>
@@ -855,6 +906,30 @@
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
+    <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>ARROZ</h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$27.30</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>CLAMATO 2.5 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$112.20</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
     <div class="product-card" data-class="Abarrotes">
         <h3>COFFEE MATE STICK 200 PZAS 4GR</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
@@ -863,6 +938,54 @@
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$191.81</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>CONCENTRADO FRESA TUCAN 1.9 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$92.30</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>CONCENTRADO MANGO TUCAN 1.9 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$144.30</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>CONCENTRADO MANZANA TUCAN 1.9 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$144.30</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>CONCENTRADO TAMARINDO TUCAN 1.9 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$144.30</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -952,6 +1075,114 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR DURAZNO</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR FRESA</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR GROSELLA</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR JEREZ</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR LIMON</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR PINA</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GELATINA 720 GR UVA</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$114.84</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>GRANILLO DE COLORES</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$0.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>HARINA DE MAIZ MASECA AZUL</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$29.96</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
         <h3>HARINA DE TRIGO 1 KG</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -1024,7 +1255,19 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>MAIZ POZOLERO 3.30</h3>
+        <h3>LECHE EVAPORADA CARNATION 1 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$69.49</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>MAIZ POZOLERO 3.30 KG</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1036,7 +1279,7 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>MAIZENA 750GR</h3>
+        <h3>MAIZENA 750 GR</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1114,7 +1357,19 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$117.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$191.10</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>MIEL MAPLE 1 LT</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$91.77</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1159,6 +1414,18 @@
         <h3>PAN MEDIAS NOCHES BIMBO 16 PZAS</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Paquete</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$86.44</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>PAN MEDIAS NOCHES BIMBO 8 PZAS</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
@@ -1234,7 +1501,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$15.60</span></p>
+        <p><strong>Precio:</strong> <span class="price">$16.90</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1282,7 +1549,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$15.60</span></p>
+        <p><strong>Precio:</strong> <span class="price">$16.90</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1306,7 +1573,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$15.60</span></p>
+        <p><strong>Precio:</strong> <span class="price">$16.90</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1318,7 +1585,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$15.60</span></p>
+        <p><strong>Precio:</strong> <span class="price">$16.90</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1330,13 +1597,13 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$15.60</span></p>
+        <p><strong>Precio:</strong> <span class="price">$16.90</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>PASTA PENNE RIGATE</h3>
+        <h3>PASTA PLUMA PENNE RIGATE</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1372,7 +1639,19 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>REFRESCO COCA COLA LIGHT 12 UD 355 ML</h3>
+        <h3>REFRESCO AGUA MINERAL 355 ML 12 UD</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$213.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>REFRESCO COCA COLA LIGHT 355 ML 12 UD</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1384,7 +1663,7 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>REFRESCO COCA COLA ZERO 12 UD 355 ML</h3>
+        <h3>REFRESCO COCA COLA ZERO 355 ML 12 UD</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1396,7 +1675,7 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>REFRESCO FANTA 355 ML/12 PZA LATA</h3>
+        <h3>REFRESCO FANTA 355 ML 12 UD</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1408,19 +1687,7 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
-        <h3>REFRESCO FRESKA 355 ML/12 PZA LATA</h3>
-        <p><strong>Categoría:</strong> Abarrotes</p>
-        <p><strong>Unidad:</strong> Pieza</p>
-        <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
-        </div>
-        <p><strong>Precio:</strong> <span class="price">$306.00</span></p>
-        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
-        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
-        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
-    </div>
-    <div class="product-card" data-class="Abarrotes">
-        <h3>REFRESCO SIDRAL 355 ML/12 PZA LATA</h3>
+        <h3>REFRESCO FRESKA 355 ML 12 UD</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1438,25 +1705,13 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$277.50</span></p>
+        <p><strong>Precio:</strong> <span class="price">$306.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
         <h3>REFRESCO SPRITE 355 ML 12 UD</h3>
-        <p><strong>Categoría:</strong> Abarrotes</p>
-        <p><strong>Unidad:</strong> Pieza</p>
-        <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
-        </div>
-        <p><strong>Precio:</strong> <span class="price">$277.50</span></p>
-        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
-        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
-        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
-    </div>
-    <div class="product-card" data-class="Abarrotes">
-        <h3>REFRESCO SPRITE 355 ml/12 PZA LATA</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
@@ -1487,6 +1742,18 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$55.51</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>SALCHICHA 2 KGS</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Paquete</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$107.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1624,6 +1891,30 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Abarrotes">
+        <h3>TORTILLA DE MAIZ</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$34.43</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>TOSTADAS 30 PZAS</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$46.80</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
         <h3>VINAGRE BLANCO SOLUTIONS 3.5 LT</h3>
         <p><strong>Categoría:</strong> Abarrotes</p>
         <p><strong>Unidad:</strong> Pieza</p>
@@ -1703,18 +1994,6 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$157.48</span></p>
-        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
-        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
-        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
-    </div>
-    <div class="product-card" data-class="Chiles, semillas y especias">
-        <h3>ARROZ</h3>
-        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
-        <p><strong>Unidad:</strong> Kilo</p>
-        <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
-        </div>
-        <p><strong>Precio:</strong> <span class="price">$27.30</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1828,13 +2107,25 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>CHILE CHIPOTLE</h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$444.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Chiles, semillas y especias">
         <h3>CHILE DE ARBOL</h3>
         <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$162.50</span></p>
+        <p><strong>Precio:</strong> <span class="price">$212.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1859,6 +2150,18 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$201.72</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Abarrotes">
+        <h3>CHOCOLATE GRANILLO</h3>
+        <p><strong>Categoría:</strong> Abarrotes</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$78.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1924,13 +2227,25 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>FRIJOL PERUANO</h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$47.17</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Chiles, semillas y especias">
         <h3>GARBANZO</h3>
         <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$40.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$42.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -1955,6 +2270,18 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$110.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>LAUREL</h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$170.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2104,6 +2431,18 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>SOYA</h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$35.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Chiles, semillas y especias">
         <h3>TAMARINDO</h3>
         <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -2128,6 +2467,18 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Chiles, semillas y especias">
+        <h3>TOTOMOXTLE</h3>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
+        <p><strong>Unidad:</strong> Paquete</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$51.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Chiles, semillas y especias">
         <h3>UVA PASAS</h3>
         <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -2140,13 +2491,13 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
-        <h3>ACAI</h3>
+        <h3>ACELGA</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
-        <p><strong>Unidad:</strong> Bolsa</p>
+        <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$0.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$25.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2158,7 +2509,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$70.25</span></p>
+        <p><strong>Precio:</strong> <span class="price">$90.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2188,6 +2539,18 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
+        <h3>ALFALFA</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$22.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
         <h3>APIO </h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Pieza</p>
@@ -2199,9 +2562,9 @@
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
-    <div class="product-card" data-class="Frutas y Verduras">
+    <div class="product-card" data-class="Chiles, semillas y especias">
         <h3>ARROZ</h3>
-        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Categoría:</strong> Chiles, semillas y especias</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
@@ -2218,7 +2581,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$245.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$250.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2230,7 +2593,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$68.66</span></p>
+        <p><strong>Precio:</strong> <span class="price">$87.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2266,7 +2629,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$24.12</span></p>
+        <p><strong>Precio:</strong> <span class="price">$25.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2302,7 +2665,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$25.50</span></p>
+        <p><strong>Precio:</strong> <span class="price">$28.25</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2326,7 +2689,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$27.94</span></p>
+        <p><strong>Precio:</strong> <span class="price">$27.01</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2446,7 +2809,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$24.18</span></p>
+        <p><strong>Precio:</strong> <span class="price">$26.56</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2512,6 +2875,42 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
+        <h3>ELOTE EN GRANO CONGELADO LA HUERTA</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$177.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>ELOTE (PELADO)</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$9.37</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>ELOTE AMARILLO</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$15.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
         <h3>EPAZOTE</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -2530,7 +2929,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$390.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$355.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2567,6 +2966,18 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$32.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>FLORES COMESTIBLES</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Domo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$89.60</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2656,13 +3067,13 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
-        <h3>HIGO NATURAL</h3>
+        <h3>HIGO CARAMELIZADO</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
-        <p><strong>Unidad:</strong> Pieza</p>
+        <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$125.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$225.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2670,11 +3081,35 @@
     <div class="product-card" data-class="Frutas y Verduras">
         <h3>HIGO NATURAL</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$125.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>HIGO NATURAL 500 GR</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Pieza</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$103.17</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>HINOJO</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$95.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2716,18 +3151,6 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
-        <h3>JAMAICA</h3>
-        <p><strong>Categoría:</strong> Frutas y Verduras</p>
-        <p><strong>Unidad:</strong> Kilo</p>
-        <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
-        </div>
-        <p><strong>Precio:</strong> <span class="price">$110.50</span></p>
-        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
-        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
-        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
-    </div>
-    <div class="product-card" data-class="Frutas y Verduras">
         <h3>JENGIBRE</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -2742,11 +3165,23 @@
     <div class="product-card" data-class="Frutas y Verduras">
         <h3>JICAMA </h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
-        <p><strong>Unidad:</strong> Pieza</p>
+        <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
-            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$16.90</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>JITOMATE BOLA</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$31.25</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2783,6 +3218,18 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$105.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>LECHUGA ESCAROLA</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$35.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2878,7 +3325,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$21.75</span></p>
+        <p><strong>Precio:</strong> <span class="price">$38.25</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2891,6 +3338,18 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$45.25</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
+        <h3>MANGO</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$67.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2956,13 +3415,25 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Frutas y Verduras">
+        <h3>MARACUYA (PULPA)</h3>
+        <p><strong>Categoría:</strong> Frutas y Verduras</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$150.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Frutas y Verduras">
         <h3>MELON CHINO</h3>
         <p><strong>Categoría:</strong> Frutas y Verduras</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$27.90</span></p>
+        <p><strong>Precio:</strong> <span class="price">$28.05</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2974,7 +3445,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$26.80</span></p>
+        <p><strong>Precio:</strong> <span class="price">$27.90</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -2986,7 +3457,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$121.31</span></p>
+        <p><strong>Precio:</strong> <span class="price">$130.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3034,7 +3505,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$27.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$28.20</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3094,7 +3565,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$77.45</span></p>
+        <p><strong>Precio:</strong> <span class="price">$83.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3106,7 +3577,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$33.33</span></p>
+        <p><strong>Precio:</strong> <span class="price">$35.75</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3118,7 +3589,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$63.70</span></p>
+        <p><strong>Precio:</strong> <span class="price">$67.03</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3154,7 +3625,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$22.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$23.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3190,7 +3661,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$65.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$63.75</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3250,7 +3721,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$28.17</span></p>
+        <p><strong>Precio:</strong> <span class="price">$25.46</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3262,7 +3733,7 @@
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$21.50</span></p>
+        <p><strong>Precio:</strong> <span class="price">$22.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3399,14 +3870,302 @@
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
+    <div class="product-card" data-class="Otros">
+        <h3>CONTENEDOR LISO 50 PZAS</h3>
+        <p><strong>Categoría:</strong> Otros</p>
+        <p><strong>Unidad:</strong> Paquete</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$300.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Otros">
+        <h3>ENVASE REYMA LITRO 200 PZA</h3>
+        <p><strong>Categoría:</strong> Otros</p>
+        <p><strong>Unidad:</strong> Paquete</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$255.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Otros">
+        <h3>FOGATA CARBON</h3>
+        <p><strong>Categoría:</strong> Otros</p>
+        <p><strong>Unidad:</strong> Pieza</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$98.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Otros">
+        <h3>LENA MADERA ENCINO</h3>
+        <p><strong>Categoría:</strong> Otros</p>
+        <p><strong>Unidad:</strong> Atado</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$150.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Otros">
+        <h3>TAPA ENVASE REYMA 200 PZAS</h3>
+        <p><strong>Categoría:</strong> Otros</p>
+        <p><strong>Unidad:</strong> Paquete</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="1" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$127.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
     <div class="product-card" data-class="Proteinas">
-        <h3>CHICHARRON SECO</h3>
+        <h3>AGUJA DE RES</h3>
         <p><strong>Categoría:</strong> Proteinas</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$130.00</span></p>
+        <p><strong>Precio:</strong> <span class="price">$162.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>ARRACHERA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$115.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>ARRACHERA CHOICE OUTSIDE</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$627.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>ARRACHERA PRIME</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$273.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>BICTEC DE RES FRESCO SEMILIMPIO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$234.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>BISTEC CONGELADO PROCESADO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$97.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>BISTEC DE RES REBANADO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$214.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>BISTEC TAQUERO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$123.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CABEZA DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$76.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CABRERIA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$1,007.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CAMARON</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$265.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CARNE MOLIDA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$181.25</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CARNE MOLIDA 80/20</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$186.32</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CARNE MOLIDA DE CERDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$141.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CARNE MOLIDA ECONOMICA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$111.80</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CARNE MOLIDA PRIME</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$227.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CHAMBARETE</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$180.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CHAMBARETE SIN HUESO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$230.10</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CHICHARRON</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$165.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CHISTORRA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$187.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3424,6 +4183,54 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Proteinas">
+        <h3>CHULETA AHUMADA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$138.98</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CHULETA NATURAL DE CERDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$128.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CHULETON DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$245.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>CODILLO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$63.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
         <h3>COSTILLA DE CERDO</h3>
         <p><strong>Categoría:</strong> Proteinas</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -3436,6 +4243,78 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Proteinas">
+        <h3>COSTILLA DE CERDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$127.40</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>COSTILLA DE RES PARA CALDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$167.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>COSTILLA EN TIRA O CARRILLERA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$156.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>DIEZMILLO CON HUESO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$240.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>DIEZMILLO SIN HUESO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$257.40</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>ESPINAZO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$128.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
         <h3>FAJITA DE RES</h3>
         <p><strong>Categoría:</strong> Proteinas</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -3443,6 +4322,54 @@
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
         <p><strong>Precio:</strong> <span class="price">$184.81</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>FALDA DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$227.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>FILETE DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$364.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>HAMBURGUESA DE CERDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$127.40</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>HAMBURGUESA DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$162.50</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3472,6 +4399,54 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Proteinas">
+        <h3>LIBRO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$78.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>MANITAS DE CERDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$89.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>MANTECA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$77.35</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>MENUDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$104.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
         <h3>MIGAJA</h3>
         <p><strong>Categoría:</strong> Proteinas</p>
         <p><strong>Unidad:</strong> Kilo</p>
@@ -3484,13 +4459,253 @@
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
     </div>
     <div class="product-card" data-class="Proteinas">
-        <h3>PECHUGA SIN HUESO</h3>
+        <h3>MILANESA DE CERDO</h3>
         <p><strong>Categoría:</strong> Proteinas</p>
         <p><strong>Unidad:</strong> Kilo</p>
         <div class="quantity-controls">
             <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
         </div>
-        <p><strong>Precio:</strong> <span class="price">$156.25</span></p>
+        <p><strong>Precio:</strong> <span class="price">$154.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>MILANESA DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$273.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PASTOR DE CERDO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$97.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PATA DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$91.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PECHUGA DE POLLO APLANADA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$165.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PECHUGA DE POLLO ENTERA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$149.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PICANHA 1RA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$586.80</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PICANHA 2DA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$273.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PIERNA DE CERDO CON GRASA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$136.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PIERNA DE CERDO SIN GRASA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$154.70</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>PORTERHOUSE STEAK (T-BONE)</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$836.25</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>RIB EYE 1RA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$994.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>RIB EYE 2DA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$273.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>RIB EYE TOMAHAWK</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$994.80</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>SALMON</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$337.50</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>SIRLOIN</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$273.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>SUADERO DE COSTILLA</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$143.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>SUADERO ORIGINAL</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$182.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>SURIMI</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$125.00</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>T-BONE DE RES</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$257.40</span></p>
+        <p><strong>Total:</strong> <span class="item-total">$0</span></p>
+        <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
+        <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
+    </div>
+    <div class="product-card" data-class="Proteinas">
+        <h3>TOCINO</h3>
+        <p><strong>Categoría:</strong> Proteinas</p>
+        <p><strong>Unidad:</strong> Kilo</p>
+        <div class="quantity-controls">
+            <input type="number" class="quantity-input" step="any" value="0" onchange="updateQuantity(this)">
+        </div>
+        <p><strong>Precio:</strong> <span class="price">$182.00</span></p>
         <p><strong>Total:</strong> <span class="item-total">$0</span></p>
         <button class="notes-btn" onclick="toggleNotes(this)">Agregar Nota</button>
         <input type="text" class="notes-input" placeholder="Ingrese notas aquí" style="display: none;">
@@ -3499,7 +4714,10 @@
 
 
 
-            <!-- Add more product cards with your full product list here, ensuring data-class is set correctly (e.g., 'Frutas y Verduras' or 'Chiles, semillas y especias') -->
+
+
+
+<!-- Add more product cards with your full product list here, ensuring data-class is set correctly (e.g., 'Frutas y Verduras' or 'Chiles, semillas y especias') -->
         </div>
 
         <div class="total-section" id="total-section">
@@ -3537,7 +4755,7 @@
 
         <!-- Buttons for Print Resumen, Excel Export, and WhatsApp -->
         <div class="buttons">
-            <button class="print-resumen-button" onclick="printResumen()">Imprimir Resumen</button>
+            <button class="print-resumen-button" onclick="printResumen()">Imprimir Catalogo</button>
             <button class="excel-button" onclick="exportToExcel()">Exportar a Excel</button>
             <button class="whatsapp-button" onclick="sendToWhatsApp()">Texto WhatsApp</button>
         </div>
@@ -3654,15 +4872,48 @@
             cards.forEach(card => {
                 const cardClass = card.getAttribute("data-class");
                 if (filter === "all" || cardClass === filter) {
+                    card.classList.add("visible-for-print");
                     card.style.display = "block";
                 } else {
+                    card.classList.remove("visible-for-print");
                     card.style.display = "none";
                 }
             });
         }
 
         function printResumen() {
+            // Step 1: Ensure the product list reflects the current filtered state
+            filterTable(); // Re-apply category filter
+            const searchQuery = document.getElementById("search-bar").value.toLowerCase();
+            const cards = document.querySelectorAll('#product-list .product-card');
+            
+            cards.forEach(card => {
+                const productName = card.querySelector('h3').textContent.toLowerCase();
+                const cardClass = card.getAttribute("data-class");
+                const filter = document.getElementById("class-filter").value;
+                
+                // Check if the card matches the category filter
+                const matchesCategory = filter === "all" || cardClass === filter;
+                // Check if the card matches the search query
+                const matchesSearch = productName.includes(searchQuery);
+                
+                if (matchesCategory && matchesSearch) {
+                    card.classList.add("visible-for-print"); // Mark as visible for print
+                    card.style.display = "block"; // Ensure it’s visible on screen
+                } else {
+                    card.classList.remove("visible-for-print"); // Mark as hidden for print
+                    card.style.display = "none"; // Hide on screen
+                }
+            });
+
+            // Step 2: Temporarily show the product list for printing
+            document.getElementById("product-list").classList.add("print-visible");
+
+            // Step 3: Trigger the print dialog
             window.print();
+
+            // Step 4: Restore the product list's default state after printing
+            document.getElementById("product-list").classList.remove("print-visible");
         }
 
         let searchTimeout;
@@ -3674,9 +4925,17 @@
                 
                 cards.forEach(card => {
                     const productName = card.querySelector('h3').textContent.toLowerCase();
-                    if (productName.includes(searchQuery)) {
+                    const cardClass = card.getAttribute("data-class");
+                    const filter = document.getElementById("class-filter").value;
+                    
+                    const matchesCategory = filter === "all" || cardClass === filter;
+                    const matchesSearch = productName.includes(searchQuery);
+                    
+                    if (matchesCategory && matchesSearch) {
+                        card.classList.add("visible-for-print");
                         card.style.display = "block";
                     } else {
+                        card.classList.remove("visible-for-print");
                         card.style.display = "none";
                     }
                 });
@@ -3752,7 +5011,7 @@
             message += `📞 Contacto: FreshPrimeGroup@outlook.com | Tel: (442) 422-5756, (442) 772-3974`;
 
             const encodedMessage = encodeURIComponent(message);
-            const phoneNumber = "+524427723974";
+            const phoneNumber = "+524424225756";
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             window.open(whatsappUrl, '_blank');
         }
